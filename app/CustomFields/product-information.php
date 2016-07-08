@@ -6,6 +6,20 @@ add_action('agreable_app_theme_init', function() {
     'key' => $key,
     'title' => 'Product Information',
     'fields' => array(
+      array (
+        'key' => $key . '_brand_name',
+        'label' => 'Brand Name',
+        'name' => 'text',
+        'type' => 'text',
+      ),
+      array (
+        'key' => $key . '_description',
+        'label' => 'Product Description',
+        'name' => 'text',
+        'type' => 'strict_wysiwyg',
+        'simplify' => true,
+        'no_return' => true,
+      ),
     	array (
 	      'key' => $key . '_image',
 	      'label' => 'Image',
@@ -17,7 +31,40 @@ add_action('agreable_app_theme_init', function() {
 	      'preview_size' => 'large',
 	      'library' => 'all',
 	    ),
-    ),
+       array (
+        'key' => $key . '_price',
+        'label' => 'Product Price',
+        'name' => 'text',
+        'type' => 'text',
+        'wrapper' => array (
+          'width' => '50%',
+        ),
+      ),
+      array (
+        'key' => $key . '_offer',
+        'label' => 'Product Offer',
+        'description' => 'If there is no offer please leave it blank',
+        'name' => 'text',
+        'type' => 'text',
+        'wrapper' => array (
+          'width' => '50%',
+        ),
+      ),
+      array (
+        'key' => $key . '_affiliate_link',
+        'label' => 'Product Affiliate Link',
+        'name' => 'link',
+        'type' => 'url',
+      ),
+      array (
+        'key' => $key . '_quote',
+        'label' => 'Product Quote',
+        'name' => 'text',
+        'type' => 'strict_wysiwyg',
+        'simplify' => true,
+        'no_return' => true,
+      ),
+     ),
     'location' => array(
       array(
         array(

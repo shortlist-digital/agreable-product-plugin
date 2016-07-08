@@ -11,7 +11,7 @@
     'parent_item_colon'   => __( 'Parent Product:', 'text_domain' ),
     'all_items'           => __( 'All Products', 'text_domain' ),
     'add_new_item'        => __( 'Add New Product', 'text_domain' ),
-    'add_new'             => __( 'Add New', 'text_domain' ),
+    'add_new'             => __( 'Add New Product', 'text_domain' ),
     'new_item'            => __( 'New Product', 'text_domain' ),
     'edit_item'           => __( 'Edit Product', 'text_domain' ),
     'update_item'         => __( 'Update Product', 'text_domain' ),
