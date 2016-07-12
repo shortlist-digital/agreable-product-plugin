@@ -12,6 +12,20 @@ add_action('agreable_app_theme_init', function() {
         'name' => 'brand_name',
         'type' => 'text',
         'required' => 1,
+        'wrapper' => array (
+          'width' => '50%',
+        ),
+      ),
+      array (
+        'key' => $key . '_winner',
+        'label' => 'Did this product win?',
+        'name' => 'product_winner',
+        'type' => 'true_false',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array (
+          'width' => '50%',
+        ),
       ),
       array (
         'key' => $key . '_description',

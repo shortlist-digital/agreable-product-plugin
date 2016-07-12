@@ -12,7 +12,8 @@ return [
      * Auto-load all required files.
      */
     'requires' => [
-      __DIR__ . '/app/CustomFields/product-information.php',
+      __DIR__ . '/app/CustomFields/taxonomies.php',
+      __DIR__ . '/app/CustomFields/acf.php',
       __DIR__ . '/app/custom-post-types.php',
     ],
 
