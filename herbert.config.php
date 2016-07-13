@@ -13,7 +13,8 @@ return [
      */
     'requires' => [
       __DIR__ . '/app/CustomFields/taxonomies.php',
-      __DIR__ . '/app/CustomFields/acf.php',
+      __DIR__ . '/app/CustomFields/product-acf.php',
+      __DIR__ . '/app/CustomFields/product-collection-acf.php',
       __DIR__ . '/app/custom-post-types.php',
     ],
 
