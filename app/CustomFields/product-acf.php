@@ -17,12 +17,11 @@ add_action('agreable_app_theme_init', function() {
         ),
       ),
       array (
-        'key' => $key . '_winner',
-        'label' => 'Did this product win?',
-        'name' => 'product_winner',
-        'type' => 'true_false',
+        'key' => $key . '_rating',
+        'label' => 'Product Rating',
+        'name' => 'product_rating',
+        'type' => 'number',
         'required' => 0,
-        'conditional_logic' => 0,
         'wrapper' => array (
           'width' => '50%',
         ),
@@ -36,23 +35,20 @@ add_action('agreable_app_theme_init', function() {
         'no_return' => true,
         'required' => 1,
       ),
-    	array (
-	      'key' => $key . '_image',
-	      'label' => 'Image',
-	      'name' => 'product_image',
-	      'type' => 'image',
-	      'required' => 1,
-	      'conditional_logic' => 0,
-	      'return_format' => 'array',
-	      'preview_size' => 'large',
-	      'library' => 'all',
+      array (
+        'key' => $key . '_images',
+        'label' => 'Product Image(s)',
+        'name' => 'product_images',
+        'type' => 'gallery',
         'required' => 1,
-	    ),
-       array (
+        'preview_size' => 'landscape'
+    ),
+      array (
         'key' => $key . '_price',
         'label' => 'Product Price',
         'name' => 'product_price',
         'type' => 'text',
+        'instructions' => 'Please make sure the £ sign is included',
         'wrapper' => array (
           'width' => '50%',
         ),
@@ -61,7 +57,7 @@ add_action('agreable_app_theme_init', function() {
       array (
         'key' => $key . '_offer',
         'label' => 'Product Offer',
-        'description' => 'If there is no offer please leave it blank',
+        'instructions' => 'If there is no offer leave it blank',
         'name' => 'product_offer',
         'type' => 'text',
         'wrapper' => array (

@@ -46,7 +46,7 @@ function product_cpt() {
     'has_archive'         => true,
     'exclude_from_search' => false,
     'publicly_queryable'  => true,
-    'rewrite'             => array('slug' => 'product/%product_categories%','with_front' => FALSE),
+    'rewrite'             => $rewrite,
     'capability_type'     => 'page',
   ];
 
@@ -98,7 +98,7 @@ function product_collection_cpt() {
     'has_archive'         => true,
     'exclude_from_search' => false,
     'publicly_queryable'  => true,
-    'rewrite'             => array('slug' => 'product_collection/%product_collection%','with_front' => FALSE),
+    'rewrite'             => $rewrite,
     'capability_type'     => 'page',
   ];
 
