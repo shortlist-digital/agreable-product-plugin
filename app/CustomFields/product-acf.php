@@ -11,6 +11,7 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Brand Name',
         'name' => 'brand_name',
         'type' => 'text',
+        'instructions' => 'This is the brand name of the product',
         'required' => 1,
         'wrapper' => array (
           'width' => '50%',
@@ -21,6 +22,7 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Product Rating',
         'name' => 'product_rating',
         'type' => 'number',
+        'instructions' => 'If there is no rating please leave blank',
         'required' => 0,
         'wrapper' => array (
           'width' => '50%',
@@ -41,8 +43,10 @@ add_action('agreable_app_theme_init', function() {
         'name' => 'product_images',
         'type' => 'gallery',
         'required' => 1,
-        'preview_size' => 'landscape'
-    ),
+        'preview_size' => 'thumbnail',
+        'library' => 'all',
+        'min' => 1,
+      ),
       array (
         'key' => $key . '_price',
         'label' => 'Product Price',
@@ -57,7 +61,7 @@ add_action('agreable_app_theme_init', function() {
       array (
         'key' => $key . '_offer',
         'label' => 'Product Offer',
-        'instructions' => 'If there is no offer leave it blank',
+        'instructions' => 'If there is no offer please leave it blank',
         'name' => 'product_offer',
         'type' => 'text',
         'wrapper' => array (
@@ -77,9 +81,26 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Product Quote',
         'name' => 'product_text',
         'type' => 'strict_wysiwyg',
+        'instructions' => "This can be a quote from a member of the beauty council or someone from Stylist. Add the name of who is quoted at the end",
         'simplify' => true,
         'no_return' => true,
         'required' => 1,
+      ),
+      array (
+        'key' => $key . '_more_products',
+        'label' => 'You may also like',
+        'name' => 'more_products',
+        'instructions' => 'Please choose 3 products to show in this section', 
+        'type' => 'post_object',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'post_type' => 'product',
+        'taxonomy' => array (
+        ),
+        'allow_null' => 0,
+        'multiple' => 1,
+        'return_format' => 'object',
+        'ui' => 1,
       ),
      ),
     'location' => array(
