@@ -31,7 +31,7 @@ add_action('agreable_app_theme_init', function() {
       array (
         'key' => $key . '_description',
         'label' => 'Product Description',
-        'name' => 'text',
+        'name' => 'product_description',
         'type' => 'strict_wysiwyg',
         'simplify' => true,
         'no_return' => true,
@@ -61,8 +61,8 @@ add_action('agreable_app_theme_init', function() {
       array (
         'key' => $key . '_offer',
         'label' => 'Product Offer',
-        'instructions' => 'If there is no offer please leave it blank',
         'name' => 'product_offer',
+        'instructions' => 'If there is no offer please leave it blank',
         'type' => 'text',
         'wrapper' => array (
           'width' => '50%',
@@ -72,7 +72,7 @@ add_action('agreable_app_theme_init', function() {
       array (
         'key' => $key . '_affiliate_link',
         'label' => 'Product Affiliate Link',
-        'name' => 'product_link',
+        'name' => 'product_affiliate_link',
         'type' => 'url',
         'required' => 1,
       ),
@@ -87,7 +87,7 @@ add_action('agreable_app_theme_init', function() {
         'required' => 1,
       ),
       array (
-        'key' => $key . '_more_products',
+        'key' => 'more_products',
         'label' => 'You may also like',
         'name' => 'more_products',
         'instructions' => 'Please choose 3 products to show in this section', 

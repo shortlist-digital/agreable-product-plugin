@@ -22,14 +22,14 @@ return [
      * Activate
      */
     'activators' => [
-        __DIR__ . '/app/activate.php'
+        // __DIR__ . '/app/activate.php'
     ],
 
     /**
      * Activate
      */
     'deactivators' => [
-        __DIR__ . '/app/deactivate.php'
+        // __DIR__ . '/app/deactivate.php'
     ],
 
     /**
