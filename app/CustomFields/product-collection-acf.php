@@ -39,7 +39,7 @@ add_action('agreable_app_theme_init', function() {
               array (
                 'key' => $key . 'sub_category_name',
                 'label' => 'Name',
-                'name' => 'name',
+                'name' => 'sub_category_name',
                 'type' => 'text',
                 'required' => 0,
                 'conditional_logic' => 0,

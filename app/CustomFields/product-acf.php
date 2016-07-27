@@ -22,7 +22,7 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Product Rating',
         'name' => 'product_rating',
         'type' => 'number',
-        'instructions' => 'If there is no rating please leave blank',
+        'instructions' => 'Give a rating out of 5, if there is no rating leave blank',
         'required' => 0,
         'wrapper' => array (
           'width' => '50%',
