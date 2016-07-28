@@ -87,9 +87,9 @@ add_action('agreable_app_theme_init', function() {
         'required' => 1,
       ),
       array (
-        'key' => $key . '_author_quote',
+        'key' => $key . '_quote_author',
         'label' => 'Product Quote Author',
-        'name' => 'product_author_quote',
+        'name' => 'product_quote_author',
         'type' => 'strict_wysiwyg',
         'instructions' => "Author of the person who was quoted.",
         'simplify' => true,
