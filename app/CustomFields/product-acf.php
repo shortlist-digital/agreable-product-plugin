@@ -34,7 +34,7 @@ add_action('agreable_app_theme_init', function() {
         'name' => 'product_description',
         'type' => 'strict_wysiwyg',
         'simplify' => true,
-        'no_return' => true,
+        'no_return' => false,
         'required' => 1,
       ),
       array (
