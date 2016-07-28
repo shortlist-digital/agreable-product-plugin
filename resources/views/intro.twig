@@ -1,1 +1,7 @@
-Welcome to {{ product_collection.post_title }}!
+{% extends('@AgreableProductPlugin/base.twig') %}
+
+{% block content %}
+  <div class="product_collection">
+    Welcome to {{ product_collection.post_title }}!
+  </div>
+{% endblock %}

@@ -16,13 +16,24 @@ class ProductCollectionController {
       throw new Exception('Post not found');
     }
 
-
-    // var_dump($product_collection);
-    // exit;
-
     return view('@AgreableProductPlugin/intro.twig', [
-      'product_collection' => $product_collection
+      'product_collection' => $product_collection,
+      'js_string' => $this->get_javascript_string()
     ]);
+  }
+
+  protected function get_javascript_string() {
+    $plugin_root = realpath(__DIR__ . '/../..');
+    $port_file = 'webpack-current-port.tmp';
+    $port_file_location = $plugin_root . '/' . $port_file;
+
+    if (getenv('WP_ENV') === 'development' && file_exists($port_file_location)) {
+      $port_number = file_get_contents($port_file_location);
+      return "<script src='http://localhost:$port_number/static/app.js'></script>";
+    }
+
+    return '<script>' . file_get_contents($plugin_root . '/resources/assets/app.js') .
+      '</script>';
   }
 
 
