@@ -2,6 +2,7 @@
 namespace AgreableProductPlugin\Controllers;
 
 use Herbert\Framework\Models\Post;
+use \Timber;
 use \TimberPost;
 use \Exception;
 use \stdClass;
@@ -11,15 +12,15 @@ class ProductCollectionController {
    * Intro screen for the product collection
    */
   public function intro($product_collection_slug) {
-
     if (!$product_collection = $this->get_product_collection_by_slug($product_collection_slug)) {
       throw new Exception('Post not found');
     }
 
-    return view('@AgreableProductPlugin/intro.twig', [
-      'product_collection' => $product_collection,
-      'js_string' => $this->get_javascript_string()
-    ]);
+    $context = Timber::get_context();
+    $context['product_collection'] = $product_collection;
+    $context['js_string'] = $this->get_javascript_string();
+
+    Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
   }
 
   protected function get_javascript_string() {
