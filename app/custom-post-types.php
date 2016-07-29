@@ -22,7 +22,7 @@ function product_cpt() {
   ];
 
   $rewrite = [
-    'slug'                => 'shop',
+    'slug'                => 'product',
     'with_front'          => true,
     'pages'               => true,
     'feeds'               => true,
