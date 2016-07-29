@@ -90,7 +90,7 @@ add_action('agreable_app_theme_init', function() {
         'key' => $key . '_quote_author',
         'label' => 'Product Quote Author',
         'name' => 'product_quote_author',
-        'type' => 'strict_wysiwyg',
+        'type' => 'text',
         'instructions' => "Author of the person who was quoted.",
         'simplify' => true,
         'no_return' => true,
