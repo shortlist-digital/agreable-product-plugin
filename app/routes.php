@@ -7,3 +7,9 @@ $router->get([
   'uri'  => '/shop/{product_collection_slug}',
   'uses' => __NAMESPACE__ . '\Controllers\ProductCollectionController@intro'
 ]);
+
+$router->get([
+    'as'   => 'productCollectionSingleProduct',
+    'uri'  => '/product/{product}',
+    'uses' => __NAMESPACE__ . '\Controllers\SingleProductController@showProduct'
+]);

@@ -16,6 +16,7 @@ class ProductCollectionController {
       throw new Exception('Post not found');
     }
 
+
     $context = Timber::get_context();
     $context['product_collection'] = $product_collection;
     $context['js_string'] = $this->get_javascript_string();
