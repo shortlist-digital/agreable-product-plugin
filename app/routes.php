@@ -10,6 +10,6 @@ $router->get([
 
 $router->get([
     'as'   => 'productCollectionSingleProduct',
-    'uri'  => '/product/{product}',
-    'uses' => __NAMESPACE__ . '\Controllers\ProductCollectionController@showProduct'
+    'uri'  => '/product/{product_slug}',
+    'uses' => __NAMESPACE__ . '\Controllers\ProductController@showProduct'
 ]);

@@ -2,55 +2,54 @@
 
 {% block content %}
 
-<div class="paragraph__inner">
-
-  {{dump(product)}}
+<div class="product_collection">
 
   <div class="product_information">
 
     <div class="product_information-half">
-      <img src="{{ TimberImage(post.get_field('product_images'))[0].src }}" class="product_information-image" alt="{{post.title}} product image">
+      <img src="{{ TimberImage(product.get_field('product_images'))[0].src }}" class="product_information-image" alt="{{post.title}} product image">
     </div>
 
     <div class="product_information-half">
-      <h3>{{product.post_name}}</h3>
+      <h2>{{product.post_title}}</h2>
       <h3>{{product.brand_name}}</h3>
       
       
-      {% if product_collection.product_rating %}
-          {% if product_collection.product_rating == '1' %}
+      {% if product.product_rating %}
+          {% if product.product_rating == '1' %}
             <span>☆</span>
-          {% elseif product_collection.product_rating == '2' %}
+          {% elseif product.product_rating == '2' %}
             <span>☆</span><span>☆</span>
-          {% elseif product_collection.product_rating == '3' %}
+          {% elseif product.product_rating == '3' %}
             <span>☆</span><span>☆</span><span>☆</span>
-          {% elseif product_collection.product_rating == '4' %}
+          {% elseif product.product_rating == '4' %}
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-          {% elseif product_collection.product_rating == '5' %}
+          {% elseif product.product_rating == '5' %}
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
           {% endif %}
       {% endif %}
       
-      <h3>{{product_collection.product_price}}</h3>
-      {% if product_collection.product_offer %}
-        <h3>{{product_collection.product_offer}}</h3>
+      <h3>{{product.product_price}}</h3>
+      {% if product.product_offer %}
+        <h3>{{product.product_offer}}</h3>
       {% endif %}
-      <a href="{{post.product_link}}" class="product_information-buy">BUY HERE</a>
-      <h4 class="product_information-quote">{{product_collection.product_quote}}</h4>
+      <a href="{{post.product_link}}" class="product_information-button">BUY HERE</a>
+      <h4 class="product_information-quote">{{product.product_quote}}</h4>
     </div>
 
   </div>
 
 
-  <div class="products_grid">
+  <div class="product_collection-grid">
     <h2>You may also like...</h2>
 
-    {% for product in product_collection.get_field('more_products') %}
-      <div class="products_grid-single">
+    {% for product in product.get_field('more_products') %}
+      <div class="product_collection_grid-single">
         <h4>{{product.post_title}}</h4>
         <img src="{{ TimberImage(product.product_images)[0].src }}" alt="{{product.post_title}} product image">
-        <a href="{{product.guid}}" class="product_information-buy">View product</a>
+        <a href="{{product.guid}}" class="product_information-button">View product</a>
       </div>
+
     {% endfor %}
   </div>
 

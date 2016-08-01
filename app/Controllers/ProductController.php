@@ -7,21 +7,22 @@ use \TimberPost;
 use \Exception;
 use \stdClass;
 
-class ProductCollectionController {
-  /**
-   * Intro screen for the product collection
+class ProductController {
+   /**
+   * Single product screen
    */
-  public function intro($product_collection_slug) {
-    if (!$product_collection = $this->get_product_collection_by_slug($product_collection_slug)) {
+  public function showProduct($product_slug) {
+
+     if (!$post = $this->get_product_by_slug($product_slug)) {
       throw new Exception('Post not found');
     }
 
-
     $context = Timber::get_context();
-    $context['product_collection'] = $product_collection;
+    $context['product'] = $post;
     $context['js_string'] = $this->get_javascript_string();
 
-    Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
+    Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
+
   }
 
   protected function get_javascript_string() {
@@ -38,12 +39,11 @@ class ProductCollectionController {
       '</script>';
   }
 
-
-  protected function get_product_collection_by_slug($product_collection_slug) {
+  protected function get_product_by_slug($product_slug) {
     $args = array(
-      'name' => $product_collection_slug,
+      'name' => $product_slug,
       'posts_per_page' => 1,
-      'post_type' => 'product_collection',
+      'post_type' => 'product',
       'post_status' => 'publish'
     );
     $posts_array = get_posts($args);
