@@ -56,7 +56,7 @@ add_action('agreable_app_theme_init', function() {
         'wrapper' => array (
           'width' => '50%',
         ),
-        'required' => 1,
+        'required' => 0, // Not mandatory - temporary
       ),
       array (
         'key' => $key . '_offer',
@@ -74,7 +74,7 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Product Affiliate Link',
         'name' => 'product_affiliate_link',
         'type' => 'url',
-        'required' => 1,
+        'required' => 0, // Not mandatory - temporary
       ),
       array (
         'key' => $key . '_quote',
@@ -100,7 +100,7 @@ add_action('agreable_app_theme_init', function() {
         'key' => 'more_products',
         'label' => 'You may also like',
         'name' => 'more_products',
-        'instructions' => 'Please choose 3 products to show in this section', 
+        'instructions' => 'Please choose 3 products to show in this section',
         'type' => 'post_object',
         'required' => 0,
         'conditional_logic' => 0,
