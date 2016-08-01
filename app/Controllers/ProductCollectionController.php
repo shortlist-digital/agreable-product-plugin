@@ -24,6 +24,22 @@ class ProductCollectionController {
     Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
   }
 
+  /**
+   * Single product screen
+   */
+  public function showProduct($product)
+    {
+
+      $post = Post::find($product);
+
+      $context = Timber::get_context();
+      $context['product'] = $product;
+      $context['js_string'] = $this->get_javascript_string();
+
+      Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
+
+    }
+
   protected function get_javascript_string() {
     $plugin_root = realpath(__DIR__ . '/../..');
     $port_file = 'webpack-current-port.tmp';

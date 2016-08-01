@@ -4,17 +4,17 @@
 
 <div class="paragraph__inner">
 
-  {{dump(post)}}
+  {{dump(product)}}
 
   <div class="product_information">
 
     <div class="product_information-half">
-      {# <img src="{{ TimberImage(post.get_field('product_images'))[0].src }}" class="product_information-image" alt="{{post.title}} product image"> #}
+      <img src="{{ TimberImage(post.get_field('product_images'))[0].src }}" class="product_information-image" alt="{{post.title}} product image">
     </div>
 
     <div class="product_information-half">
-      <h3>{{product_collection.title}}</h3>
-      <h3>{{product_collection.brand_name}}</h3>
+      <h3>{{product.post_name}}</h3>
+      <h3>{{product.brand_name}}</h3>
       
       
       {% if product_collection.product_rating %}
@@ -48,7 +48,7 @@
     {% for product in product_collection.get_field('more_products') %}
       <div class="products_grid-single">
         <h4>{{product.post_title}}</h4>
-        {# <img src="{{ TimberImage(product.product_images)[0].src }}" alt="{{product.post_title}} product image"> #}
+        <img src="{{ TimberImage(product.product_images)[0].src }}" alt="{{product.post_title}} product image">
         <a href="{{product.guid}}" class="product_information-buy">View product</a>
       </div>
     {% endfor %}
