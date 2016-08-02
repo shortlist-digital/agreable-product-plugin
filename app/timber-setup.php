@@ -1,18 +1,18 @@
 <?php namespace AgreableProductPlugin;
 
-use \Timber;
+use Timber;
+use stdClass;
 
 class TimberSetup {
 
   public function __construct() {
-
     add_filter('timber/loader/paths', array($this, 'add_timber_paths'));
     add_filter('timber_context', array($this, 'add_to_context'));
-
   }
 
   public function add_to_context($context) {
-    $context['js_string'] = $this->get_javascript_string();
+    $context['product_plugin'] = new stdClass();
+    $context['product_plugin']->js_string = $this->get_javascript_string();
     return $context;
   }
 
