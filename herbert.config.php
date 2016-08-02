@@ -16,20 +16,21 @@ return [
       __DIR__ . '/app/CustomFields/product-acf.php',
       __DIR__ . '/app/CustomFields/product-collection-acf.php',
       __DIR__ . '/app/custom-post-types.php',
+      __DIR__ . '/app/timber-setup.php',
     ],
 
     /**
      * Activate
      */
     'activators' => [
-        // __DIR__ . '/app/activate.php'
+      __DIR__ . '/app/activate.php'
     ],
 
     /**
      * Activate
      */
     'deactivators' => [
-        // __DIR__ . '/app/deactivate.php'
+      __DIR__ . '/app/deactivate.php'
     ],
 
     /**
@@ -57,7 +58,7 @@ return [
      * The routes to auto-load.
      */
     'routes' => [
-        // '' => __DIR__ . '/app/routes.php'
+      'AgreableProductPlugin' => __DIR__ . '/app/routes.php'
     ],
 
     /**
@@ -82,7 +83,7 @@ return [
      * when rendering a view in twig.
      */
     'views' => [
-        // '' => __DIR__ . '/resources/views'
+      'AgreableProductPlugin' => __DIR__ . '/resources/views'
     ],
 
     /**

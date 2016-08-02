@@ -74,7 +74,7 @@ function product_collection_cpt() {
   ];
 
   $rewrite = [
-    'slug'                => 'product_collection',
+    'slug'                => 'shop',
     'with_front'          => true,
     'pages'               => true,
     'feeds'               => true,
