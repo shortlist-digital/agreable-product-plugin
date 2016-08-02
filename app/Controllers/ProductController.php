@@ -18,7 +18,8 @@ class ProductController {
     }
 
     $context = Timber::get_context();
-    $context['product'] = $post;
+    $context['product'] = new TimberPost($post);
+
     $context['js_string'] = $this->get_javascript_string();
 
     Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
