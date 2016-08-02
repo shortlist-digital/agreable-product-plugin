@@ -2,10 +2,10 @@
 namespace AgreableProductPlugin\Controllers;
 
 use Herbert\Framework\Models\Post;
-use \Timber;
-use \TimberPost;
-use \Exception;
-use \stdClass;
+use Timber;
+use TimberPost;
+use Exception;
+use stdClass;
 
 class ProductController {
    /**
