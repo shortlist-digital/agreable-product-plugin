@@ -18,7 +18,7 @@ class ProductCollectionController {
 
 
     $context = Timber::get_context();
-    $context['product_collection'] = $product_collection;
+    $context['product_collection'] = new TimberPost($product_collection);
 
     Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
   }

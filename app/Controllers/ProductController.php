@@ -16,9 +16,8 @@ class ProductController {
      if (!$post = $this->get_product_by_slug($product_slug)) {
       throw new Exception('Post not found');
     }
-
     $context = Timber::get_context();
-    $context['product'] = $post;
+    $context['product'] = new TimberPost($post);
 
     Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
 
