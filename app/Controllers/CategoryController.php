@@ -14,13 +14,13 @@ class CategoryController {
    * Product category page
    */
   public function showProducts($product_collection_slug, $category_slug) {
-    
     if (!$product_collection = $this->get_products_by_category($product_collection_slug, $category_slug)) {
       throw new Exception('Post not found');
     }
     
     $context = Timber::get_context();
     $context['product_collection'] = new TimberPost($product_collection);
+    $context['categories'] = $category_slug;
 
     Timber::render('@AgreableProductPlugin/category.twig', $context, false);
   }
@@ -30,16 +30,10 @@ class CategoryController {
       'name' => $product_collection_slug,
       'posts_per_page' => 1,
       'post_type' => 'product_collection',
-      'post_status' => 'publish',
-      'tax_query' => array(
-        array(
-          'taxonomy' => $category_slug,
-          'field' => 'id',
-          'terms' => array('9')
-        )
-      )
+      'post_status' => 'publish'
     );
     $posts_array = get_posts($args);
+
     if (count($posts_array) > 0) {
       return new TimberPost($posts_array[0]);
     }

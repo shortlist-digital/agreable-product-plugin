@@ -5,19 +5,15 @@
 	
 
   <div class="product_collection">
-    {# <h1>Categories in {{ product_collection.categories_0_name }}</h1>    #}
-
+    {# <h1>Categories in {{ product_collection }}</h1>    #}
 
 	  <ul class="product_collection-category-list">
 	    {% for category in product_collection.get_field('categories') %}
-
 	      <li><a href="{{ category.name|lower }}">{{category.name}}</a></li>
 	    {% endfor %}
 		</ul>
 
-
-		{% for category in product_collection.get_field('categories') %}
-
+		{% for category in product_collection.get_field('categories') if category.name|lower == categories%}
 
 	    {% for sub_category in category.sub_categories %}
 	      
