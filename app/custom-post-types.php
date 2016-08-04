@@ -106,5 +106,5 @@ function product_collection_cpt() {
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'product_cpt', 'product_categories', 0 );
+add_action( 'init', 'product_cpt', 0 );
 add_action( 'init', 'product_collection_cpt', 0 );
