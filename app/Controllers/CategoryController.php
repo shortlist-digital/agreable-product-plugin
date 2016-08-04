@@ -25,7 +25,7 @@ class CategoryController {
     Timber::render('@AgreableProductPlugin/category.twig', $context, false);
   }
   
-  protected function get_products_by_category($product_collection_slug, $category_slug) {
+  protected function get_products_by_category($product_collection_slug) {
     $args = array(
       'name' => $product_collection_slug,
       'posts_per_page' => 1,

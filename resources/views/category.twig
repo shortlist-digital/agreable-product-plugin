@@ -13,7 +13,7 @@
 	    {% endfor %}
 		</ul>
 
-		{% for category in product_collection.get_field('categories') if category.name|lower == categories%}
+		{% for category in product_collection.get_field('categories') if category.name|lower == categories %}
 
 	    {% for sub_category in category.sub_categories %}
 	      
