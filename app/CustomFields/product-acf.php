@@ -34,7 +34,7 @@ add_action('agreable_app_theme_init', function() {
         'name' => 'product_description',
         'type' => 'strict_wysiwyg',
         'simplify' => true,
-        'no_return' => true,
+        'no_return' => false,
         'required' => 1,
       ),
       array (
@@ -56,7 +56,7 @@ add_action('agreable_app_theme_init', function() {
         'wrapper' => array (
           'width' => '50%',
         ),
-        'required' => 1,
+        'required' => 0, // Not mandatory - temporary
       ),
       array (
         'key' => $key . '_offer',
@@ -74,14 +74,24 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Product Affiliate Link',
         'name' => 'product_affiliate_link',
         'type' => 'url',
-        'required' => 1,
+        'required' => 0, // Not mandatory - temporary
       ),
       array (
         'key' => $key . '_quote',
         'label' => 'Product Quote',
         'name' => 'product_text',
         'type' => 'strict_wysiwyg',
-        'instructions' => "This can be a quote from a member of the beauty council or someone from Stylist. Add the name of who is quoted at the end",
+        'instructions' => "This can be a quote from a member of the beauty council or someone from Stylist. Do not add quote marks",
+        'simplify' => true,
+        'no_return' => true,
+        'required' => 1,
+      ),
+      array (
+        'key' => $key . '_quote_author',
+        'label' => 'Product Quote Author',
+        'name' => 'product_quote_author',
+        'type' => 'text',
+        'instructions' => "Author of the person who was quoted.",
         'simplify' => true,
         'no_return' => true,
         'required' => 1,
@@ -90,7 +100,7 @@ add_action('agreable_app_theme_init', function() {
         'key' => 'more_products',
         'label' => 'You may also like',
         'name' => 'more_products',
-        'instructions' => 'Please choose 3 products to show in this section', 
+        'instructions' => 'Please choose 3 products to show in this section',
         'type' => 'post_object',
         'required' => 0,
         'conditional_logic' => 0,

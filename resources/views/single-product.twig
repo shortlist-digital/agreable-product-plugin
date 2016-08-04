@@ -7,14 +7,14 @@
   <div class="product_information">
 
     <div class="product_information-half">
-      <img src="{{ TimberImage(product.get_field('product_images'))[0].src }}" class="product_information-image" alt="{{post.title}} product image">
+      <img src="{{ product.get_field('product_images')[0].sizes.square }}" class="product_information-image" alt="{{post.title}} product image">
     </div>
 
     <div class="product_information-half">
       <h2>{{product.post_title}}</h2>
       <h3>{{product.brand_name}}</h3>
-      
-      
+
+
       {% if product.product_rating %}
           {% if product.product_rating == '1' %}
             <span>☆</span>
@@ -28,7 +28,7 @@
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
           {% endif %}
       {% endif %}
-      
+
       <h3>{{product.product_price}}</h3>
       {% if product.product_offer %}
         <h3>{{product.product_offer}}</h3>
