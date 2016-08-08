@@ -4,25 +4,78 @@
 @import 'allure-mixins'
 @import 'app/mixins'
 
+//color
+$hotPink = #E41C6B
 
 .product_collection
 	max-width pageColumnWidth
 	margin 0 auto
+	font-family secondaryFontFamily
 
 .product_information-half
 	width 100%
 	display inline-block
 	vertical-align top
-	@media smallTabletsAndUp
+	margin-bottom 30px
+	@media ipadsAndUp
 		width 49%
+		
+.product_information-half-left
+	text-align center
+	
+.product_information-image
+	max-width 300px
+	margin-bottom 30px
+		
+.product_information-title
+.product_information-brand
+.product_information-description
+.product_information-offer
+.product_information-author
+	font-weight 300
+	
+.product_information-title
+	margin-bottom 10px
+	
+.product_information-brand
+	color hotPink
+	font-size 14px
+	margin-top 0
+	
+.product_information-finer-details
+.product_information-author
+	text-align right
+	
+.product_information-finer-details
+	border-top 2px solid #DBDBDB
+	border-bottom 2px solid #DBDBDB
 
+.product_information-finer-details h3
+	font-style italic
+	
+.product_information-price
+	font-weight 800
+	margin-bottom 0
+	
+.product_information-offer
+	margin-top 0
+	
+.product_information-quote
+	color #4e4e4e
+	font-weight 200
+	margin-bottom 0
+	
+.product_information-author
+	color hotPink
+	margin-top 0
 
 .product_information-button
 	background-color brandColor
 	color white
-	padding 10px 25px
+	padding 15px 75px
 	text-decoration none
-	font-weight 600
+	border-radius 25px
+	display	inline-block
 
 .product_information-quote
 	font-family secondaryFontFamily
@@ -53,3 +106,37 @@
 
 .product_collection-category-list li a
 	text-decoration none
+	
+//Share
+
+.share__button
+	cursor pointer
+	display table-cell
+	float left
+	height 40px
+	position relative
+	width 33%
+		
+.share__button__logo
+	width 18px
+	height 18px
+	position absolute
+	top 50%
+	left 50%
+	transform translateY(-50%)
+	
+.share__button--facebook
+	background-color #3B5998
+	border-top-left-radius 20px
+	border-bottom-left-radius 20px
+
+.share__button--twitter
+	background-color #00ACED
+
+.share__button--email
+	background-color #A5A59F
+	border-top-right-radius 20px
+	border-bottom-right-radius 20px
+  
+
+
