@@ -2,38 +2,14 @@
 
 {% block content %}
   <div class="product_collection">
+    
     <h1>Welcome to {{ product_collection.post_title }}!</h1>
-
-
+	  
 	  <ul class="product_collection-category-list">
 	    {% for category in product_collection.get_field('categories') %}
-	      <li><a href="{{product_collection.slug}}/{{category.name}}">{{category.name}}</a></li>
+	      <li><a href="{{product_collection.slug}}/{{category.name|lower}}">{{category.name}}</a></li>
 	    {% endfor %}
 		</ul>
-
-		{% for category in product_collection.get_field('categories') %}
-
-
-	    {% for sub_category in category.sub_categories %}
-
-	      <div class="product_collection-grid">
-	          <h2>{{sub_category.sub_category_name}}</h2>
-
-	          {% for product in sub_category.products %}
-	            {% set product = TimberPost(product) %}
-	            <div class="product_collection_grid-single">
-	              <h4>{{product.post_title}}</h4>
-	              <img src="{{ product.get_field('product_images')[0].sizes.square }}" alt="{{product.post_title}} product image">
-	              <a href="{{ product.permalink }}" class="product_information-button">View product</a>
-	            </div>
-
-	          {% endfor %}
-
-	      </div>
-
-	    {% endfor %}
-
-	  {% endfor %}
 
   </div>
 {% endblock %}
