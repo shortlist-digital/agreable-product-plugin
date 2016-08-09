@@ -14,7 +14,7 @@ class CategoryController {
    * Product category page
    */
   public function showProducts($product_collection_slug, $category_slug) {
-    if (!$product_collection = $this->get_products_by_category($product_collection_slug, $category_slug)) {
+    if (!$product_collection = $this->get_product_collection_from_slug($product_collection_slug, $category_slug)) {
       throw new Exception('Post not found');
     }
     
@@ -25,7 +25,7 @@ class CategoryController {
     Timber::render('@AgreableProductPlugin/category.twig', $context, false);
   }
   
-  protected function get_products_by_category($product_collection_slug) {
+  protected function get_product_collection_from_slug($product_collection_slug) {
     $args = array(
       'name' => $product_collection_slug,
       'posts_per_page' => 1,
