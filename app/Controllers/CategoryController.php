@@ -14,18 +14,32 @@ class CategoryController {
    * Product category page
    */
   public function showProducts($product_collection_slug, $category_slug) {
-    if (!$product_collection = $this->get_products_by_category($product_collection_slug, $category_slug)) {
+    if (!$product_collection = $this->get_product_collection_from_slug($product_collection_slug, $category_slug)) {
       throw new Exception('Post not found');
     }
-    
+
     $context = Timber::get_context();
     $context['product_collection'] = new TimberPost($product_collection);
-    $context['categories'] = $category_slug;
+
+
+
+    foreach ($product_collection->get_field('categories') as $category) {
+      if ($this->sanitise_category_for_slug($category['name']) === $this->sanitise_category_for_slug($category_slug)) {
+        $context['product_collection_category'] = $category;
+      }
+    }
+    if (!isset($context['product_collection_category'])) {
+      throw new Exception('Product collection category not found');
+    }
 
     Timber::render('@AgreableProductPlugin/category.twig', $context, false);
   }
-  
-  protected function get_products_by_category($product_collection_slug) {
+
+  protected function sanitise_category_for_slug($category_name) {
+    return strtolower(preg_replace("/[^a-zA-Z]+/", "", $category_name));
+  }
+
+  protected function get_product_collection_from_slug($product_collection_slug) {
     $args = array(
       'name' => $product_collection_slug,
       'posts_per_page' => 1,
