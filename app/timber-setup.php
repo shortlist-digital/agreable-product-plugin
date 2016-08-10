@@ -18,6 +18,7 @@ class TimberSetup {
 
   protected function get_javascript_string() {
     $plugin_root = realpath(__DIR__ . '/..');
+
     $port_file = 'webpack-current-port.tmp';
     $port_file_location = $plugin_root . '/' . $port_file;
 
@@ -33,7 +34,7 @@ class TimberSetup {
   public function add_timber_paths($paths){
     $herbert_config = include __DIR__ . '/../herbert.config.php';
 
-    array_push($paths, ['AgreableProductPlugin' => '/vagrant/web/app/dev/agreable-product-plugin/resources/views']);
+    array_push($paths, ['AgreableProductPlugin' => __DIR__ . '/views']);
     return $paths;
   }
 }
