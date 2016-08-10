@@ -18,7 +18,6 @@ class TimberSetup {
 
   protected function get_javascript_string() {
     $plugin_root = realpath(__DIR__ . '/..');
-
     $port_file = 'webpack-current-port.tmp';
     $port_file_location = $plugin_root . '/' . $port_file;
 
