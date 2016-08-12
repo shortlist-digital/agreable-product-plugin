@@ -4,8 +4,7 @@ use Timber;
 use stdClass;
 
 class TimberSetup {
-
-  public function __construct() {
+ function __construct() {
     add_filter('timber/loader/paths', array($this, 'add_timber_paths'));
     add_filter('timber_context', array($this, 'add_to_context'));
   }
@@ -33,7 +32,7 @@ class TimberSetup {
   public function add_timber_paths($paths){
     $herbert_config = include __DIR__ . '/../herbert.config.php';
 
-    array_push($paths, ['AgreableProductPlugin' => '/vagrant/web/app/dev/agreable-product-plugin/resources/views']);
+    array_push($paths, ['AgreableProductPlugin' => __DIR__ . '/../resources/views']);
     return $paths;
   }
 }

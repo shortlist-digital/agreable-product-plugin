@@ -42,7 +42,7 @@ add_action('agreable_app_theme_init', function() {
         'label' => 'Product Image(s)',
         'name' => 'product_images',
         'type' => 'gallery',
-        'required' => 1,
+        'required' => 0,
         'preview_size' => 'thumbnail',
         'library' => 'all',
         'min' => 1,
