@@ -2,29 +2,37 @@
 
 {% block content %}
   <div class="product_collection">
-    <h1>Categories in {{ product_collection_category.name }}</h1>
 
-	  <ul class="product_collection-category-list">
-	    {% for category in product_collection.get_field('categories') %}
-	      <li><a href="{{ category.name|lower }}">{{category.name}}</a></li>
-	    {% endfor %}
-		</ul>
+    <div class="product_collection-header">
+
+      <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_logo-small" alt="{{product_collection.post_title}} Logo">
+
+  	  <ul class="product_collection-category-list">
+  	    {% for category in product_collection.get_field('categories') %}
+  	      <li class="product_collection-link {% if category.name|lower == product_collection_category.name|lower %}product_collection-link-active{% endif %}">
+            <a href="{{ category.name|lower }}" class="product_collection-link-category">{{category.name}}</a>
+          </li>
+  	    {% endfor %}
+  		</ul>
+
+    </div>
 
     {% for sub_category in product_collection_category.sub_categories %}
 
       <div class="product_collection-grid">
-        <h2>{{sub_category.sub_category_name}}</h2>
-
+        <div class="circle-background"></div>
+        <div class="solid-background"></div>
+          <h2 class="product_collection-heading">{{sub_category.sub_category_name}}</h2>
         {% for product in sub_category.products %}
-
           {% set product = TimberPost(product) %}
-
-          <div class="product_collection_grid-single">
-            <h4>{{product.post_title}}</h4>
-            <img src="{{ product.get_field('product_images')[0].sizes.square }}" alt="{{product.post_title}} product image">
-            <a href="{{ product.permalink }}" class="product_information-button">View product</a>
-          </div>
-
+            <div class="product_collection_grid-single">
+              <a href="{{product.permalink}}"><img src="{{ product.get_field('product_images')[0].sizes.square }}" alt="{{product.post_title}} product image"></a>
+              {% if 'product_categories-category-winner' in product.class %}
+                <div class="winner-badge">Winner</div>
+              {% endif %}
+              <h4 class="product_information-title">{{product.post_title}}</h4>
+              <h4 class="product_information-brand">{{product.brand_name}}</h4>
+            </div>
         {% endfor %}
 
       </div>
