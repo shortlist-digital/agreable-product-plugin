@@ -33,8 +33,9 @@ class TimberSetup {
   public function add_timber_paths($paths){
     $herbert_config = include __DIR__ . '/../herbert.config.php';
 
-    array_push($paths, ['AgreableProductPlugin' => __DIR__ . '/views']);
+    array_push($paths, ['AgreableProductPlugin' => __DIR__ . '/../resources/views']);
     return $paths;
+
   }
 }
 
