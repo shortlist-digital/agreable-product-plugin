@@ -5,12 +5,18 @@
 @import 'allure-mixins'
 @import 'app/mixins'
 
+//Colors
+bestBeautyPink           = #E41C6B
+
 
 //Custom styles for this plugin
-@import 'category-links'
+@import 'nav/category-links'
+@import 'landing-page/landing-page'
 @import 'product/star-rating'
 @import 'product/share-buttons'
-@import 'product/product-grid-view.styl'
+@import 'product/product-details.styl'
+@import 'product-collection/product-grid-view.styl'
+
 
 .product_collection
 	max-width pageColumnWidth
@@ -28,22 +34,6 @@
 	margin-bottom 50px
 	@media ipadsAndUp
 		width 40%
-		
-.product_collection_landing
-	display flex
-	align-items center
-	justify-content center
-	height 100vh
-	text-align center
-
-.product_collection_landing-content
-	max-width 50%
-	.product_collection-category-list
-		margin-top -100px
-		
-.product_collection_logo-small
-	max-width 150px
-	float right
 
 .product_information-half
 	width 100%
@@ -55,71 +45,6 @@
 		
 .product_information-half-left
 	text-align center
-	
-.product_information-image
-	max-width 300px
-	margin-bottom 30px
-		
-.winner-badge
-	display	inline-block
-	background bestBeautyPink
-	padding 10px 15px
-	letter-spacing 2.6px
-	color #fff
-	text-transform uppercase
-	margin-right 15px
-	float left
-
-.product_information-title
-.product_information-brand
-.product_information-description
-.product_information-offer
-.product_information-author
-	font-weight 300
-	
-.product_information-title
-	margin-bottom 10px
-	
-.product_information-brand
-	color bestBeautyPink
-	font-size 14px
-	margin-top 0
-	margin-bottom 25px
-	
-.product_information-finer-details
-.product_information-author
-	text-align right
-	
-.product_information-finer-details
-	border-top 1px solid #DBDBDB
-	border-bottom 1px solid #DBDBDB
-
-.product_information-finer-details h3
-	font-style italic
-	
-.product_information-price
-	font-weight 800
-	margin-top 15px
-	margin-bottom 0
-	
-	
-.product_information-offer
-	font-size 14px
-	margin-top 0
-	margin-bottom 15px
-	
-.product_information-description
-	line-height 1.64
-	
-.product_information-quote
-	color #4e4e4e
-	font-weight 600
-	line-height 1.88
-	margin-bottom 0
-	
-.product_information-author
-	color bestBeautyPink
-	margin-top 5px
 
 .product_information-button
 	background-color brandColor
