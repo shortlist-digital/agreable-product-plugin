@@ -3,11 +3,19 @@
 {% block content %}
   <div class="product_collection">
 
-	  <ul class="product_collection-category-list">
-	    {% for category in product_collection.get_field('categories') %}
-	      <li {% if category.name|lower == product_collection_category.name|lower %}class="product_category-link-active"{% endif %}><a href="{{ category.name|lower }}" class="product_category-links product_category-{{category.name|lower}} {% if category.name|lower == product_collection_category.name|lower %}link-active{% endif %}">{{category.name}}</a></li>
-	    {% endfor %}
-		</ul>
+    <div class="product_collection-header">
+
+      <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_logo-small" alt="{{product_collection.post_title}} Logo">
+
+  	  <ul class="product_collection-category-list">
+  	    {% for category in product_collection.get_field('categories') %}
+  	      <li class="product_collection-link {% if category.name|lower == product_collection_category.name|lower %}product_collection-link-active{% endif %}">
+            <a href="{{ category.name|lower }}" class="product_collection-link-category">{{category.name}}</a>
+          </li>
+  	    {% endfor %}
+  		</ul>
+
+    </div>
 
     {% for sub_category in product_collection_category.sub_categories %}
 
