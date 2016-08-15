@@ -7,7 +7,11 @@
     {
       "type": "git",
       "url": "https://github.com/getherbert/framework"
-    }
+    },
+    {
+      "type": "vcs",
+      "url":  "git@github.com/shortlist-digital/agreable-product-plugin.git"
+    }
   ],
   "require": {
     "getherbert/framework": "~0.9",
