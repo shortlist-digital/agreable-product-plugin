@@ -10,9 +10,9 @@
 		  
 		  <ul class="product_collection-category-list">
 		    {% for category in product_collection.get_field('categories') %}
-		      <li class="product_collection-link">
-		      	<a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="product_collection-link-category">{{category.name}}</a>
-		      </li>
+		    	<li class="product_collection-link">
+		    		<a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="product_collection-link-category">{{category.name}}</a>
+		    	</li>
 		    {% endfor %}
 			</ul>
 
