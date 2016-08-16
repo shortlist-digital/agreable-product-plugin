@@ -27,7 +27,7 @@ class ProductController {
     $args = array(
       'name' => $product_slug,
       'posts_per_page' => 1,
-      'post_type' => 'product',
+      'post_type' => array('product', 'product_collection'),
       'post_status' => 'publish'
     );
     $posts_array = get_posts($args);

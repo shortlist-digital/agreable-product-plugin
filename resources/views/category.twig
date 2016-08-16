@@ -19,23 +19,51 @@
 
     {% for sub_category in product_collection_category.sub_categories %}
 
-      <div class="product_collection-grid">
-        <div class="circle-background"></div>
-        <div class="solid-background"></div>
-          <h2 class="product_collection-heading">{{sub_category.sub_category_name}}</h2>
-        {% for product in sub_category.products %}
-          {% set product = TimberPost(product) %}
-            <div class="product_collection_grid-single">
-              <a href="{{product.permalink}}"><img src="{{ product.get_field('product_images')[0].sizes.square }}" alt="{{product.post_title}} product image"></a>
-              {% if 'product_categories-category-winner' in product.class %}
-                <div class="winner-badge">Winner</div>
-              {% endif %}
-              <h4 class="product_information-title">{{product.post_title}}</h4>
-              <h4 class="product_information-brand">{{product.brand_name}}</h4>
-            </div>
-        {% endfor %}
+    <div class="product_collection-grid">
+      <div class="circle-background"></div>
+      <div class="solid-background"></div>
+      <h2 class="product_collection-heading">{{sub_category.sub_category_name}}</h2>
+      {% for product in sub_category.products %}
+        {% set product = TimberPost(product) %}
 
-      </div>
+        <div class="product_collection_grid-single">  
+      
+            <div class="product_collection_grid-image">
+              <a href="{{product.permalink}}"><img src="{{ product.get_field('product_images')[0].sizes.square  }}" alt="{{product.post_title}} Product Image"></a>
+            </div>
+            
+            <div class="product_collection_grid-content">
+              <div class="product_collection_grid-text">
+                {% if 'product_categories-category-winner' in product.class %}
+                  <div class="winner-badge">Winner</div>
+                {% endif %}
+                {% if product.product_rating %}
+                  <div class="rating-box">
+                    {% if product.product_rating == '1' %}
+                       <span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+                    {% elseif product.product_rating == '2' %}
+                      <span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+                    {% elseif product.product_rating == '3' %}
+                      <span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span>
+                    {% elseif product.product_rating == '4' %}
+                      <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span>
+                    {% elseif product.product_rating == '5' %}
+                      <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                <h4 class="product_information-title">{{product.post_title}}</h4>
+                <h4 class="product_collection_grid-brand">{{product.brand_name}}</h4>
+                {% if product.product_price%}
+                  <h4 class="product_collection_grid-price">{{product.product_price}}</h4>
+                {% endif %}
+              </div>
+            </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
 
     {% endfor %}
 
