@@ -15,19 +15,7 @@
           <div class="winner-badge">Winner</div>
         {% endif %}
         {% if product.product_rating %}
-          <div class="rating-box">
-            {% if product.product_rating == '1' %}
-               <span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
-            {% elseif product.product_rating == '2' %}
-              <span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
-            {% elseif product.product_rating == '3' %}
-              <span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span>
-            {% elseif product.product_rating == '4' %}
-              <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span>
-            {% elseif product.product_rating == '5' %}
-              <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span>
-            {% endif %}
-          </div>
+          {% include "@AgreableProductPlugin/star-rating/template.twig" %}
         {% endif %}
       </div>
       <h2 class="product_information-title">{{product.post_title}}</h2>
@@ -42,7 +30,7 @@
 
       <h4 class="product_information-description">{{product.product_description}}</h4>
       <h4 class="product_information-quote">{{product.product_quote}}</h4>
-      <h4 class="product_information-author">- {{product.product_quote_author}}</h4>
+      <p class="product_information-author">- {{product.product_quote_author}}</p>
 
 
       {% include 'partials/share/template.twig' %}
@@ -69,19 +57,7 @@
               <div class="winner-badge">Winner</div>
             {% endif %}
             {% if product.product_rating %}
-              <div class="rating-box">
-                {% if product.product_rating == '1' %}
-                   <span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
-                {% elseif product.product_rating == '2' %}
-                  <span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
-                {% elseif product.product_rating == '3' %}
-                  <span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span>
-                {% elseif product.product_rating == '4' %}
-                  <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span>
-                {% elseif product.product_rating == '5' %}
-                  <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span>
-                {% endif %}
-              </div>
+              {% include "@AgreableProductPlugin/star-rating/template.twig" %}
             {% endif %}
             <h4 class="product_information-title">{{product.post_title}}</h4>
             <h4 class="product_information-brand">{{product.brand_name}}</h4>
