@@ -24,31 +24,9 @@
       <div class="solid-background"></div>
       <h2 class="product_collection-heading">{{sub_category.sub_category_name}}</h2>
       {% for product in sub_category.products %}
-        {% set product = TimberPost(product) %}
 
-        <div class="product_collection_grid-single">  
-      
-            <div class="product_collection_grid-image">
-              <a href="{{product.permalink}}"><img src="{{ product.get_field('product_images')[0].sizes.square  }}" alt="{{product.post_title}} Product Image"></a>
-            </div>
-            
-            <div class="product_collection_grid-content">
-              <div class="product_collection_grid-text">
-                {% if 'product_categories-category-winner' in product.class %}
-                  <div class="winner-badge">Winner</div>
-                {% endif %}
-                {% if product.product_rating %}
-                  {% include "@AgreableProductPlugin/star-rating/template.twig" %}
-                {% endif %}
-                <h4 class="product_information-title">{{product.post_title}}</h4>
-                <h4 class="product_collection_grid-brand">{{product.brand_name}}</h4>
-                {% if product.product_price%}
-                  <h4 class="product_collection_grid-price">{{product.product_price}}</h4>
-                {% endif %}
-              </div>
-            </div>
-
-        </div>
+        {% include "@AgreableProductPlugin/grid-view/template.twig" %}
+        
       {% endfor %}
 
     </div>
