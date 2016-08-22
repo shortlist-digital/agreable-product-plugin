@@ -32,7 +32,6 @@
       <h4 class="product_information-quote">{{product.product_quote}}</h4>
       <p class="product_information-author">- {{product.product_quote_author}}</p>
 
-
       {% include 'partials/share/template.twig' %}
 
     </div>
@@ -44,27 +43,9 @@
     <h2 class="product_collection-heading">You may also<br>love</h2>
 
     {% for product in product.get_field('more_products') %}
-      {% set product = TimberPost(product) %}
-      <div class="product_collection_grid-single">  
-        
-        <div class="product_collection_grid-image">
-          <a href="{{product.permalink}}"><img src="{{ product.get_field('product_images')[0].sizes.square  }}" alt="{{product.post_title}} Product Image"></a>
-        </div>
-        
-        <div class="product_collection_grid-content">
-          <div class="product_collection_grid-text">
-            {% if 'product_categories-category-winner' in product.class %}
-              <div class="winner-badge">Winner</div>
-            {% endif %}
-            {% if product.product_rating %}
-              {% include "@AgreableProductPlugin/star-rating/template.twig" %}
-            {% endif %}
-            <h4 class="product_information-title">{{product.post_title}}</h4>
-            <h4 class="product_information-brand">{{product.brand_name}}</h4>
-          </div>
-        </div>
-
-      </div>
+      
+      {% include "@AgreableProductPlugin/grid-view/template.twig" %}
+    
     {% endfor %}
   </div>
 
