@@ -33,6 +33,20 @@ add_action('agreable_app_theme_init', function() {
             'conditional_logic' => 0,
             'readonly' => 0,
             'disabled' => 0,
+            'wrapper' => array (
+              'width' => '50%',
+            )
+          ),
+          array (
+            'key' => $key . '_image',
+            'label' => 'Category Image',
+            'name' => 'category_image',
+            'type' => 'image',
+            'required' => 1,
+            'conditional_logic' => 0,
+            'wrapper' => array (
+              'width' => '50%',
+            )
           ),
           array (
             'key' => $key . 'sub_category',
