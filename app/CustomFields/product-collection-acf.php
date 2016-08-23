@@ -7,12 +7,24 @@ add_action('agreable_app_theme_init', function() {
     'title' => 'Product Collections',
     'fields' => array(
       array (
-        'key' => $key . '_image',
+        'key' => $key . '_logo',
         'label' => 'Product Collection Logo',
         'name' => 'product_collection_logo',
         'type' => 'image',
         'required' => 0,
-        'preview_size' => 'thumbnail'
+        'wrapper' => array (
+          'width' => '50%',
+        )
+      ),
+      array (
+        'key' => 'main_landing_page_image',
+        'label' => 'Main Landing Page Image',
+        'name' => 'main_landing_page_image',
+        'type' => 'image',
+        'required' => 0,
+        'wrapper' => array (
+          'width' => '50%',
+        )
       ),
       array (
         'key' => $key . '_categories',
@@ -26,8 +38,8 @@ add_action('agreable_app_theme_init', function() {
         'sub_fields' => array (
           array (
             'key' => $key . '_name',
-            'label' => 'Name',
-            'name' => 'name',
+            'label' => 'Category Name',
+            'name' => 'category_name',
             'type' => 'text',
             'required' => 0,
             'conditional_logic' => 0,
@@ -60,7 +72,7 @@ add_action('agreable_app_theme_init', function() {
             'sub_fields' => array (
               array (
                 'key' => $key . 'sub_category_name',
-                'label' => 'Name',
+                'label' => 'Sub Category Name',
                 'name' => 'sub_category_name',
                 'type' => 'text',
                 'required' => 0,
