@@ -7,7 +7,7 @@ add_action('agreable_app_theme_init', function() {
     'title' => 'Product Collections',
     'fields' => array(
       array (
-        'key' => $key . '_image',
+        'key' => 'product_collection_logo',
         'label' => 'Product Collection Logo',
         'name' => 'product_collection_logo',
         'type' => 'image',
