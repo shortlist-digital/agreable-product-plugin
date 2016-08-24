@@ -2,12 +2,16 @@
 
 {% block content %}
 
-	<div class="product_collection_landing">
+	<div class="product_collection_landing" style="background-image:url({{ product_collection.get_field('landing_page_background_image').sizes.square}})">
   
 	  <div class="product_collection_landing-content">
 
-	    <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_landing-image"alt="{{product_collection.post_title}} Logo">
-		  
+	  	<h1 class="product_collection_landing-title">{{product_collection.post_title}}</h1>
+	  	<h2 class="product_collection_landing-byline">BY</h2>
+	  	<img src="{{site.url}}/app/uploads/2016/08/stylist-logo-white.png" class="product_collection_landing-image" alt="{{product_collection.post_title}} Logo">
+
+	  	<h3 class="product_collection_landing-sell">{{product_collection.landing_page_sell}}</h3>
+
 		  <ul class="product_collection-category-list">
 		    {% for category in product_collection.get_field('categories') %}
 		    	<li class="product_collection-link">
