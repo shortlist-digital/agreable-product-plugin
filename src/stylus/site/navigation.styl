@@ -1,34 +1,37 @@
 .site-nav
   display none
-  list-style-type none
   font-size 0
+  list-style-type none
   @media ipadsAndUp
     display inline-block
-    vertical-align top
     margin-left 6px
+    vertical-align middle
 .site-nav__list-item
-  font-size 16px
   display inline-block
+  font-size 16px
 .site-nav__item
-  border 2px solid bestBeautyPink
-  color bestBeautyPink
   display block
   font-family secondaryFontFamily
   letter-spacing 2px
-  margin 0 6px 6px 0
-  padding 10px 15px
   text-decoration none
   text-transform uppercase
-  transition background-color 150ms ease-out,
-             color 150ms ease-out
-  &:hover,
-  &:focus
-    background-color bestBeautyPink
-    color #fff
 
 .site-nav-toggle
-  background-color bestBeautyPink
-  color #fff
-  padding 12px 16px 12px 12px
+  background-color #fff
+  cursor pointer
   display inline-block
-  vertical-align top
+  height 52px
+  overflow hidden
+  position absolute
+  right 0
+  text-indent 200%
+  top 0
+  white-space nowrap
+  width 60px
+  &:focus
+    outline none
+  @media ipadsAndUp
+    background-color bestBeautyPink
+    right 20px
+    top 20px
+    width 52px

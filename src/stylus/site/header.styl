@@ -1,6 +1,26 @@
 .site-header
   margin 0 auto
-  max-width 1600px
-  padding 14px
+  padding 10px 20px
+  z-index 10
+  @media (max-width: 767px)
+    background-color bestBeautyPink
+    height 52px
+    position fixed
+    top 0
+    left 0
+    width 100%
   @media ipadsAndUp
-    padding 28px
+    background-color transparent
+    padding 20px
+    position relative
+
+.site-header__logo
+  background-color #fff
+  display inline-block
+  height 32px
+  width 100px
+  vertical-align middle
+  @media ipadsAndUp
+    background-color bestBeautyPink
+    height 52px
+    width 200px
