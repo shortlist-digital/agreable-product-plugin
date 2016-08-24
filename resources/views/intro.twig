@@ -1,13 +1,13 @@
- {% extends('@AgreableProductPlugin/base.twig') %}
+{% extends('@AgreableProductPlugin/base.twig') %}
 
 {% block content %}
 
 	<div class="product_collection_landing">
-  
+
 	  <div class="product_collection_landing-content">
 
 	    <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_landing-image"alt="{{product_collection.post_title}} Logo">
-		  
+
 		  <ul class="product_collection-category-list">
 		    {% for category in product_collection.get_field('categories') %}
 		    	<li class="product_collection-link">

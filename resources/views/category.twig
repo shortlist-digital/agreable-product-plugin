@@ -1,9 +1,16 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
+{% block header %}
+  <header class="site-header" role="banner">
+    {% include '@AgreableProductPlugin/site-nav/template.twig' %}
+  </header>
+{% endblock %}
+
+
 {% block content %}
   <div class="product_collection">
 
-    <div class="product_collection-header">
+    <!-- <div class="product_collection-header">
 
       <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_logo-small" alt="{{product_collection.post_title}} Logo">
 
@@ -15,7 +22,7 @@
   	    {% endfor %}
   		</ul>
 
-    </div>
+    </div> -->
 
     {% for sub_category in product_collection_category.sub_categories %}
 
@@ -26,7 +33,7 @@
       {% for product in sub_category.products %}
 
         {% include "@AgreableProductPlugin/grid-view/template.twig" %}
-        
+
       {% endfor %}
 
     </div>
