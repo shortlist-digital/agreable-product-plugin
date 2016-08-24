@@ -1,37 +1,49 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
 {% block content %}
-  <div class="product_collection">
 
-    <div class="product_collection-header">
-
-      <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_logo-small" alt="{{product_collection.post_title}} Logo">
-
-  	  <ul class="product_collection-category-list">
-  	    {% for category in product_collection.get_field('categories') %}
-  	      <li class="product_collection-link {% if category.name|lower == product_collection_category.name|lower %}product_collection-link-active{% endif %}">
-            <a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="product_collection-link-category">{{category.name}}</a>
-          </li>
-  	    {% endfor %}
-  		</ul>
-
-    </div>
-
-    {% for sub_category in product_collection_category.sub_categories %}
-
-    <div class="product_collection-grid">
-      <div class="circle-background"></div>
-      <div class="solid-background"></div>
-      <h2 class="product_collection-heading">{{sub_category.sub_category_name}}</h2>
-      {% for product in sub_category.products %}
-
-        {% include "@AgreableProductPlugin/grid-view/template.twig" %}
-        
-      {% endfor %}
-
-    </div>
-
-    {% endfor %}
-
+  <div class="product_collection-header">
+    <img src="{{ product_collection.get_field('product_collection_logo').sizes.square}}" class="product_collection_logo-small" alt="{{product_collection.post_title}} Logo">
+	  <ul class="product_collection-category-list">
+	    {% for category in product_collection.get_field('categories') %}
+	      <li class="product_collection-link {% if category.name|lower == product_collection_category.name|lower %}product_collection-link-active{% endif %}">
+          <a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="product_collection-link-category">{{category.name}}</a>
+        </li>
+	    {% endfor %}
+		</ul>
   </div>
+
+  {% for sub_category in product_collection_category.sub_categories %}
+    <section class="product-collection">
+      <div class="wrapper">
+        <div class="circle-background"></div>
+        <div class="solid-background"></div>
+        <h2 class="product-collection__title">
+          {{sub_category.sub_category_name}}
+        </h2>
+        <ul class="product-list grid">
+          {% for product in sub_category.products %}
+            <li class="product-list__list-item grid__col">
+              {% include "@AgreableProductPlugin/grid-view/template.twig" %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  {% endfor %}
+
 {% endblock %}
+
+
+
+{#<div class="product_collection-grid">
+  <div class="circle-background"></div>
+  <div class="solid-background"></div>
+  <h2 class="product_collection-heading">{{sub_category.sub_category_name}}</h2>
+  {% for product in sub_category.products %}
+
+    {% include "@AgreableProductPlugin/grid-view/template.twig" %}
+
+  {% endfor %}
+
+</div>#}

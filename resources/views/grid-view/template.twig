@@ -1,25 +1,32 @@
 {% set product = TimberPost(product) %}
 
-<div class="product_collection_grid-single">  
+<div class="product-card">
 
-  <div class="product_collection_grid-image">
-    <a href="{{product.permalink}}"><img src="{{ product.get_field('product_images')[0].sizes.square  }}" alt="{{product.post_title}} Product Image"></a>
+  <div class="product-card__media">
+    <a class="product-card__media-link" href="{{product.permalink}}">
+      <img src="{{ product.get_field('product_images')[0].sizes.square  }}" alt="{{product.post_title}} Product Image">
+    </a>
   </div>
-  
-  <div class="product_collection_grid-content">
-    <div class="product_collection_grid-text">
-      {% if 'product_categories-category-winner' in product.class %}
-        <div class="winner-badge">Winner</div>
-      {% endif %}
-      {% if product.product_rating %}
+
+  <div class="product-card__content">
+    {% if 'product_categories-category-winner' in product.class %}
+      <div class="product-card__badge">Winner</div>
+    {% endif %}
+    {% if product.product_rating %}
+      <div class="product-card__rating">
         {% include "@AgreableProductPlugin/star-rating/template.twig" %}
-      {% endif %}
-      <h4 class="product_information-title">{{product.post_title}}</h4>
-      <h4 class="product_collection_grid-brand">{{product.brand_name}}</h4>
-      {% if product.product_price%}
-        <h4 class="product_collection_grid-price">{{product.product_price}}</h4>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
+    <h3 class="product-card__title">
+      {{product.post_title}}
+    </h3>
+    <p class="product-card__brand">
+      {{product.brand_name}}
+    </p>
+    {% if product.product_price %}
+      <p class="product-card__price">
+        {{product.product_price}}
+      </p>
+    {% endif %}
   </div>
-
 </div>
