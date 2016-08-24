@@ -7,9 +7,9 @@ add_action('agreable_app_theme_init', function() {
     'title' => 'Product Collections',
     'fields' => array(
       array (
-        'key' => 'product_collection_logo',
+        'key' => $key .'_landing_page_logo',
         'label' => 'Product Collection Logo',
-        'name' => 'product_collection_logo',
+        'name' => 'landing_page_logo',
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
@@ -17,9 +17,9 @@ add_action('agreable_app_theme_init', function() {
         )
       ),
       array (
-        'key' => $key . '_background_image',
+        'key' => $key . '_landing_page_background_image',
         'label' => 'Product Collection Main Background Image',
-        'name' => 'main_background_image',
+        'name' => 'landing_page_background_image',
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
@@ -27,9 +27,9 @@ add_action('agreable_app_theme_init', function() {
         )
       ),
       array (
-        'key' => $key . '_landing_sell',
+        'key' => $key . '_landing_page_sell',
         'label' => 'Product Collection Sell',
-        'name' => 'product_collection_sell',
+        'name' => 'landing_page_sell',
         'type' => 'strict_wysiwyg',
         'required' => 0
       ),
