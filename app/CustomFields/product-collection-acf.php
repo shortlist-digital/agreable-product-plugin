@@ -17,14 +17,21 @@ add_action('agreable_app_theme_init', function() {
         )
       ),
       array (
-        'key' => $key . '_header_image',
-        'label' => 'Product Collection Header Image',
-        'name' => 'product_collection_header_image',
+        'key' => $key . '_background_image',
+        'label' => 'Product Collection Main Background Image',
+        'name' => 'main_background_image',
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
           'width' => '50%',
         )
+      ),
+      array (
+        'key' => $key . '_landing_sell',
+        'label' => 'Product Collection Sell',
+        'name' => 'product_collection_sell',
+        'type' => 'strict_wysiwyg',
+        'required' => 0
       ),
       array (
         'key' => $key . '_categories',
