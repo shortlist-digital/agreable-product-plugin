@@ -44,23 +44,11 @@
       {% include 'partials/share/template.twig' %}
 
     </div>
-  </div>  
-
-  <div>
-    <div class="circle-background"></div>
-    <div class="solid-background"></div>
-    <h2 class="product_collection-heading">You may also<br>love</h2>
   </div>
 
-  <div class="product_collection-grid">
-
-    {% for product in product.get_field('more_products') %}
-
-      {% include "@AgreableProductPlugin/grid-view/template.twig" %}
-
-    {% endfor %}
-  </div>
-
-
-
+  {% include "@AgreableProductPlugin/product-list/template.twig" with {
+    products: product.get_field('more_products'),
+    title: 'You may also love'
+  } %}
+  
 {% endblock %}
