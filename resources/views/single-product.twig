@@ -19,9 +19,12 @@
         {% endif %}
       </div>
       <h2 class="product_information-title">{{product.post_title}}</h2>
-      <h3 class="product_information-brand">{{product.brand_name}}</h3>
+      <h3 class="product_information-brand">By {{product.brand_name}}</h3>
 
       <div class="product_information-finer-details">
+        {% if 'product_categories-category-winner' in product.class %}
+          <h3 class="product_information-winner-label">Winner</h3>
+        {% endif %}
         <h3 class="product_information-price">{{product.product_price}}</h3>
         {% if product.product_offer %}
           <h3 class="product_information-offer">{{product.product_offer}}</h3>
@@ -35,12 +38,15 @@
       {% include 'partials/share/template.twig' %}
 
     </div>
-  </div>
+  </div>  
 
-  <div class="product_collection-grid">
+  <div>
     <div class="circle-background"></div>
     <div class="solid-background"></div>
     <h2 class="product_collection-heading">You may also<br>love</h2>
+  </div>
+
+  <div class="product_collection-grid">
 
     {% for product in product.get_field('more_products') %}
       
