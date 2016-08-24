@@ -1,24 +1,23 @@
-//Imports from app theme
+// Imports from app theme
 @import 'nib'
 @import 'app/constants'
 @import 'app/mixins'
 @import 'allure-breakpoints'
 @import 'allure-mixins'
 
-//Colors
-bestBeautyPink = #e7126a
-
-//Custom styles for this plugin
+// Colors
+bestBeautyPink = #E41C6B
 
 // Global styles
-@import 'global/reset'
-@import 'global/normalize'
+@import 'global/generic.reset'
+@import 'global/generic.normalize'
+@import 'global/generic.box-sizing'
+@import 'global/base.document'
+@import 'global/base.media'
 
 @import 'site/header'
 @import 'site/navigation'
 @import 'site/content'
-
-// Page styles
 @import 'landing-page/landing-page'
 @import 'product/star-rating'
 @import 'product/share-buttons'
