@@ -1,10 +1,7 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
 {% block header %}
-  <header class="site-header" role="banner">
-    <a href="/shop/best-beauty/" class="site-header__logo"></a>
-    {% include '@AgreableProductPlugin/site-nav/template.twig' %}
-  </header>
+  {% include '@AgreableProductPlugin/site-header/template.twig' %}
 {% endblock %}
 
 {% block content %}
