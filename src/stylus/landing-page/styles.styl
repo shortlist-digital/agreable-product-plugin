@@ -4,11 +4,15 @@
   background-position center center
   display flex
   font-family secondaryFontFamily
-  height 100vh
+  min-height 100%
   justify-content center
-  margin -10px 0 0 -10px
-  width 100vw
-  
+  width 100%
+  @media ipadsAndUp
+    height 100vh
+    left 0
+    position fixed
+    top 0
+    width 100vw
 
 .product_collection_landing path
   fill #fff
