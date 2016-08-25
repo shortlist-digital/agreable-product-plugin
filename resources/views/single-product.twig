@@ -1,42 +1,46 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
+{% block header %}
+  {% include '@AgreableProductPlugin/site-header/template.twig' %}
+{% endblock %}
+
 {% block content %}
 
   <div class="product_collection">
-
-    <div class="product_information-half product_information-half-left">
-      <img src="{{ product.get_field('product_images')[0].sizes.square }}" class="product_information-image" alt="{{post.title}} product image">
-      <a href="{{product.product_affiliate_link}}" class="product_information-button">BUY HERE</a>
-    </div>
-
-    <div class="product_information-half product_information-half-right">
-      <div class="product_information-winner-details">
-        {% if 'product_categories-category-winner' in product.class %}
-          <div class="winner-badge">Winner</div>
-        {% endif %}
-        {% if product.product_rating %}
-          {% include "@AgreableProductPlugin/star-rating/template.twig" %}
-        {% endif %}
+    <div class="wrapper">
+      <div class="product_information-half product_information-half-left">
+        <img src="{{ product.get_field('product_images')[0].sizes.square }}" class="product_information-image" alt="{{post.title}} product image">
+        <a href="{{product.product_affiliate_link}}" class="product_information-button">BUY HERE</a>
       </div>
-      <h2 class="product_information-title">{{product.post_title}}</h2>
-      <h3 class="product_information-brand">By {{product.brand_name}}</h3>
+      <div class="product_information-half product_information-half-right">
+        <div class="product_information-winner-details">
+          {% if 'product_categories-category-winner' in product.class %}
+            <div class="winner-badge">Winner</div>
+          {% endif %}
+          {% if product.product_rating %}
+            {% include "@AgreableProductPlugin/star-rating/template.twig" %}
+          {% endif %}
+        </div>
+        <h2 class="product_information-title">{{product.post_title}}</h2>
+        <h3 class="product_information-brand">By {{product.brand_name}}</h3>
 
-      <div class="product_information-finer-details">
-        {% if 'product_categories-category-winner' in product.class %}
-          <h3 class="product_information-winner-label">2016 Winner</h3>
-        {% endif %}
-        <h3 class="product_information-price">{{product.product_price}}</h3>
-        {% if product.product_offer %}
-          <h3 class="product_information-offer">{{product.product_offer}}</h3>
-        {% endif %}
+        <div class="product_information-finer-details">
+          {% if 'product_categories-category-winner' in product.class %}
+            <h3 class="product_information-winner-label">2016 Winner</h3>
+          {% endif %}
+          <h3 class="product_information-price">{{product.product_price}}</h3>
+          {% if product.product_offer %}
+            <h3 class="product_information-offer">{{product.product_offer}}</h3>
+          {% endif %}
+        </div>
+
+        <h4 class="product_information-description">{{product.product_description}}</h4>
+        <h4 class="product_information-quote">{{product.product_quote}}</h4>
+        <p class="product_information-author">- {{product.product_quote_author}}</p>
+
+        {% include 'partials/share/template.twig' %}
+
       </div>
-
-      <h4 class="product_information-description">{{product.product_description}}</h4>
-      <h4 class="product_information-quote">{{product.product_quote}}</h4>
-      <p class="product_information-author">- {{product.product_quote_author}}</p>
-
-      {% include 'partials/share/template.twig' %}
-
     </div>
   </div>
 
