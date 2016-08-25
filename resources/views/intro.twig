@@ -4,6 +4,9 @@
 
 	<div class="product_collection_landing" style="background-image:url({{ product_collection.get_field('landing_page_background_image').sizes.square}})">
 
+	  {% include '@AgreableProductPlugin/site-nav/template.twig' %}
+
+
 	  <div class="product_collection_landing-content">
 
 	  	<h1 class="product_collection_landing-title">{{product_collection.post_title}}</h1>
@@ -15,7 +18,7 @@
 		  <ul class="product_collection-category-list">
 		    {% for category in product_collection.get_field('categories') %}
 		    	<li class="product_collection-link">
-		    		<a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="product_collection-link-category">{{category.name}}</a>
+		    		<a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="product_collection-link-items">{{category.name}}</a>
 		    	</li>
 		    {% endfor %}
 			</ul>
