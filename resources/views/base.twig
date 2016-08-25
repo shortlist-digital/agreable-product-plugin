@@ -33,8 +33,12 @@
 
   <body>
     {% block header %}{% endblock %}
-    <main class="site-content">
-      {% block content %}{% endblock %}
-    </main>
+      <div id="border-left"></div>
+      <div id="border-right"></div>
+      <div id="border-top"></div>
+      <div id="border-bottom"></div>
+      <main class="site-content">
+        {% block content %}{% endblock %}
+      </main>
   </body>
 </html>
