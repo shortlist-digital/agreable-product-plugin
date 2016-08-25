@@ -1,7 +1,9 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
 {% block header %}
-  {% include '@AgreableProductPlugin/site-header/template.twig' %}
+  {% include '@AgreableProductPlugin/site-header/template.twig' with {
+    modifier: 'reverse'
+  } %}
 {% endblock %}
 
 {% block content %}
