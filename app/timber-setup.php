@@ -33,6 +33,7 @@ class TimberSetup {
     $herbert_config = include __DIR__ . '/../herbert.config.php';
 
     array_push($paths, ['AgreableProductPlugin' => __DIR__ . '/../resources/views']);
+    array_push($paths, ['AgreableProductPlugin' => __DIR__ . '/../resources/img']);
     return $paths;
   }
 }
