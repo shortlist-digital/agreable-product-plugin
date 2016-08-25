@@ -1,3 +1,8 @@
+minfont = 3.5em
+maxfont = 8em
+minscreen = 320px
+maxscreen = 1200px
+
 .product_collection-header
 	width 100%
 	background-size cover
@@ -7,7 +12,7 @@
 		height 400px
 		
 .product_collection-header-category
-	font-size 3.5em
+	font-size calc(minfont + (strip(maxfont) - strip(minfont)) * (100vw - minscreen) / (strip(maxscreen) - strip(minscreen)))
 	font-weight 800
 	color white
 	letter-spacing 10px
@@ -16,6 +21,8 @@
 	position relative
 	top 50%
 	transform translateY(-50%)
-	@media smallTabletsAndUp
-		font-size 8em
+	@media (width >= maxscreen)
+		font-size maxfont
+	@media (width < minscreen)
+		font-size minfont
 	
