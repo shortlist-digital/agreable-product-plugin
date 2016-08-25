@@ -1,3 +1,8 @@
+minfont = 30px
+maxfont = 128px
+minscreen = 400px
+maxscreen = 1200px
+
 .product_collection-header
   background-size cover
   height 300px
@@ -11,16 +16,17 @@
     margin-left -10px
     width 100vw
 
-
 .product_collection-header-category
-  font-size 3.5em
-  font-weight 800
-  color white
-  letter-spacing 10px
-  text-transform uppercase
-  text-align center
-  position relative
-  top 50%
-  transform translateY(-50%)
-  @media smallTabletsAndUp
-    font-size 8em
+	font-size calc(30px + (128 - 30) * (100vw - 400px) / (1200 - 400)) // variables aren't working here, hard-coded for now
+	font-weight 800
+	color white
+	letter-spacing 10px
+	text-transform uppercase
+	text-align center
+	position relative
+	top 50%
+	transform translateY(-50%)
+	@media (max-width: 399px)
+		font-size 30px
+	@media (min-width: 1200px)
+		font-size 128px
