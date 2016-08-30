@@ -13,7 +13,17 @@ add_action('agreable_app_theme_init', function() {
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
-          'width' => '50%',
+          'width' => '25%',
+        )
+      ),
+       array (
+        'key' => $key . '_favicon',
+        'label' => 'Product Collection Favicon',
+        'name' => 'product_collection_favicon',
+        'type' => 'image',
+        'required' => 0,
+        'wrapper' => array (
+          'width' => '25%',
         )
       ),
       array (
