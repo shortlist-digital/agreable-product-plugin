@@ -1,5 +1,11 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
+  {% block header %}
+    {% include '@AgreableProductPlugin/site-header/template.twig' with {
+      context: 'landing'
+    } %}
+  {% endblock %}
+
 {% block content %}
 
   {% set image = product_collection.get_field('landing_page_background_image').sizes.square %}

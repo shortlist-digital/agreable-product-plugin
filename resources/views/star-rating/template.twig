@@ -1,13 +1,33 @@
 <div class="rating-box">
   {% if product.product_rating == '1' %}
-     <span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+     <div class="full"></div>
+     <div class="empty"></div>
+     <div class="empty"></div>
+     <div class="empty"></div>
+     <div class="empty"></div>
   {% elseif product.product_rating == '2' %}
-    <span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
   {% elseif product.product_rating == '3' %}
-    <span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span><span class="empty"></span>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
   {% elseif product.product_rating == '4' %}
-    <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="empty"></span>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="empty"></div>
   {% elseif product.product_rating == '5' %}
-    <span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span><span class="full"></span>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="full"></div>
+    <div class="full"></div>
   {% endif %}
 </div>
