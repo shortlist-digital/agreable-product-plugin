@@ -1,0 +1,102 @@
+
+.site-nav-container
+  background-color rgba(bestBeautyPink, 0.9)
+  border 20px solid #fff
+  height 100%
+  left 0
+  opacity 0
+  overflow auto
+  padding 60px 20px 20px
+  position fixed
+  text-align center
+  top 0
+  transition  opacity 150ms ease-out,
+              visibility 150ms ease-out,
+              border-width 150ms ease-out
+  visibility hidden
+  width 100%
+  will-change opacity
+  &[aria-hidden="false"]
+    opacity 1
+    visibility visible
+  @media ipadsAndUp
+    border-width 50px
+    padding 40px
+
+
+// .site-nav
+//   display none
+//   font-size 0
+//   list-style-type none
+//   @media ipadsAndUp
+//     display inline-block
+//     margin-left 6px
+//     vertical-align middle
+// .site-nav__list-item
+//   display inline-block
+//   font-size 16px
+// .site-nav__item
+//   display block
+//   font-family secondaryFontFamily
+//   letter-spacing 2px
+//   text-decoration none
+//   text-transform uppercase
+
+.site-nav-open
+  background-color transparent
+  cursor pointer
+  display inline-block
+  height 52px
+  position absolute
+  right 0
+  top 0
+  width 60px
+  &:focus
+    outline none
+  @media ipadsAndUp
+    right 26px
+    top 26px
+    width 52px
+
+.site-nav-open svg
+  @media ipadsAndUp
+    width 29px
+.site-nav-open path
+  @media ipadsAndUp
+    fill bestBeautyPink
+
+.site-header--context-category .site-nav-open path,
+.site-header--context-landing .site-nav-open path
+  fill #fff
+
+.site-nav-open,
+.site-nav-close
+  &:focus
+    outline none
+
+.site-nav-container__logo
+  fill #fff
+  max-width 320px
+  width 70%
+  margin 0 auto 40px
+  @media ipadsAndUp
+    margin-bottom 80px
+.site-nav-container__logo svg
+  width 100%
+
+.site-nav-close
+  background-color #fff
+  border-radius 50%
+  height 40px
+  position absolute
+  right 10px
+  top 10px
+  width 40px
+  text-indent 200%
+  overflow hidden
+  white-space nowrap
+  @media ipadsAndUp
+    height 68px
+    width 68px
+    right 20px
+    top 20px

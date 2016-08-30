@@ -1,7 +1,6 @@
-<button class="site-nav-toggle" type="button">
+<button class="site-nav-open js-fr-offcanvas-open" type="button" aria-controls="site-navigation">
   {% include '@AgreableProductPlugin/icon-hamburger.svg' %}
 </button>
-<!-- Commented out until we decide what to do -->
 <!-- <ul class="site-nav">
   {% for category in product_collection.get_field('categories') %}
     <li class="site-nav__list-item">
@@ -11,3 +10,20 @@
     </li>
   {% endfor %}
 </ul> -->
+<section class="site-nav-container js-fr-offcanvas" id="site-navigation">
+  <div class="site-nav-container__logo">
+    {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
+  </div>
+  <ul class="list-categories list-categories--reverse">
+    {% for category in product_collection.get_field('categories') %}
+      <li class="list-categories__list-item">
+        <a class="list-categories__item" href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}">
+          {{category.name}}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <button class="site-nav-close js-fr-offcanvas-close">
+      Close
+  </button>
+</section>
