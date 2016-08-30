@@ -1,8 +1,12 @@
 
 .site-nav-container
+  align-items center
   background-color rgba(bestBeautyPink, 0.9)
   border 20px solid #fff
+  display flex
+  flex-direction column
   height 100%
+  justify-content center
   left 0
   opacity 0
   overflow auto
@@ -15,32 +19,13 @@
               border-width 150ms ease-out
   visibility hidden
   width 100%
-  will-change opacity
+  will-change transform
   &[aria-hidden="false"]
     opacity 1
     visibility visible
   @media ipadsAndUp
     border-width 50px
     padding 40px
-
-
-// .site-nav
-//   display none
-//   font-size 0
-//   list-style-type none
-//   @media ipadsAndUp
-//     display inline-block
-//     margin-left 6px
-//     vertical-align middle
-// .site-nav__list-item
-//   display inline-block
-//   font-size 16px
-// .site-nav__item
-//   display block
-//   font-family secondaryFontFamily
-//   letter-spacing 2px
-//   text-decoration none
-//   text-transform uppercase
 
 .site-nav-open
   background-color transparent
@@ -86,17 +71,23 @@
 
 .site-nav-close
   background-color #fff
+  background-image url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%2218%2018%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M21.18%2021.18l25.46%2025.46M46.82%2021.18L21.36%2046.64%22%20stroke%3D%22%23e7126a%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22square%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E')
+  background-position center center
+  background-repeat no-repeat
+  background-size 22px
   border-radius 50%
+  cursor pointer
   height 40px
+  overflow hidden
   position absolute
   right 10px
-  top 10px
-  width 40px
   text-indent 200%
-  overflow hidden
+  top 10px
   white-space nowrap
+  width 40px
   @media ipadsAndUp
+    background-size 32px
     height 68px
-    width 68px
     right 20px
     top 20px
+    width 68px
