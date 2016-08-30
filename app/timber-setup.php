@@ -12,6 +12,7 @@ class TimberSetup {
   public function add_to_context($context) {
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_string = $this->get_javascript_string();
+    $context['product_plugin']->secondary_navigation = wp_get_nav_menu_items('best-beauty');
     return $context;
   }
 
