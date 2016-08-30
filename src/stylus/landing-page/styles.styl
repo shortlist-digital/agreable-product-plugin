@@ -7,19 +7,23 @@
   font-family secondaryFontFamily
   justify-content center
   min-height 100%
-  padding 0 20px
+  padding 40px 20px
   text-align center
   width 100%
   @media ipadsAndUp
     height 100vh
     left 0
+    padding 0
     position fixed
     top 0
     width 100vw
 
 .landing-container__logo
-  margin-bottom 80px
-  padding 0 16vw
+  margin-bottom 40px
+  padding 0 12vw
+  @media ipadsAndUp
+    margin-bottom 80px
+    padding 0 16vw
 .landing-container__logo path
   fill #fff
 
@@ -57,7 +61,7 @@
   letter-spacing 3px
   font-size 13px
   font-weight 800
-  padding 16px 20px
+  padding 16px
   text-decoration none
   text-transform uppercase
   transition background-color 150ms ease-out,
@@ -66,3 +70,11 @@
   &:focus
     background-color #fff
     color bestBeautyPink
+  @media ipadsAndUp
+    font-size 18px
+    font-weight 600
+    padding 20px 24px
+  // @media smallDesktopsAndUp
+  //   font-size 26px
+  //   font-weight 600
+  //   padding 26px 30px
