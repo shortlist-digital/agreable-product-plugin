@@ -14,7 +14,7 @@
     {# FACEBOOK OPEN GRAPH META TAGS #}
     <meta property="og:type" content="article">
     {% if options.facebook_page_url is not empty%}
-      <meta property="article:author" content="{{site.name}}" />
+      <meta property="article:author" content="{{options.facebook_page_url}}" />
       <meta property="article:publisher" content="{{options.facebook_page_url}}" />
     {% endif %}
     <meta property="fb:app_id" content="{{options.facebook_app_id}}">
