@@ -1,5 +1,4 @@
 
-
 .list-categories
   font-size 0
   list-style none
@@ -13,7 +12,7 @@
 .list-categories__list-item
   display inline-block
   font-size 16px
-  padding 5px
+  padding 8px
   @media (max-width: 767px)
     flex 1 1 auto
 
@@ -28,7 +27,7 @@
   text-decoration none
   text-transform uppercase
   transition background-color 150ms ease-out,
-           color 150ms ease-out
+             color 150ms ease-out
   &:hover,
   &:focus
     background-color #fff
@@ -36,11 +35,7 @@
   @media ipadsAndUp
     font-size 18px
     font-weight 600
-    padding 20px 24px
-  // @media smallDesktopsAndUp
-  //   font-size 26px
-  //   font-weight 600
-  //   padding 26px 30px
+    padding 20px 30px
 
 .list-categories--reverse .list-categories__item
   background-color #fff
@@ -49,3 +44,19 @@
   &:focus
     background-color bestBeautyPink
     color #fff
+
+
+
+.list-categories--animate .list-categories__list-item
+  opacity 0
+  transform translateY(30px)
+  transition opacity 300ms ease-out,
+             transform 300ms ease-out
+  .fr-offcanvas--is-active &
+    transform translateY(0)
+    opacity 1
+for $i in (1..15)
+  .fr-offcanvas--is-active
+    .list-categories--animate
+      .list-categories__list-item:nth-child({$i})
+        transition-delay 90ms * $i

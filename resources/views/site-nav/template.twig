@@ -5,7 +5,7 @@
   <div class="site-nav-container__logo">
     {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
   </div>
-  <ul class="list-categories list-categories--reverse">
+  <ul class="list-categories list-categories--reverse list-categories--animate">
     {% for category in product_collection.get_field('categories') %}
       <li class="list-categories__list-item">
         <a class="list-categories__item" href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}">
