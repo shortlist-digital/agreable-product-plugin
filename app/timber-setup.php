@@ -1,6 +1,7 @@
 <?php namespace AgreableProductPlugin;
 
 use Timber;
+use TimberPost;
 use stdClass;
 
 class TimberSetup {
@@ -10,9 +11,16 @@ class TimberSetup {
   }
 
   public function add_to_context($context) {
+
+    $product_collection = new TimberPost(get_page_by_path('best-beauty', OBJECT, 'product_collection'));
+    $product_collection_categories = get_field('categories', $product_collection->ID);
+
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_string = $this->get_javascript_string();
     $context['product_plugin']->secondary_navigation = wp_get_nav_menu_items('best-beauty');
+    $context['product_plugin']->product_collection = $product_collection;
+    $context['product_plugin']->product_collection_categories = $product_collection_categories;
+
     return $context;
   }
 
