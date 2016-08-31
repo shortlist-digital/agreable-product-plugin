@@ -18,7 +18,7 @@ class ProductCollectionController {
 
     $context = Timber::get_context();
 
-    global $post;
+    global $post; // Set the $post globally, for wp_head and other functions
     $post = new TimberPost($product_collection);
 
     $context['product_collection'] = $post;
