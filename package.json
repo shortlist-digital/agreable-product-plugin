@@ -40,6 +40,7 @@
     "detect-dom-ready": "^1.0.2",
     "entities": "^1.1.1",
     "es6-object-assign": "^1.0.1",
+    "in-view": "^0.2.0",
     "moment": "^2.10.6",
     "postcode": "^0.2.3",
     "postcode-validator": "^1.2.0",
