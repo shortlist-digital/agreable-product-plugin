@@ -13,11 +13,25 @@ class ProductController {
    */
   public function showProduct($product_slug) {
 
-     if (!$post = $this->get_product_by_slug($product_slug)) {
+    global $post; // Set the $post globally, for wp_head and other functions
+    if (!$post = $this->get_product_by_slug($product_slug)) {
       throw new Exception('Post not found');
     }
+    $post = new TimberPost($post);
+
+    add_filter('agreable_category_hierarchy_filter', function($category_hierarchy) {
+      global $post;
+      $product_categories = wp_get_object_terms($post->ID, 'product_categories');
+      if (count($product_categories) > 0) {
+        $category_hierarchy->parent = new stdClass();
+        $category_hierarchy->parent->slug = $product_categories[0]->slug;
+        $category_hierarchy->parent->name = $product_categories[0]->name;
+      }
+      return $category_hierarchy;
+    });
+
     $context = Timber::get_context();
-    $context['product'] = new TimberPost($post);
+    $context['product'] = $post;
 
     Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
 
