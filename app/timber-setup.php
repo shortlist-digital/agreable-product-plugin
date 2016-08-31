@@ -12,6 +12,7 @@ class TimberSetup {
   public function add_to_context($context) {
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_string = $this->get_javascript_string();
+
     return $context;
   }
 

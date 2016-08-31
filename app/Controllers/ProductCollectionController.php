@@ -16,9 +16,12 @@ class ProductCollectionController {
       throw new Exception('Post not found');
     }
 
-
     $context = Timber::get_context();
-    $context['product_collection'] = new TimberPost($product_collection);
+
+    global $post;
+    $post = new TimberPost($product_collection);
+
+    $context['product_collection'] = $post;
 
     Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
 
