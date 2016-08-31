@@ -1,55 +1,22 @@
+//Imports from app theme
 @import 'nib'
 @import 'app/constants'
 @import 'allure-breakpoints'
 @import 'allure-mixins'
 @import 'app/mixins'
 
-
-.product_collection
-	max-width pageColumnWidth
-	margin 0 auto
-
-.product_information-half
-	width 100%
-	display inline-block
-	vertical-align top
-	@media smallTabletsAndUp
-		width 49%
+//Colors
+bestBeautyPink           = #E41C6B
 
 
-.product_information-button
-	background-color brandColor
-	color white
-	padding 10px 25px
-	text-decoration none
-	font-weight 600
+//Custom styles for this plugin
+@import 'nav/category-links'
+@import 'landing-page/landing-page'
+@import 'product/star-rating'
+@import 'product/share-buttons'
+@import 'product/product-details.styl'
+@import 'product-collection/product-collection-heading.styl'
+@import 'product-collection/product-grid-view.styl'
+  
 
-.product_information-quote
-	font-family secondaryFontFamily
-	font-style italic
-	font-size 1.1em
 
-.product_collection_grid-single
-	width 100%
-	display inline-block
-	text-align center
-	margin-bottom 30px
-	@media smallTabletsAndUp
-		width 49%
-	@media smallDesktopsAndUp
-		width 33%
-
-.product_collection_grid-single img
-	margin-bottom 35px
-	width 100%
-
-.product_collection-category-list
-	list-style none
-
-.product_collection-category-list li
-	display inline-block
-	border 2px solid #1BB8F5
-	padding 5px 15px
-
-.product_collection-category-list li a
-	text-decoration none
