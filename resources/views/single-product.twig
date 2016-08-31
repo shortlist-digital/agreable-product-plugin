@@ -6,6 +6,8 @@
 
 {% block content %}
 
+  <!-- <pre>{{dump(product)}}</pre> -->
+
   <div class="product_collection">
     <div class="wrapper">
       <div class="product_information-half product_information-half-left">
@@ -23,7 +25,6 @@
         </div>
         <h2 class="product_information-title">{{product.post_title}}</h2>
         <h3 class="product_information-brand">By {{product.brand_name}}</h3>
-
         <div class="product_information-finer-details">
           {% if 'product_categories-category-winner' in product.class %}
             <h3 class="product_information-winner-label">2016 Winner</h3>
@@ -33,7 +34,13 @@
             <h3 class="product_information-offer">{{product.product_offer}}</h3>
           {% endif %}
         </div>
-
+        <!-- {% if 'product_categories-hero-winner' in product.class %}
+          <div class="winner-badge">Winner</div>
+        {% endif %} -->
+        <div class="product-badge">
+          <p class="product-badge__title">Hero Award Winner</p>
+          <p>This is some text</p>
+        </div>
         <h4 class="product_information-description">{{product.product_description}}</h4>
         <h4 class="product_information-quote">{{product.product_quote}}</h4>
         <p class="product_information-author">- {{product.product_quote_author}}</p>
