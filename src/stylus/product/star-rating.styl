@@ -1,11 +1,24 @@
-.full
-.empty
-	display inline-block
-	height 20px
-	width 20px
+.rating-box
+  font-size 0
 
 .full
-	background url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23FFDF88%22%20d%3D%22M10%200l3.09%206.583L20%207.64l-5%205.124L16.18%2020%2010%2016.583%203.82%2020%205%2012.764%200%207.64l6.91-1.057%22%2F%3E%3C%2Fsvg%3E')
+.empty
+  background-position center center
+  background-repeat no-repeat
+  display inline-block
+  font-size 16px
+  height 20px
+  margin 0 1px
+  width 20px
+
+.full
+  background url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23FFB611%22%20d%3D%22M10%200l3.09%206.583L20%207.64l-5%205.124L16.18%2020%2010%2016.583%203.82%2020%205%2012.764%200%207.64l6.91-1.057%22%2F%3E%3C%2Fsvg%3E')
 
 .empty
-	background url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23ECECEC%22%20d%3D%22M10%200l3.09%206.583L20%207.64l-5%205.124L16.18%2020%2010%2016.583%203.82%2020%205%2012.764%200%207.64l6.91-1.057%22%2F%3E%3C%2Fsvg%3E')
+  background url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23ECECEC%22%20d%3D%22M10%200l3.09%206.583L20%207.64l-5%205.124L16.18%2020%2010%2016.583%203.82%2020%205%2012.764%200%207.64l6.91-1.057%22%2F%3E%3C%2Fsvg%3E')
+
+.rating-box--small .full
+.rating-box--small .empty
+  background-size 16px
+  height 16px
+  width 16px
