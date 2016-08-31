@@ -13,6 +13,9 @@
       {{product_collection_category.name}}
     </h1>
   </div>
+  <div class="sub-category-nav">
+    {% include "@AgreableProductPlugin/sub-navigation/template.twig" %}
+  </div>
   {% for sub_category in product_collection_category.sub_categories %}
     {% include "@AgreableProductPlugin/product-list/template.twig" with {
       products: sub_category.products,
