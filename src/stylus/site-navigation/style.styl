@@ -1,7 +1,7 @@
 
 .site-nav-container
   align-items center
-  background-color rgba(bestBeautyPink, 0.9)
+  background-color rgba(bestBeautyPink, 0.95)
   border 20px solid #fff
   display flex
   flex-direction column
@@ -35,8 +35,6 @@
   right 0
   top 0
   width 60px
-  &:focus
-    outline none
   @media ipadsAndUp
     right 26px
     top 26px
@@ -46,17 +44,16 @@
   @media ipadsAndUp
     width 29px
 .site-nav-open path
+  transition fill 150ms ease-out
   @media ipadsAndUp
     fill bestBeautyPink
 
 .site-header--context-category .site-nav-open path,
 .site-header--context-landing .site-nav-open path
   fill #fff
-
-.site-nav-open,
-.site-nav-close
-  &:focus
-    outline none
+.site-header--context-landing .site-nav-open:hover path,
+.site-header--context-landing .site-nav-open:focus path
+  fill bestBeautyPink
 
 .site-nav-container__logo
   fill #fff
@@ -88,10 +85,61 @@
   position absolute
   right 20px
   text-indent 200%
+  transition background-color 150ms ease-out,
+             color 150ms ease-out,
+             box-shadow 150ms ease-out
   top 20px
   white-space nowrap
   width 40px
+  &:hover,
+  &:focus
+    background-color transparent
+    background-image url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%2218%2018%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M21.18%2021.18l25.46%2025.46M46.82%2021.18L21.36%2046.64%22%20stroke%3D%22%23fff%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22square%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E')
+    box-shadow inset 0 0 0 3px #fff
   @media ipadsAndUp
     background-size 32px
     height 68px
     width 68px
+
+.site-nav-close:hover path,
+.site-nav-close:focus path
+  fill transparent
+
+.sub-nav
+  list-style none
+  margin-top 40px
+  @media smallTabletsAndUp
+    font-size 0
+    margin-left -20px
+    max-width 650px
+
+.sub-nav__list-item
+  @media smallTabletsAndUp
+    font-size 16px
+    display inline-block
+    padding-left 20px
+    width 50%
+    vertical-align middle
+
+.sub-nav__item
+  border-bottom 1px solid rgba(#fff, 0.5)
+  color #fff
+  display block
+  font-size 12px
+  font-weight 600
+  letter-spacing 2px
+  line-height 20px
+  padding 16px 8px
+  text-decoration none
+  text-transform uppercase
+  transition letter-spacing 150ms ease-out
+  &:hover,
+  &:focus
+    letter-spacing 3px
+
+.sub-nav__list-item:last-child .sub-nav__item
+  border-bottom 0
+
+@media smallTabletsAndUp
+  .sub-nav__list-item:nth-last-child(-n+2) .sub-nav__item
+    border-bottom 0

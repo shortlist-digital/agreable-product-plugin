@@ -4,18 +4,21 @@ minscreen = 400px
 maxscreen = 1200px
 
 .product_collection-header
-  box-shadow inset 0 0 0 50vw rgba(#000, 0.35)
+  background-color #dbdbdb
+  background-position center center
   background-size cover
+  box-shadow inset 0 0 0 50vw rgba(#000, 0.25)
   height 300px
   margin-bottom 20px
   width 100%
   @media smallTabletsAndUp
+    height 55vh
     min-height 400px
-    height 40vh
   @media ipadsAndUp
     margin-top -10px
     margin-left -10px
     margin-bottom 60px
+    padding-top 50px
     width 100vw
 
 .product_collection-header-category
