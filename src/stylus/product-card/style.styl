@@ -1,32 +1,42 @@
 
 //  Product card
 .product-card
+  display block
   margin-bottom 54px
+  text-decoration none
+  will-change transform
+  &:focus
+    outline none
 
 .product-card__media
-  border 6px solid #f5f5f5
-  overflow hidden
-  padding-bottom 100%
-  position relative
+  padding 8px
+  box-shadow inset 0 0 0 8px #f5f5f5
+  transition box-shadow 150ms ease-out
+  .product-card:hover &,
+  .product-card:focus &
+    box-shadow inset 0 0 0 0 #f5f5f5
 
-.product-card__media-link
-  bottom 0
-  left 0
+.product-card__media img
   padding 30px
-  position absolute
-  right 0
-  top 0
+  transition transform 150ms ease-out
+  will-change transform
+.product-card:hover .product-card__media img,
+.product-card:focus .product-card__media img
+  transform scale(1.25)
 
 .product-card__content
   margin 0 auto
   max-width 240px
-  padding-top 24px
+  padding-top 34px
   position relative
   text-align center
 
 .product-card__rating
-  font-size 1em
   margin-bottom 10px
+  transition transform 100ms ease-out
+  .product-card:hover &,
+  .product-card:focus &
+    transform translateY(-2px)
 
 .product-card__badge
   background-color bestBeautyPink
@@ -34,17 +44,45 @@
   font-weight 700
   left 50%
   letter-spacing 4px
-  padding 8px 24px 6px
+  padding 10px 24px 8px
   position absolute
   text-transform uppercase
-  top -3px
+  top -3px // counters the media border
   transform translateX(-50%) translateY(-50%)
 
 .product-card__title
   font-weight 300
   margin-bottom 14px
+  transition transform 100ms ease-out
+  .product-card:hover &,
+  .product-card:focus &
+    transform translateY(-5px)
 
 .product-card__brand
   color bestBeautyPink
   font-size 14px
   margin-bottom 10px
+  transition transform 100ms ease-out
+  .product-card:hover &,
+  .product-card:focus &
+    transform translateY(-10px)
+
+.product-card__price
+  font-size 14px
+  margin-bottom 10px
+  transition transform 100ms ease-out
+  .product-card:hover &,
+  .product-card:focus &
+    transform translateY(-15px)
+
+.product-card__link
+  color bestBeautyPink
+  font-size 14px
+  font-weight 700
+  opacity 0
+  transition transform 100ms ease-out,
+             opacity 100ms ease-out
+  .product-card:hover &,
+  .product-card:focus &
+    transform translateY(-20px)
+    opacity 1
