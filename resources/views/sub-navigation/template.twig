@@ -1,0 +1,14 @@
+<button class="sub-nav-open js-fr-offcanvas-open" aria-controls="offcanvas-1">
+	See all categories
+</button>
+<section class="sub-nav-container js-fr-offcanvas" id="offcanvas-1">
+	<h3 class="sub-nav-container_title">{{product_collection_category.name}} Categories</h3>
+	<ul>
+		{% for sub_category in product_collection_category.sub_categories %}
+			<li id="sub_category.sub_category_name"><a href="#{{sub_category.sub_category_name}}" class="sub-nav-container_item">{{sub_category.sub_category_name}}</a></li>
+		{% endfor %}
+	</ul>
+{# 	<button class="js-fr-offcanvas-close">
+		Close
+	</button> #}
+</section>
