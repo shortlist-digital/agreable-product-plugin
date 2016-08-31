@@ -19,16 +19,12 @@ module.exports = function(port) {
       publicPath: 'http://localhost:' + port +'/static/'
     },
     module: {
-      preLoaders: [{
-        test:    /\.js$/,
-        exclude: /node_modules/,
-        loader: 'jscs-loader'
-      }],
       loaders: [
+        // { test: /\.js?$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/ },
         { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'},
         { test: /\.json$/, loader: 'json-loader' },
         { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: "url" },
-        { test: /src\/.*\.jsx?$/, loaders: ['react-hot', 'babel-loader?stage=0&loose=all'], exclude: '/node_modules/',  include: path.join(__dirname, "src") }
+        { test: /\.js$/, loaders: ['react-hot', 'babel?presets[]=es2015'], include: path.join(__dirname, "src") }
       ]
     },
 
