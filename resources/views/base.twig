@@ -45,7 +45,7 @@
       <!-- Styles are injected in real time via webpack server -->
       <script src="http://localhost:{{webpack_port}}/static/app.js"></script>
     {% endif %}
-    {% if environment == "production" %}
+    {% if environment != "development" %}
       <link rel="stylesheet" href="{{product_plugin.css_file}}" type="text/css" />
     {% endif %}
 
@@ -68,7 +68,7 @@
       {% block content %}{% endblock %}
     </main>
 
-    {% if environment == "production" %}
+    {% if environment != "development" %}
       <script src="{{product_plugin.js_file}}"></script>
     {% endif %}
 
