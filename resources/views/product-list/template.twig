@@ -1,13 +1,14 @@
 
 <section class="product-collection">
-  <div class="wrapper">
-    <h2 class="product-collection__title">{{title}}</h2>
-  </div>
-  <ul class="product-list grid lazy-container">
-    {% for product in products %}
-      <li class="product-list__list-item grid__col">
-        {% include "@AgreableProductPlugin/product-card/template.twig" %}
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="wrapper" id="{{title}}">
+    <h2 class="product-collection__title">
+      {{title}}
+    </h2>
+    <ul class="product-list grid">
+      {% for product in products %}
+        <li class="product-list__list-item grid__col">
+          {% include "@AgreableProductPlugin/product-card/template.twig" %}
+        </li>
+      {% endfor %}
+    </ul>
 </section>
