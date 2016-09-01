@@ -1,48 +1,74 @@
-var webpack = require('webpack')
-var nib = require('nib')
+//  General
+var fs = require('fs')
 var path = require('path')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var webpack = require('webpack')
+var extractTextPlugin = require('extract-text-webpack-plugin')
+var nib = require('nib')
+//  Paths
+var buildPath = path.resolve(__dirname, 'resources', 'assets')
+var mainPath = path.resolve(__dirname, 'src', 'main.js')
 
-var buildPath = path.resolve(__dirname, 'resources', 'assets');
-var mainPath = path.resolve(__dirname, 'src', 'main.js');
-
-console.log(buildPath)
-
+//  Main
 module.exports = {
-  entry: mainPath,
+  entry: {
+    app: mainPath
+  },
   output: {
     path: buildPath,
-    filename: 'app.js',
+    filename: '[name].[hash].js',
     publicPath: ''
   },
+
   module: {
     loaders: [
-      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css!stylus?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules')},
-      { test: /\.svg$/, exclude:'/node_modules/', loader: 'raw-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: "url" },
-      { test: /\.js$/, loader: 'babel?presets[]=es2015', include: path.join(__dirname, "src") }
+      {
+        test: /\.styl$/,
+        loader: extractTextPlugin.extract(
+          'style',
+          'css!stylus?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'
+        )
+      },
+      {
+        test: /\.svg$/,
+        exclude: '/node_modules/',
+        loader: 'raw'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/,
+        loader: 'url?limit=20000'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel?presets[]=es2015',
+        include: path.join(__dirname, 'src')
+      }
     ]
   },
 
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    new extractTextPlugin('style.[contenthash].css'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
-    }),
-    new webpack.DefinePlugin({
-      __PRODUCTION__: 'true'
-    })
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    new webpack.DefinePlugin({ __PRODUCTION__: 'true' }),
+    function () {
+      this.plugin('done', function (stats) {
+        fs.writeFileSync(
+          path.join(__dirname, './', 'stats.json'),
+          JSON.stringify(stats.toJson())
+        )
+      })
+    }
   ],
 
   resolve: {
     context: __dirname,
-    extensions: ['','.js', '.json', '.styl'],
-    modulesDirectories: [
-      'widgets', 'javascripts', 'web_modules', 'style-atoms', 'node_modules'
-    ]
+    extensions: ['', '.js', '.json', '.styl'],
+    modulesDirectories: ['widgets', 'javascripts', 'web_modules', 'style-atoms', 'node_modules']
   },
 
   stylus: {

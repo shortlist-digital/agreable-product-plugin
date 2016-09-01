@@ -42,14 +42,16 @@
     {{function('wp_head')}}
 
     {% if environment == "development" %}
-      <!-- Styles are inject in real time via webpack server -->
+      <!-- Styles are injected in real time via webpack server -->
       <script src="http://localhost:{{webpack_port}}/static/app.js"></script>
     {% endif %}
     {% if environment == "production" %}
-      <link rel="stylesheet" href="/app/dev/agreable-product-plugin/resources/assets/styles.css" type="text/css" />
+      <link rel="stylesheet" href="{{product_plugin.css_file}}" type="text/css" />
     {% endif %}
 
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js')</script>
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+    </script>
 
     {% block head %}
     {% endblock %}
@@ -67,8 +69,7 @@
     </main>
 
     {% if environment == "production" %}
-      <!-- Styles are inject in real time via webpack server -->
-      <script src="/app/dev/agreable-product-plugin/resources/assets/app.js"></script>
+      <script src="{{product_plugin.js_file}}"></script>
     {% endif %}
 
     {% include 'partials/browser-warning/template.twig' %}

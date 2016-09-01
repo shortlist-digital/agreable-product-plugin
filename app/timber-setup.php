@@ -5,6 +5,7 @@ use TimberPost;
 use stdClass;
 
 class TimberSetup {
+
  function __construct() {
     add_filter('timber/loader/paths', array($this, 'add_timber_paths'));
     add_filter('timber_context', array($this, 'add_to_context'));
@@ -16,7 +17,8 @@ class TimberSetup {
     $product_collection_categories = get_field('categories', $product_collection->ID);
 
     $context['product_plugin'] = new stdClass();
-    $context['product_plugin']->js_string = $this->get_javascript_string();
+    $context['product_plugin']->js_file = $this->get_js_file();
+    $context['product_plugin']->css_file = $this->get_css_file();
     $context['product_plugin']->secondary_navigation = wp_get_nav_menu_items('best-beauty');
     $context['product_plugin']->product_collection = $product_collection;
     $context['product_plugin']->product_collection_categories = $product_collection_categories;
@@ -24,18 +26,20 @@ class TimberSetup {
     return $context;
   }
 
-  protected function get_javascript_string() {
+  function get_css_file() {
     $plugin_root = realpath(__DIR__ . '/..');
-    $port_file = 'webpack-current-port.tmp';
-    $port_file_location = $plugin_root . '/' . $port_file;
+    $stats_string = file_get_contents($plugin_root . '/stats.json');
+    $stats_json = json_decode($stats_string);
+    $css_filename = ($stats_json->assetsByChunkName->app[1]);
+    return '/app/plugins/agreable-product-plugin/resources/assets/' . $css_filename;
+  }
 
-    if (getenv('WP_ENV') === 'development' && file_exists($port_file_location)) {
-      $port_number = file_get_contents($port_file_location);
-      return "<script src='http://localhost:$port_number/static/app.js'></script>";
-    }
-
-    return '<script>' . file_get_contents($plugin_root . '/resources/assets/app.js') .
-      '</script>';
+  function get_js_file() {
+    $plugin_root = realpath(__DIR__ . '/..');
+    $stats_string = file_get_contents($plugin_root . '/stats.json');
+    $stats_json = json_decode($stats_string);
+    $js_filename = ($stats_json->assetsByChunkName->app[0]);
+    return '/app/plugins/agreable-product-plugin/resources/assets/' . $js_filename;
   }
 
   public function add_timber_paths($paths){
