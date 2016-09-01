@@ -40,8 +40,8 @@
           <p>This is some text</p>
         </div>
         {% endif %}
-        <h4 class="product_information-description">{{product.product_description}}</h4>
-        <h4 class="product_information-quote">{{product.product_quote}}</h4>
+        <div class="product_information-description">{{product.product_description}}</div>
+        <blockquote class="product_information-quote">{{product.product_quote}}</blockquote>
         <p class="product_information-author">- {{product.product_quote_author}}</p>
 
         {% include 'partials/share/template.twig' %}

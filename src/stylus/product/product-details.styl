@@ -1,15 +1,15 @@
 
 .product_collection
-  max-width pageColumnWidth
   margin 0 auto
+  max-width pageColumnWidth
   @media ipadsAndUp
     margin 0 auto 50px auto
 
 .product_information-half
-  width 100%
   display inline-block
-  vertical-align middle
   margin-bottom 30px
+  vertical-align middle
+  width 100%
   @media ipadsAndUp
     width 49%
 
@@ -52,11 +52,6 @@
   margin-top 0
   margin-bottom 25px
 
-.product_information-author
-  text-transform uppercase
-  text-align right
-  font-weight 700
-
 .product_information-finer-details
   border-top 1px solid #DBDBDB
   border-bottom 1px solid #DBDBDB
@@ -77,40 +72,42 @@
 .product_information-offer
   font-size 14px
   font-style italic
-  text-align right
-  margin-top 5px
   margin-bottom 0
+  margin-top 5px
+  text-align right
 
 .product_information-description
-  line-height 1.64
   color #4e4e4e
-  margin-bottom 40px
+  line-height 1.64
+  margin-bottom 30px
 
 .product_information-quote
-  font-style italic
-  font-size 1em
   color #4e4e4e
+  font-weight 700
   line-height 1.88
-  margin-bottom 20px
 
 .product_information-author
   color bestBeautyPink
+  font-weight 700
+  line-height 1.88
+  text-transform capitalize
 
 .product_information-button
   background-color bestBeautyPink
+  border-radius 25px
   color white
+  display  inline-block
+  font-weight 700
+  letter-spacing 1.8
   padding 15px 75px
   text-decoration none
-  border-radius 25px
-  display  inline-block
-  letter-spacing 1.8
-  font-weight 700
   @media screen and (max-width 375px)
-    position fixed
-    z-index 2
     bottom 20px
     left 20px
+    position fixed
     right 20px
+    z-index 2
+
 
 //  Hero award winner badge
 .product-badge
