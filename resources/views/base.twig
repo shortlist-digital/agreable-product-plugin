@@ -56,19 +56,23 @@
   </head>
 {% endblock %}
   <body>
+
     <div class="site-border-1"></div>
     <div class="site-border-2"></div>
+
     {% block header %}{% endblock %}
+
     <main class="site-content">
       {% block content %}{% endblock %}
     </main>
+
     {% if environment == "production" %}
       <!-- Styles are inject in real time via webpack server -->
       <script async defer src="/app/dev/agreable-product-plugin/resources/assets/app.js"></script>
     {% endif %}
+
+    {% include 'partials/browser-warning/template.twig' %}
+    {% include 'analytics/template.twig' %}
+    {% include "@AgreableProductPlugin/affiliate-links/template.twig" %}
   </body>
-
-  {% include 'partials/browser-warning/template.twig' %}
-
-  {% include 'analytics/template.twig' %}
 </html>
