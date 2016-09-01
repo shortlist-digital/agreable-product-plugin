@@ -6,7 +6,7 @@
 	<h3 class="sub-nav-container_title">{{product_collection_category.name}} Categories</h3>
 	<ul>
 		{% for sub_category in product_collection_category.sub_categories %}
-			<li id="sub_category.sub_category_name"><a href="#{{sub_category.sub_category_name}}" class="sub-nav-container_item">{{sub_category.sub_category_name}}</a></li>
+			<li class="sub-nav-container_item" id="sub_category.sub_category_name"><a href="#{{sub_category.sub_category_name}}" class="sub-nav-container_link">{{sub_category.sub_category_name}}</a></li>
 		{% endfor %}
 	</ul>
 </section>

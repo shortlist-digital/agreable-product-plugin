@@ -1,10 +1,12 @@
 .sub-category-nav
-  text-align right
+  text-align center
   margin-bottom 20px
-  @media smallTabletsAndUp
+  @media mediumMobilesAndUp
     margin-bottom 0
+    text-align right
 
 .sub-nav-open
+  width 80%
   background white
   color bestBeautyPink
   text-transform uppercase
@@ -13,9 +15,11 @@
   letter-spacing 1.4px
   font-weight 800
   font-size 10px
-  margin-right 32px
-  @media smallTabletsAndUp
+  margin-right 0
+  @media mediumMobilesAndUp
     margin-right 50px
+    margin-right 32px
+    width auto
     
 
 .sub-nav-container
@@ -33,9 +37,10 @@
   position fixed
   top 52px
   transform translateX(0)
-  transition 1s
+  transition 0.5s
   width 100%
-  will-change translateX
+  will-change transform
+  z-index 15
   &[aria-hidden="false"]
     transform translateX(-100%)
   @media smallTabletsAndUp
@@ -54,11 +59,17 @@
   padding 20px
 
 .sub-nav-container_item
+  display block
+  margin-bottom 15px
+  padding 5px 0
+  border 1px solid bestBeautyPink 
+  &:hover
+    border 1px solid white 
+
+.sub-nav-container_link
   text-decoration none
   padding 10px 20px
   font-size 13px
-  &:hover
-    border 1px solid white 
 
 .sub-nav-close
   margin 10px
