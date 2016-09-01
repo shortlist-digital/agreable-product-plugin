@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:300,700,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,600,800' rel='stylesheet' type='text/css'>
 
     {# Load in wp_head to get Krux goodness #}
     {{function('wp_head')}}
@@ -65,5 +65,7 @@
       {% block content %}{% endblock %}
     </main>
   </body>
+  {% include 'partials/browser-warning/template.twig' %}
+  {% include 'analytics/template.twig' %}
   {% include "@AgreableProductPlugin/affiliate-links/template.twig" %}
 </html>
