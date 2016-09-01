@@ -13,21 +13,23 @@
   {% set image = product_collection.get_field('landing_page_background_image').sizes.square %}
 
   <div class="landing-container" style="background-image:url({{image}})">
-    <div class="landing-container__logo">
-      {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
+    <div class="landing-container__inner">
+      <div class="landing-container__logo">
+        {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
+      </div>
+      <div class="landing-container__sell">
+        {{product_collection.landing_page_sell}}
+      </div>
+      <ul class="list-categories">
+        {% for category in categories %}
+          <li class="list-categories__list-item">
+            <a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="list-categories__item">
+              {{category.name}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-    <div class="landing-container__sell">
-      {{product_collection.landing_page_sell}}
-    </div>
-    <ul class="list-categories">
-      {% for category in categories %}
-        <li class="list-categories__list-item">
-          <a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="list-categories__item">
-            {{category.name}}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
   </div>
 
 {% endblock %}
