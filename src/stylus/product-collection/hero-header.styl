@@ -21,16 +21,16 @@ maxscreen = 1200px
     width 100vw
 
 .product_collection-header-category
-	font-size calc(30px + (128 - 30) * (100vw - 400px) / (1200 - 400)) // variables aren't working here, hard-coded for now
-	font-weight 800
-	color white
-	letter-spacing 10px
-	text-transform uppercase
-	text-align center
-	position relative
-	top 50%
-	transform translateY(-50%)
-	@media (max-width: 399px)
-		font-size 30px
-	@media (min-width: 1200px)
-		font-size 128px
+  color white
+  font-size calc(30px + (128 - 30) * (100vw - 400px) / (1200 - 400)) // variables aren't working here, hard-coded for now
+  font-weight 800
+  letter-spacing 0.13em
+  position relative
+  text-align center
+  text-transform uppercase
+  top 50%
+  transform translateY(-50%)
+  @media (max-width: 399px)
+    font-size 30px
+  @media (min-width: 1200px)
+    font-size 128px

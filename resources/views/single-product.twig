@@ -6,10 +6,12 @@
 
 {% block content %}
 
+{% set product_image = product.get_field('product_images')[0].sizes.square %}
+
   <div class="product_collection">
     <div class="wrapper">
       <div class="product_information-half product_information-half-left">
-        <img src="{{ product.get_field('product_images')[0].sizes.square }}" class="product_information-image" alt="{{post.title}} product image">
+        <img src="{{product_image}}" class="product_information-image" alt="{{post.title}} product image">
         <a href="{{product.product_affiliate_link}}" class="product_information-button">BUY HERE</a>
       </div>
       <div class="product_information-half product_information-half-right">
@@ -23,7 +25,6 @@
         </div>
         <h2 class="product_information-title">{{product.post_title}}</h2>
         <h3 class="product_information-brand">By {{product.brand_name}}</h3>
-
         <div class="product_information-finer-details">
           {% if 'product_categories-category-winner' in product.class %}
             <h3 class="product_information-winner-label">2016 Winner</h3>
@@ -33,9 +34,14 @@
             <h3 class="product_information-offer">{{product.product_offer}}</h3>
           {% endif %}
         </div>
-
-        <h4 class="product_information-description">{{product.product_description}}</h4>
-        <h4 class="product_information-quote">{{product.product_quote}}</h4>
+        {% if 'product_categories-hero-winner' in product.class %}
+        <div class="product-badge">
+          <p class="product-badge__title">Hero Award Winner</p>
+          <p>The Stylist beauty team's stamp of approval</p>
+        </div>
+        {% endif %}
+        <div class="product_information-description">{{product.product_description}}</div>
+        <blockquote class="product_information-quote">{{product.product_quote}}</blockquote>
         <p class="product_information-author">- {{product.product_quote_author}}</p>
 
         {% include 'partials/share/template.twig' %}
