@@ -5,6 +5,9 @@
   {% set product_image = product.get_field('product_images')[0].sizes.square %}
 
   <div class="product-card__media">
+    {% if 'product_categories-hero-winner' in product.class %}
+      SHOW BADGE
+    {% endif %}
     <div class="media-wrap media-wrap--square">
       <img class="product-card__image media-wrap__item" data-src="{{product_image|resize(340,340)}}" alt="{{product.post_title}} Product Image">
       <noscript>
