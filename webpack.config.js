@@ -27,6 +27,11 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    }),
     new webpack.DefinePlugin({
       __PRODUCTION__: 'true'
     })
