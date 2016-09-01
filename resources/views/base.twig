@@ -64,8 +64,9 @@
     <main class="site-content">
       {% block content %}{% endblock %}
     </main>
+    {% include 'partials/browser-warning/template.twig' %}
+    {% include 'analytics/template.twig' %}
+    {% include "@AgreableProductPlugin/affiliate-links/template.twig" %}
   </body>
-  {% include 'partials/browser-warning/template.twig' %}
-  {% include 'analytics/template.twig' %}
-  {% include "@AgreableProductPlugin/affiliate-links/template.twig" %}
+ 
 </html>
