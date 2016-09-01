@@ -44,6 +44,7 @@
   @media ipadsAndUp
     width 29px
 .site-nav-open path
+  fill #fff
   transition fill 150ms ease-out
   @media ipadsAndUp
     fill bestBeautyPink
@@ -54,6 +55,10 @@
 .site-header--context-landing .site-nav-open:hover path,
 .site-header--context-landing .site-nav-open:focus path
   fill bestBeautyPink
+
+.site-nav-open:focus,
+.site-nav-close:focus
+  outline none
 
 .site-nav-container__logo
   fill #fff
