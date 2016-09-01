@@ -18,10 +18,11 @@ class CategoryController {
       throw new Exception('Post not found');
     }
 
+    global $post; // Set the $post globally, for wp_head and other functions
+    $post = new TimberPost($product_collection);
+
     $context = Timber::get_context();
-    $context['product_collection'] = new TimberPost($product_collection);
-
-
+    $context['product_collection'] = $post;
 
     foreach ($product_collection->get_field('categories') as $category) {
       if ($this->sanitise_category_for_slug($category['name']) === $this->sanitise_category_for_slug($category_slug)) {
