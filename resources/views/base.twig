@@ -41,15 +41,13 @@
     {# Load in wp_head to get Krux goodness #}
     {{function('wp_head')}}
 
-    {# {% if env == "development" %} #}
-      {{ product_plugin.js_string | raw }}
-    {#
-    {% else %}
-      <script>
-        {{js_string|raw}}
-      </script>
+    {% if environment == "development" %}
+      <!-- Styles are inject in real time via webpack server -->
+      <script src="http://localhost:{{webpack_port}}/static/app.js"></script>
     {% endif %}
-    #}
+    {% if environment == "production" %}
+      <link rel="stylesheet" href="/app/dev/agreable-product-plugin/resources/assets/styles.css" type="text/css" />
+    {% endif %}
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js')</script>
 
@@ -64,5 +62,9 @@
     <main class="site-content">
       {% block content %}{% endblock %}
     </main>
+    {% if environment == "production" %}
+      <!-- Styles are inject in real time via webpack server -->
+      <script async defer src="/app/dev/agreable-product-plugin/resources/assets/app.js"></script>
+    {% endif %}
   </body>
 </html>
