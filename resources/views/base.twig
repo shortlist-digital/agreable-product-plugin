@@ -41,32 +41,39 @@
     {# Load in wp_head to get Krux goodness #}
     {{function('wp_head')}}
 
-    {# {% if env == "development" %} #}
-      {{ product_plugin.js_string | raw }}
-    {#
-    {% else %}
-      <script>
-        {{js_string|raw}}
-      </script>
+    {% if environment == "development" %}
+      <!-- Styles are injected in real time via webpack server -->
+      <script src="http://localhost:{{webpack_port}}/static/app.js"></script>
     {% endif %}
-    #}
+    {% if environment != "development" %}
+      <link rel="stylesheet" href="{{product_plugin.css_file}}" type="text/css" />
+    {% endif %}
 
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js')</script>
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+    </script>
 
     {% block head %}
     {% endblock %}
   </head>
 {% endblock %}
   <body>
+
     <div class="site-border-1"></div>
     <div class="site-border-2"></div>
+
     {% block header %}{% endblock %}
+
     <main class="site-content">
       {% block content %}{% endblock %}
     </main>
+
+    {% if environment != "development" %}
+      <script src="{{product_plugin.js_file}}"></script>
+    {% endif %}
+
     {% include 'partials/browser-warning/template.twig' %}
     {% include 'analytics/template.twig' %}
     {% include "@AgreableProductPlugin/affiliate-links/template.twig" %}
   </body>
- 
 </html>
