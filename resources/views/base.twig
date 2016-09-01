@@ -36,18 +36,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:300,600,800' rel='stylesheet' type='text/css'>
 
     {# Load in wp_head to get Krux goodness #}
     {{function('wp_head')}}
 
     {% if environment == "development" %}
       <!-- Styles are injected in real time via webpack server -->
-      <script src="http://localhost:{{webpack_port}}/static/app.js"></script>
+      <script src="http://localhost:{{product_plugin.webpack_port}}/static/app.js"></script>
     {% endif %}
     {% if environment != "development" %}
       <link rel="stylesheet" href="{{product_plugin.css_file}}" type="text/css" />
     {% endif %}
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,600,800' rel='stylesheet' type='text/css'>
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js')

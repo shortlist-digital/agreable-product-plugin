@@ -19,6 +19,7 @@ class TimberSetup {
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_file = $this->get_js_file();
     $context['product_plugin']->css_file = $this->get_css_file();
+    $context['product_plugin']->webpack_port = $this->get_webpack_port();
     $context['product_plugin']->secondary_navigation = wp_get_nav_menu_items('best-beauty');
     $context['product_plugin']->product_collection = $product_collection;
     $context['product_plugin']->product_collection_categories = $product_collection_categories;
@@ -40,6 +41,15 @@ class TimberSetup {
     $stats_json = json_decode($stats_string);
     $js_filename = ($stats_json->assetsByChunkName->app[0]);
     return '/app/plugins/agreable-product-plugin/resources/assets/' . $js_filename;
+  }
+
+  function get_webpack_port() {
+    $plugin_root = realpath(__DIR__ . '/..');
+    $port_file = 'webpack-current-port.tmp';
+    $port_file_location = $plugin_root . '/' . $port_file;
+    if (getenv('WP_ENV') === 'development' && file_exists($port_file_location)) {
+      return file_get_contents($port_file_location);
+    }
   }
 
   public function add_timber_paths($paths){
