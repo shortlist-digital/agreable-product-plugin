@@ -23,6 +23,9 @@ class TimberSetup {
     $context['product_plugin']->secondary_navigation = wp_get_nav_menu_items('best-beauty');
     $context['product_plugin']->product_collection = $product_collection;
     $context['product_plugin']->product_collection_categories = $product_collection_categories;
+    $context['product_plugin']->social = new stdClass();
+    $context['product_plugin']->social->facebook_app_id = get_field('facebook_app_id', 'option');
+    $context['product_plugin']->social->twitter_id = get_field('twitter_id', 'option');
 
     return $context;
   }
