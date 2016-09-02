@@ -1,12 +1,10 @@
 
 .site-nav-container
-  align-items center
   background-color rgba(bestBeautyPink, 0.95)
   border 20px solid #fff
   display flex
   flex-direction column
   height 100%
-  justify-content center
   left 0
   opacity 0
   overflow auto
@@ -25,6 +23,9 @@
   @media ipadsAndUp
     border-width 50px
     padding 40px
+
+.site-nav-container__inner
+  margin auto
 
 .site-nav-open
   background-color transparent
@@ -116,7 +117,6 @@
   @media smallTabletsAndUp
     font-size 0
     margin-left -20px
-    max-width 650px
 
 .sub-nav__list-item
   @media smallTabletsAndUp

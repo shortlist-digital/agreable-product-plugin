@@ -4,15 +4,24 @@
   flex-shrink 0
   flex-wrap wrap
   font-size 0
+  justify-content center
   list-style none
   margin 0 auto
   max-width 680px
 
 .list-categories__list-item
   display inline-block
-  flex 1 1 auto
+  flex 1 1 100%
   font-size 16px
   padding 8px
+  @media (min-width: 410px)
+    flex 1 1 50%
+  @media (min-width: 600px)
+    flex 1 1 33.3%
+
+.list-categories__list-item:nth-last-child(-n+2)
+  @media (min-width: 600px)
+    flex-grow 0
 
 .list-categories__item
   background-color bestBeautyPink
@@ -33,7 +42,7 @@
   @media ipadsAndUp
     font-size 18px
     font-weight 600
-    padding 20px 30px
+    padding 20px 16px
 
 .list-categories--reverse .list-categories__item
   background-color #fff

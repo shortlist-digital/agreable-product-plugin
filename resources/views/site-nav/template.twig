@@ -5,28 +5,30 @@
   {% include '@AgreableProductPlugin/icon-hamburger.svg' %}
 </button>
 <section class="site-nav-container js-fr-offcanvas" id="site-navigation">
-  <div class="site-nav-container__logo">
-    {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
-  </div>
-  <ul class="list-categories list-categories--reverse list-categories--animate">
-    {% for category in categories %}
-      <li class="list-categories__list-item">
-        <a class="list-categories__item" href="{{site.url}}/shop/{{collection.slug}}/{{category.name|lower}}">
-          {{category.name}}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-  {% if product_plugin.secondary_navigation %}
-    <ul class="sub-nav">
-      {% for item in product_plugin.secondary_navigation %}
-        <li class="sub-nav__list-item">
-          <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
+  <div class="site-nav-container__inner">
+    <div class="site-nav-container__logo">
+      {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
+    </div>
+    <ul class="list-categories list-categories--reverse list-categories--animate">
+      {% for category in categories %}
+        <li class="list-categories__list-item">
+          <a class="list-categories__item" href="{{site.url}}/shop/{{collection.slug}}/{{category.name|lower}}">
+            {{category.name}}
+          </a>
         </li>
       {% endfor %}
     </ul>
-  {% endif %}
-  <button class="site-nav-close js-fr-offcanvas-close">
-    Close
-  </button>
+    {% if product_plugin.secondary_navigation %}
+      <ul class="sub-nav">
+        {% for item in product_plugin.secondary_navigation %}
+          <li class="sub-nav__list-item">
+            <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <button class="site-nav-close js-fr-offcanvas-close">
+      Close
+    </button>
+  </div>
 </section>
