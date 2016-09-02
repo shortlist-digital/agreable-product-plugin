@@ -10,7 +10,7 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta charset="UTF-8" />
 
-    <title>{{product_collection.post_title}}</title>
+    <title>{{ page_title | default(product_collection.post_title) }}</title>
 
     {# ICONS #}
     {% if options.favicon_png %}

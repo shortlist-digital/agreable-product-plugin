@@ -8,7 +8,25 @@
 
 {% block content %}
 
-  <div class="product_collection-header" style="background-image:url({{product_collection_category.category_image.url}})">
+  {% set image = product_collection_category.category_image.url %}
+  {% set image_mobile = product_collection_category.category_image_mobile.url %}
+
+  <style media="screen">
+    {% if image_mobile %}
+      .product_collection-header {
+        background-image: url({{image_mobile}})
+      }
+      @media (min-width: 768px) {
+    {% endif %}
+      .product_collection-header {
+        background-image: url({{image}})
+      }
+    {% if image_mobile %}
+      }
+    {% endif %}
+  </style>
+
+  <div class="product_collection-header">
     <h1 class="product_collection-header-category">
       {{product_collection_category.name}}
     </h1>

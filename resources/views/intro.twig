@@ -11,8 +11,24 @@
 {% block content %}
 
   {% set image = product_collection.get_field('landing_page_background_image').sizes.square %}
+  {% set image_mobile = product_collection.get_field('landing_page_background_image_mobile').sizes.square %}
 
-  <div class="landing-container" style="background-image:url({{image}})">
+  <style media="screen">
+    {% if image_mobile %}
+      .landing-container {
+        background-image: url({{image_mobile}})
+      }
+      @media (min-width: 768px) {
+    {% endif %}
+      .landing-container {
+        background-image: url({{image}})
+      }
+    {% if image_mobile %}
+      }
+    {% endif %}
+  </style>
+
+  <div class="landing-container">
     <div class="landing-container__inner">
       <div class="landing-container__logo">
         {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
