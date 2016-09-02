@@ -6,6 +6,13 @@ add_action('agreable_app_theme_init', function() {
     'key' => $key,
     'title' => 'Product Collections',
     'fields' => array(
+      array (
+        'key' => $key . '_landing_page_sell',
+        'label' => 'Product Collection Sell',
+        'name' => 'landing_page_sell',
+        'type' => 'strict_wysiwyg',
+        'required' => 0
+      ),
        array (
         'key' => $key . '_favicon',
         'label' => 'Product Collection Favicon',
@@ -13,25 +20,30 @@ add_action('agreable_app_theme_init', function() {
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
-          'width' => '25%',
+          'width' => '30%',
         )
       ),
       array (
         'key' => $key . '_landing_page_background_image',
         'label' => 'Product Collection Main Background Image',
+        'instructions' => 'Main background image for the product collection intro page',
         'name' => 'landing_page_background_image',
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
-          'width' => '75%',
+          'width' => '35%',
         )
       ),
       array (
-        'key' => $key . '_landing_page_sell',
-        'label' => 'Product Collection Sell',
-        'name' => 'landing_page_sell',
-        'type' => 'strict_wysiwyg',
-        'required' => 0
+        'key' => $key . '_landing_page_background_image_mobile',
+        'label' => 'Product Collection Main Background Mobile Image',
+        'instructions' => 'Pick a different image or crop for mobile devices',
+        'name' => 'landing_page_background_image_mobile',
+        'type' => 'image',
+        'required' => 0,
+        'wrapper' => array (
+          'width' => '35%',
+        )
       ),
       array (
         'key' => $key . '_categories',
@@ -53,18 +65,31 @@ add_action('agreable_app_theme_init', function() {
             'readonly' => 0,
             'disabled' => 0,
             'wrapper' => array (
-              'width' => '50%',
+              'width' => '30%',
             )
           ),
           array (
             'key' => $key . '_image',
             'label' => 'Category Image',
+            'instructions' => 'Large hero image for the category page',
             'name' => 'category_image',
             'type' => 'image',
             'required' => 0,
             'conditional_logic' => 0,
             'wrapper' => array (
-              'width' => '50%',
+              'width' => '35%',
+            )
+          ),
+          array (
+            'key' => $key . '_image_mobile',
+            'label' => 'Category Mobile Image',
+            'instructions' => 'Pick a different image or crop for mobile devices',
+            'name' => 'category_image_mobile',
+            'type' => 'image',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array (
+              'width' => '35%',
             )
           ),
           array (
