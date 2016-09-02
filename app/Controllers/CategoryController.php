@@ -33,6 +33,9 @@ class CategoryController {
       throw new Exception('Product collection category not found');
     }
 
+    $context['page_title'] = $context['product_collection_category']['name'] . ' - ' .
+      $product_collection->post_title . ' - ' . get_bloginfo();
+
     Timber::render('@AgreableProductPlugin/category.twig', $context, false);
   }
 

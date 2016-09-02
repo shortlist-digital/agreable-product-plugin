@@ -22,6 +22,7 @@ class ProductCollectionController {
     $post = new TimberPost($product_collection);
 
     $context['product_collection'] = $post;
+    $context['page_title'] = $post->post_title . ' - ' . get_bloginfo();
 
     Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
 
