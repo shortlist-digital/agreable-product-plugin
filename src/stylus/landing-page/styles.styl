@@ -1,22 +1,25 @@
 .landing-container
-  align-items center
+  background-color #ececec
   background-position center center
   background-size cover
   display flex
   flex-direction column
   font-family secondaryFontFamily
-  justify-content center
   min-height 100%
+  overflow auto
   padding 40px 20px
   text-align center
   width 100%
   @media ipadsAndUp
     height 100vh
     left 0
-    padding 0
+    padding 60px
     position fixed
     top 0
     width 100vw
+
+.landing-container__inner
+  margin auto
 
 .landing-container__logo
   margin-bottom 40px
@@ -31,7 +34,7 @@
   display none
   color #fff
   font-size 24px
-  font-weight 700
+  font-weight 600
   letter-spacing 3px
   margin-bottom 60px
   text-transform uppercase

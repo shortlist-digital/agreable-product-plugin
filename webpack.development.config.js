@@ -20,7 +20,6 @@ module.exports = function(port) {
     },
     module: {
       loaders: [
-        // { test: /\.js?$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/ },
         { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'},
         { test: /\.json$/, loader: 'json-loader' },
         { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: "url" },
@@ -29,7 +28,6 @@ module.exports = function(port) {
     },
 
     plugins: [
-      new ExtractTextPlugin('styles.css'),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         __PRODUCTION__: 'false'
