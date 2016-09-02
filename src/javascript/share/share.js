@@ -6,7 +6,7 @@ export default class Share {
   constructor () {
     new FacebookLoader()
 
-    document.querySelectorAll('.share__button').forEach(function(shareButton) {
+    this.query('.share__button').forEach(function(shareButton) {
       let socialNetwork =  shareButton.className.match(/share__button--(.*)/)[1]
 
       // Produces name of function to call
@@ -68,5 +68,10 @@ export default class Share {
   emailText () { return window.location.protocol + '//' + window.location.hostname + window.location.pathname }
 
   currentUrl () { return document.location.href }
+
+  query (selector) {
+    // wrapper to return an array of elements (converted from nodelist)
+    return [].slice.call(document.querySelectorAll(selector))
+  }
 
 }
