@@ -1,57 +1,42 @@
-.product_collection_landing
-  align-items center
-  background-size cover
+.landing-container
+  background-color #ececec
   background-position center center
+  background-size cover
   display flex
+  flex-direction column
   font-family secondaryFontFamily
   min-height 100%
-  justify-content center
+  overflow auto
+  padding 40px 20px
+  text-align center
   width 100%
   @media ipadsAndUp
     height 100vh
     left 0
+    padding 60px
     position fixed
     top 0
     width 100vw
 
-.product_collection_landing path
+.landing-container__inner
+  margin auto
+
+.landing-container__logo
+  margin-bottom 40px
+  padding 0 12vw
+  @media ipadsAndUp
+    margin-bottom 80px
+    padding 0 16vw
+.landing-container__logo path
   fill #fff
 
-.product_collection_landing-content
-  max-width 90%
-  text-align center
-  @media ipadsAndUp
-    max-width 60%
-
-.product_collection_landing-title
+.landing-container__sell
+  display none
+  color #fff
+  font-size 24px
+  font-weight 600
+  letter-spacing 3px
+  margin-bottom 60px
   text-transform uppercase
-  color white
-  font-size 3rem
-  letter-spacing 5px
-  line-height 1em
-  margin 0
-  font-weight 900
   @media ipadsAndUp
-    font-size 5rem
-    width 60%
-    margin 0 auto
-
-.product_collection_landing-byline
-  color white
-  font-weight 300
-  margin-top 0
-  margin-bottom 10px
-
-.product_collection_landing-image
-  width 50%
-  margin-bottom 40px
-
-.product_collection_landing-sell
-	text-transform uppercase
-	color white
-	letter-spacing 3px
-	margin-bottom 20px
-
-.product_collection_logo-small
-  max-width 150px
-  float right
+    display block

@@ -1,11 +1,19 @@
 {% set product = TimberPost(product) %}
 
-<div class="product-card">
+<a href="{{product.permalink}}" class="product-card">
+
+  {% set product_image = product.get_field('product_images')[0].sizes.square %}
 
   <div class="product-card__media">
-    <a class="product-card__media-link" href="{{product.permalink}}">
-      <img src="{{ product.get_field('product_images')[0].sizes.square  }}" alt="{{product.post_title}} Product Image">
-    </a>
+    {% if 'product_categories-hero-winner' in product.class %}
+      <div class="product-card__rosette">Hero Awards Winner</div>
+    {% endif %}
+    <div class="media-wrap media-wrap--square">
+      <img class="product-card__image media-wrap__item" data-src="{{product_image}}" alt="{{product.post_title}} Product Image">
+      <noscript>
+        <img class="product-card__image media-wrap__item" src="{{product_image}}" alt="{{product.post_title}} Product Image">
+      </noscript>
+    </div>
   </div>
 
   <div class="product-card__content">
@@ -14,7 +22,7 @@
     {% endif %}
     {% if product.product_rating %}
       <div class="product-card__rating">
-        {% include "@AgreableProductPlugin/star-rating/template.twig" %}
+        {% include "@AgreableProductPlugin/star-rating/template.twig" with { modifier: 'small' } %}
       </div>
     {% endif %}
     <h3 class="product-card__title">
@@ -28,5 +36,6 @@
         {{product.product_price}}
       </p>
     {% endif %}
+    <p class="product-card__link">View product</p>
   </div>
-</div>
+</a>

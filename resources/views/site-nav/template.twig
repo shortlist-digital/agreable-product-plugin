@@ -1,13 +1,34 @@
-<button class="site-nav-toggle" type="button">
+{% set categories = product_plugin.product_collection_categories %}
+{% set collection = product_plugin.product_collection %}
+
+<button class="site-nav-open js-fr-offcanvas-open" type="button" aria-controls="site-navigation">
   {% include '@AgreableProductPlugin/icon-hamburger.svg' %}
 </button>
-<!-- Commented out until we decide what to do -->
-<!-- <ul class="site-nav">
-  {% for category in product_collection.get_field('categories') %}
-    <li class="site-nav__list-item">
-      <a class="site-nav__item" href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}">
-        {{category.name}}
-      </a>
-    </li>
-  {% endfor %}
-</ul> -->
+<section class="site-nav-container js-fr-offcanvas" id="site-navigation">
+  <div class="site-nav-container__inner">
+    <div class="site-nav-container__logo">
+      {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
+    </div>
+    <ul class="list-categories list-categories--reverse list-categories--animate">
+      {% for category in categories %}
+        <li class="list-categories__list-item">
+          <a class="list-categories__item" href="{{site.url}}/shop/{{collection.slug}}/{{category.name|lower}}">
+            {{category.name}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if product_plugin.secondary_navigation %}
+      <ul class="sub-nav">
+        {% for item in product_plugin.secondary_navigation %}
+          <li class="sub-nav__list-item">
+            <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <button class="site-nav-close js-fr-offcanvas-close">
+      Close
+    </button>
+  </div>
+</section>

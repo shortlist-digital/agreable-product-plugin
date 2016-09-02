@@ -1,22 +1,18 @@
-require('es6-object-assign').polyfill()
-
-require('./stylus/main.styl')
-
 import DOMReady from 'detect-dom-ready'
+import SiteNavigation from './javascript/site-navigation'
+import LazyImages from './javascript/lazy-images'
+import Share from './javascript/share/share.js'
+
+require('es6-object-assign').polyfill()
+require('./stylus/main.styl')
 
 DOMReady(function () {
   // Information about the promotion is bootstrapped from the server
   // var agreablePromoData = window.agreablePromoData
 
-  console.log('agreablt-product-plugin JS init')
+  console.log('agreable-product-plugin JS init')
 
-
-  // let rootElement = document.getElementById('agreable-promotion')
-
-  // React.render(
-  //   <Provider store={store}>
-  //     {() => <App />}
-  //   </Provider>,
-  //   rootElement
-  // )
+  new SiteNavigation()
+  new LazyImages()
+  new Share()
 })

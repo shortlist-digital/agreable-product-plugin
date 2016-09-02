@@ -7,7 +7,7 @@
     "start": "npm install && npm run live-compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch --debug",
-    "webpack-production": "webpack -p",
+    "webpack-production": "rm -r resources/assets/* && webpack -p",
     "live-compile": "node dev-server.js"
   },
   "repository": {
@@ -17,22 +17,22 @@
   "author": "Shortlist Media",
   "license": "ISC",
   "devDependencies": {
-    "babel": "*",
-    "babel-core": "^5.8.24",
-    "babel-loader": "^5.3.3",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
     "css-loader": "~0.9.1",
     "extract-text-webpack-plugin": "^0.8.2",
     "get-port": "^1.0.0",
-    "jscs": "^2.1.1",
     "jscs-loader": "^0.2.0",
+    "jscs": "^2.1.1",
     "json-loader": "^0.5.2",
     "nib": "~1.1.0",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^2.1.2",
     "style-loader": "~0.9.0",
     "stylus-loader": "~1.0.0",
-    "webpack": "^1.12.1",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.10.1",
+    "webpack": "^1.12.1"
   },
   "dependencies": {
     "check-email-valid": "^1.0.0",
@@ -40,6 +40,9 @@
     "detect-dom-ready": "^1.0.2",
     "entities": "^1.1.1",
     "es6-object-assign": "^1.0.1",
+    "fr-offcanvas": "^1.0.5",
+    "in-view": "^0.2.0",
+    "lodash.throttle": "^4.1.1",
     "moment": "^2.10.6",
     "postcode": "^0.2.3",
     "postcode-validator": "^1.2.0",

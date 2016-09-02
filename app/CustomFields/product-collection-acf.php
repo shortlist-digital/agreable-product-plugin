@@ -6,14 +6,14 @@ add_action('agreable_app_theme_init', function() {
     'key' => $key,
     'title' => 'Product Collections',
     'fields' => array(
-      array (
-        'key' => $key .'_landing_page_logo',
-        'label' => 'Product Collection Logo',
-        'name' => 'landing_page_logo',
+       array (
+        'key' => $key . '_favicon',
+        'label' => 'Product Collection Favicon',
+        'name' => 'product_collection_favicon',
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
-          'width' => '50%',
+          'width' => '25%',
         )
       ),
       array (
@@ -23,7 +23,7 @@ add_action('agreable_app_theme_init', function() {
         'type' => 'image',
         'required' => 0,
         'wrapper' => array (
-          'width' => '50%',
+          'width' => '75%',
         )
       ),
       array (
