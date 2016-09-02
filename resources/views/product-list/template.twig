@@ -1,9 +1,9 @@
 
-<section class="product-collection">
-  <div class="wrapper">
+<section class="product-collection {% if modifier %}product-collection--{{modifier}}{% endif %}">
+  <div class="wrapper {% if modifier %}wrapper--{{modifier}}{% endif %}">
     <h2 class="product-collection__title">{{title}}</h2>
   </div>
-  <ul class="product-list grid lazy-container">
+  <ul class="product-list {% if modifier %}product-list--{{modifier}}{% endif %} grid lazy-container">
     {% for product in products %}
       <li class="product-list__list-item grid__col">
         {% include "@AgreableProductPlugin/product-card/template.twig" %}

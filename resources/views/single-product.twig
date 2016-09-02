@@ -6,52 +6,72 @@
 
 {% block content %}
 
-{% set product_image = product.get_field('product_images')[0].sizes.square %}
+  {% set product_image = product.get_field('product_images')[0].sizes.square %}
+  {% set category_winner = 'product_categories-category-winner' in product.class %}
+  {% set hero_winner = 'product_categories-hero-winner' in product.class %}
 
-  <div class="product_collection">
-    <div class="wrapper">
-      <div class="product_information-half product_information-half-left">
-        <img src="{{product_image}}" class="product_information-image" alt="{{post.title}} product image">
-        <a href="{{product.product_affiliate_link}}" class="product_information-button">BUY HERE</a>
+  <div class="wrapper wrapper--narrow">
+    <div class="product-info-container">
+      <div class="product-info__col product-info__col--centered">
+        <div class="product-info__media">
+          <div class="media-wrap media-wrap--square">
+            <img class="product-info__image media-wrap__item" src="{{product_image}}" alt="{{product.post_title}} Product Image">
+          </div>
+        </div>
+        <!-- <img src="{{product_image}}" class="product_information-image" alt="{{post.title}} product image"> -->
+        <a href="{{product.product_affiliate_link}}" class="product-info__cta">Buy here</a>
       </div>
-      <div class="product_information-half product_information-half-right">
-        <div class="product_information-winner-details">
-          {% if 'product_categories-category-winner' in product.class %}
-            <div class="winner-badge">Winner</div>
+      <div class="product-info__col">
+        <div class="product-info__content">
+          <div class="product-info-rating">
+            {% if category_winner %}
+              <div class="product-info-rating__badge">Winner</div>
+            {% endif %}
+            {% if product.product_rating %}
+              <div class="product-info-rating__stars">
+                {% include "@AgreableProductPlugin/star-rating/template.twig" %}
+              </div>
+            {% endif %}
+          </div>
+          <h2 class="product-info__title">
+            {{product.post_title}}
+          </h2>
+          <p class="product-info__brand">
+            by {{product.brand_name}}
+          </p>
+          <div class="product-info-meta">
+            {% if category_winner %}
+              <p class="product-info-meta__winner-label">2016 Winner</p>
+            {% endif %}
+            <p class="product-info-meta__price">{{product.product_price}}</p>
+            {% if product.product_offer %}
+              <p class="product-info-meta__offer">{{product.product_offer}}</p>
+            {% endif %}
+          </div>
+          {% if hero_winner %}
+            <div class="product-info-badge">
+              <p class="product-info-badge__title">Hero Award Winner</p>
+              <p>The Stylist beauty team's stamp of approval</p>
+            </div>
           {% endif %}
-          {% if product.product_rating %}
-            {% include "@AgreableProductPlugin/star-rating/template.twig" %}
-          {% endif %}
+          <div class="product-info__description">
+            {{product.product_description}}
+          </div>
+          <blockquote class="product-info__quote">
+            {{product.product_quote}}
+          </blockquote>
+          <p class="product-info__author">
+            &mdash; {{product.product_quote_author}}
+          </p>
+          {% include 'partials/share/template.twig' %}
         </div>
-        <h2 class="product_information-title">{{product.post_title}}</h2>
-        <h3 class="product_information-brand">By {{product.brand_name}}</h3>
-        <div class="product_information-finer-details">
-          {% if 'product_categories-category-winner' in product.class %}
-            <h3 class="product_information-winner-label">2016 Winner</h3>
-          {% endif %}
-          <h3 class="product_information-price">{{product.product_price}}</h3>
-          {% if product.product_offer %}
-            <h3 class="product_information-offer">{{product.product_offer}}</h3>
-          {% endif %}
-        </div>
-        {% if 'product_categories-hero-winner' in product.class %}
-        <div class="product-badge">
-          <p class="product-badge__title">Hero Award Winner</p>
-          <p>The Stylist beauty team's stamp of approval</p>
-        </div>
-        {% endif %}
-        <div class="product_information-description">{{product.product_description}}</div>
-        <blockquote class="product_information-quote">{{product.product_quote}}</blockquote>
-        <p class="product_information-author">- {{product.product_quote_author}}</p>
-
-        {% include 'partials/share/template.twig' %}
-
       </div>
     </div>
   </div>
 
   {% include "@AgreableProductPlugin/product-list/template.twig" with {
     products: product.get_field('more_products'),
+    modifier: 'narrow',
     title: 'You may also love'
   } %}
 
