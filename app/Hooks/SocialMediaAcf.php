@@ -11,11 +11,14 @@ class SocialMediaAcf {
       [
         'param' => 'post_type',
         'operator' => '==',
-        'value' => 'product_collection'
-      ], [
+        'value' => 'product'
+      ]
+    ];
+    $acf_definition['location'][] = [
+      [
         'param' => 'post_type',
         'operator' => '==',
-        'value' => 'product'
+        'value' => 'product_collection'
       ]
     ];
 
