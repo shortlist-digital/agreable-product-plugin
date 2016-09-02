@@ -1,5 +1,5 @@
 
-<section class="product-collection {% if modifier %}product-collection--{{modifier}}{% endif %}" id="{{title}}">
+<section class="product-collection {% if modifier %}product-collection--{{modifier}}{% endif %}" id="{{title|lower|replace(' ', '-')}}">
   <div class="wrapper {% if modifier %}wrapper--{{modifier}}{% endif %}">
     <h2 class="product-collection__title">{{title}}</h2>
   </div>
