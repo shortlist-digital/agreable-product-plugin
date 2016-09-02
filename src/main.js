@@ -1,3 +1,4 @@
+import 'classlist-polyfill'
 import DOMReady from 'detect-dom-ready'
 import SiteNavigation from './javascript/site-navigation'
 import LazyImages from './javascript/lazy-images'
