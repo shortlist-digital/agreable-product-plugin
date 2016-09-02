@@ -11,11 +11,11 @@
       "site_name":         site_name,
       "title":             page_title,
       "description":       page_description,
-      "share_title":       post.share_title | default(page_title)),
+      "share_title":       post.share_title | default(page_title),
       "share_description": page_description,
       "url":               permalink | default(post.permalink),
       "share_image":       TimberImage(share_image).src,
-      "primary_colour":    primary_colour options.primary_colour | default('#ffffff'),
+      "primary_colour":    primary_colour,
       "twitter_id":        twitter_id,
       "favicon_png":       favicon_png,
       "favicon_ico":       favicon_ico
