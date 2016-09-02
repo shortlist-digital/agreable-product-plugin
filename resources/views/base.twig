@@ -53,6 +53,13 @@
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js')</script>
 
+    {% if product_plugin.social.facebook_app_id %}
+      <script>window.facebook_app_id = "{{product_plugin.social.facebook_app_id}}"</script>
+    {% endif %}
+    {% if product_plugin.social.twitter_id %}
+      <script>window.twitter_id = "{{product_plugin.social.twitter_id}}"</script>
+    {% endif %}
+
     {% block head %}
     {% endblock %}
   </head>
