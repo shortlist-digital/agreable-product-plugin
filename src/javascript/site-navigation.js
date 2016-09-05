@@ -1,4 +1,4 @@
-import Froffcanvas from 'fr-offcanvas'
+import Froffcanvas from './fr-offcanvas'
 
 export default class SiteNavigation {
   constructor () {
