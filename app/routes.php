@@ -16,6 +16,6 @@ $router->get([
 
 $router->get([
     'as'   => 'productCollectionSingleProduct',
-    'uri'  => '/product/{product_slug}',
+    'uri'  => '/shop/product/{product_slug}',
     'uses' => __NAMESPACE__ . '\Controllers\ProductController@showProduct'
 ]);
