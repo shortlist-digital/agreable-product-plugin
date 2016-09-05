@@ -13,6 +13,8 @@ export default class ProductCTA {
     // define thresholds to show/hide element
     this.thresholdShow = 0
     this.thresholdHide = 0
+    // test for element on page
+    if (!this.el) return
     // run & bind events
     this.handleScroll()
     this.handleResize()
