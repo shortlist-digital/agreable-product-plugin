@@ -145,3 +145,17 @@
     position fixed
     right 40px
     z-index 2
+    transition background-color 150ms ease-out,
+               box-shadow 150ms ease-out,
+               color 150ms ease-out,
+               opacity 200ms ease-out,
+               visibility 200ms ease-out,
+               transform 200ms ease-out
+    .js &
+      opacity 0
+      transform translateY(70px)
+      visibility hidden
+    .js &.is-visible
+      opacity 1
+      transform translateY(0)
+      visibility visible
