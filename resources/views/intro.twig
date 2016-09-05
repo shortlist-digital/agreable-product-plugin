@@ -10,8 +10,8 @@
 
 {% block content %}
 
-  {% set image = product_collection.get_field('landing_page_background_image').sizes.square %}
-  {% set image_mobile = product_collection.get_field('landing_page_background_image_mobile').sizes.square %}
+  {% set image = product_collection.get_field('landing_page_background_image').url %}
+  {% set image_mobile = product_collection.get_field('landing_page_background_image_mobile').url %}
 
   <style media="screen">
     {% if image_mobile %}

@@ -28,30 +28,37 @@
 .product-info-meta
   border-bottom 1px solid #dbdbdb
   border-top 1px solid #dbdbdb
-  display flex
-  flex-wrap wrap
-  justify-content space-between
+  font-size 0
   margin-bottom 20px
   padding 14px 0
   text-align right
 .product-info-meta__winner-label
   display inline-block
+  font-size 16px
   font-weight 600
-  margin-right 20px
+  padding-right 20px
+  text-align left
   vertical-align middle
+  width 50%
 .product-info-meta__price
   display inline-block
-  font-weight 600
   font-size 20px
+  font-weight 600
+  text-align right
   vertical-align middle
+  width 100%
+  .product-info-meta__winner-label + &
+    width 50%
 .product-info-meta__offer
   color #4e4e4e
+  display inline-block
   font-size 12px
   margin-bottom 0
+  margin-left auto
   margin-top 4px
   text-align right
-  width 70%
   vertical-align middle
+  width 70%
 
 .product-info__description
   color #4e4e4e
