@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle'
+import { addClass, removeClass } from './util-class'
 
 export default class SiteHeaderSticky {
 
@@ -35,8 +36,8 @@ export default class SiteHeaderSticky {
     const scrollPosition = window.pageYOffset - document.documentElement.clientTop
     // if within thresholds, show the element, otherwise hide it
     if (scrollPosition >= this.thresholdShow)
-      this.el.classList.add(this.classSticky)
+      addClass(this.el, this.classSticky)
     else
-      this.el.classList.remove(this.classSticky)
+      removeClass(this.el, this.classSticky)
   }
 }
