@@ -1,5 +1,6 @@
 import inView from 'in-view'
 import throttle from 'lodash.throttle'
+import { addClass } from './util-class'
 
 export default class LazyImages {
 
@@ -32,7 +33,7 @@ export default class LazyImages {
       // no longer need 'data-src'
       el.removeAttribute('data-src')
       // add loaded class to fade in image
-      el.classList.add('loaded')
+      addClass(el, 'loaded')
     }
     // set 'src' attribute from 'data-src'
     el.setAttribute('src', el.getAttribute('data-src'))
