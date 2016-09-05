@@ -16,6 +16,8 @@ class TimberSetup {
     $product_collection = new TimberPost(get_page_by_path('best-beauty', OBJECT, 'product_collection'));
     $product_collection_categories = get_field('categories', $product_collection->ID);
 
+    global $post;
+    $context['post'] = new TimberPost($post);
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_file = $this->get_js_file();
     $context['product_plugin']->css_file = $this->get_css_file();
