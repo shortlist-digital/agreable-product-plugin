@@ -4,10 +4,9 @@
   padding 0 32px
   list-style none
   @media (max-width: 767px)
-    // -webkit-overflow-scrolling touch
+    -webkit-overflow-scrolling touch
     overflow-x scroll
     white-space nowrap
-    // height calc(100% + 1px) // http://patrickmuff.ch/blog/2014/10/01/how-we-fixed-the-webkit-overflow-scrolling-touch-bug-on-ios/
   @media ipadsAndUp
     padding-left 0
     margin-left auto
@@ -18,6 +17,7 @@
     max-width 960px
 
 .product-list__list-item
+  height calc(100% + 1px) // http://patrickmuff.ch/blog/2014/10/01/how-we-fixed-the-webkit-overflow-scrolling-touch-bug-on-ios/
   @media (max-width: 767px)
     max-width 420px
     white-space normal
