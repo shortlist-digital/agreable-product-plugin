@@ -7,35 +7,21 @@
 
   <html class="no-js" itemscope itemtype="http://schema.org/Article">
   <head>
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta charset="UTF-8" />
+    {% set metadata = {
+      "site_name":         site.name,
+      "title":             page_title,
+      "description":       post.share_description | default(post.sell) | default(post.product_description | striptags) ,
+      "share_title":       post.share_title | default(post.title),
+      "share_description": post.share_description | default(post.product_description | striptags),
+      "url":               permalink | default(post.permalink),
+      "share_image":       TimberImage(post.share_image).src | default(TimberImage(post.product_images[0]).src),
+      "primary_colour":    primary_colour,
+      "twitter_id":        options.twitter_id,
+      "favicon_png":       options.favicon_png,
+      "favicon_ico":       options.favicon_ico
+    } %}
 
-    <title>{{ page_title | default(product_collection.post_title) }}</title>
-
-    {# ICONS #}
-    {% if options.favicon_png %}
-      <link rel="apple-touch-icon" sizes="57x57" href="{{metadata.favicon|resize(57,57)}}">
-      <link rel="apple-touch-icon" sizes="60x60" href="{{metadata.favicon|resize(60,60)}}">
-      <link rel="apple-touch-icon" sizes="72x72" href="{{metadata.favicon|resize(72,72)}}">
-      <link rel="apple-touch-icon" sizes="76x76" href="{{metadata.favicon|resize(76,76)}}">
-      <link rel="apple-touch-icon" sizes="114x114" href="{{metadata.favicon|resize(114,114)}}">
-      <link rel="apple-touch-icon" sizes="120x120" href="{{metadata.favicon|resize(120,120)}}">
-      <link rel="apple-touch-icon" sizes="144x144" href="{{metadata.favicon|resize(144,144)}}">
-      <link rel="apple-touch-icon" sizes="152x152" href="{{metadata.favicon|resize(152,152)}}">
-      <link rel="apple-touch-icon" sizes="180x180" href="{{metadata.favicon|resize(180,180)}}">
-      <link rel="icon" type="image/png" sizes="32x32" href="{{metadata.favicon|resize(32,32)}}">
-      <link rel="icon" type="image/png" sizes="192x192" href="{{metadata.favicon|resize(192,192)}}">
-      <link rel="icon" type="image/png" sizes="96x96" href="{{metadata.favicon|resize(96,96)}}">
-      <link rel="icon" type="image/png" sizes="16x16" href="{{metadata.favicon|resize(16,16)}}">
-    {% endif %}
-    {% if options.favicon_ico %}
-      <link rel="shortcut icon" href="{{metadata.favicon}}" type="image/x-icon" />
-    {% endif %}
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    {% include 'partials/metadata/template.twig' with {'metadata': metadata} %}
 
     {# Load in wp_head to get Krux goodness #}
     {{function('wp_head')}}
