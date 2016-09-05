@@ -32,7 +32,7 @@ export default class ProductCTA {
   handleResize () {
     // read target offsets when resizing (stuff gonna move on tha page)
     this.thresholdShow = this.targetShow.offsetTop + this.el.offsetHeight
-    this.thresholdHide = this.targetHide.offsetTop
+    this.thresholdHide = this.targetHide.offsetTop + 200
   }
   handleScroll () {
     // get scroll position at bottom of page
