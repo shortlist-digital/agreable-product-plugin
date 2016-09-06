@@ -5,16 +5,15 @@
   @media ipadsAndUp
     padding 0 5vw
 .product-list-container--narrow
-  @media ipadsAndUp
-    max-width 960px
+  max-width 1060px
 
 //  Product list
 .product-list
   list-style none
-  padding-right 32px
   @media (max-width: 767px)
     -webkit-overflow-scrolling touch
     overflow-x scroll
+    padding-right 32px
     white-space nowrap
 
 .product-list__list-item
@@ -29,6 +28,6 @@
   @media (min-width: 1300px)
     width 25%
 
-.product-list--narrow .product-list__list-item
+.product-list-container--narrow .product-list__list-item
   @media (min-width: 1300px)
     width 33.333%
