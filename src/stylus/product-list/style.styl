@@ -6,7 +6,6 @@
   @media (max-width: 767px)
     -webkit-overflow-scrolling touch
     overflow-x scroll
-    overflow-y hidden
     white-space nowrap
   @media ipadsAndUp
     padding-left 0
@@ -18,9 +17,7 @@
     max-width 960px
 
 .product-list__list-item
-  // height calc(100% + 1px) // http://patrickmuff.ch/blog/2014/10/01/how-we-fixed-the-webkit-overflow-scrolling-touch-bug-on-ios/
   @media (max-width: 767px)
-    height calc(120vw + 1px)
     max-width 420px
     white-space normal
     width calc(100vw - 96px) // should show 2 * gutter-width of next product
