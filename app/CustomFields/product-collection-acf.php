@@ -13,7 +13,7 @@ add_action('agreable_app_theme_init', function() {
         'type' => 'strict_wysiwyg',
         'required' => 0
       ),
-       array (
+      array (
         'key' => $key . '_favicon',
         'label' => 'Product Collection Favicon',
         'name' => 'product_collection_favicon',
@@ -43,6 +43,48 @@ add_action('agreable_app_theme_init', function() {
         'required' => 0,
         'wrapper' => array (
           'width' => '35%',
+        )
+      ),
+      array (
+        'key' => $key . '_pages',
+        'label' => 'Product Collection Pages',
+        'name' => 'pages',
+        'type' => 'repeater',
+        'layout' => 'block',
+        'button_label' => 'Add Another Page',
+        'sub_fields' => array (
+          array (
+            'key' => $key . '_page_title',
+            'label' => 'Title',
+            'name' => 'page_title',
+            'type' => 'text'
+          ),
+          array (
+            'key' => $key . '_page_image',
+            'label' => 'Hero Image',
+            'instructions' => 'Large hero image for the page',
+            'name' => 'page_image',
+            'type' => 'image',
+            'wrapper' => array (
+              'width' => '50%',
+            )
+          ),
+          array (
+            'key' => $key . '_page_image_mobile',
+            'label' => 'Hero Image - Mobile',
+            'instructions' => 'Pick a different image or crop for mobile devices',
+            'name' => 'page_image_mobile',
+            'type' => 'image',
+            'wrapper' => array (
+              'width' => '50%',
+            )
+          ),
+          array (
+            'key' => $key . '_page_body',
+            'label' => 'Content',
+            'name' => 'page_body',
+            'type' => 'strict_wysiwyg'
+          )
         )
       ),
       array (
