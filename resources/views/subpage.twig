@@ -1,0 +1,21 @@
+{% extends('@AgreableProductPlugin/base.twig') %}
+
+{% block header %}
+  {% include '@AgreableProductPlugin/site-header/template.twig' with {
+    context: 'category'
+  } %}
+{% endblock %}
+
+{% block content %}
+
+  {% include '@AgreableProductPlugin/hero/template.twig' with {
+    image: product_collection_page.page_image.url,
+    image_mobile: product_collection_page.page_image_mobile.url,
+    title: product_collection_page.page_title
+  } %}
+
+  <div class="wrapper wrapper--narrower scope-wysiwyg">
+    {{product_collection_page.page_body}}
+  </div>
+
+{% endblock %}
