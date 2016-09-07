@@ -3,11 +3,13 @@
   <div class="wrapper {% if modifier %}wrapper--{{modifier}}{% endif %}">
     <h2 class="product-collection__title">{{title}}</h2>
   </div>
-  <ul class="product-list {% if modifier %}product-list--{{modifier}}{% endif %} grid lazy-container">
-    {% for product in products %}
-      <li class="product-list__list-item grid__col">
-        {% include "@AgreableProductPlugin/product-card/template.twig" %}
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="product-list-container {% if modifier %}product-list-container--{{modifier}}{% endif %}">
+    <ul class="product-list grid lazy-container">
+      {% for product in products %}
+        <li class="product-list__list-item grid__col">
+          {% include "@AgreableProductPlugin/product-card/template.twig" %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>
