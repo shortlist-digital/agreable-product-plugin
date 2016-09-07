@@ -12,7 +12,8 @@ export default class Share {
       // Produces name of function to call
       // e.g. facebookClick
       let clickFunctionName = socialNetwork + 'Click'
-      shareButton.addEventListener('click', this[clickFunctionName].bind(this))
+      let container = shareButton.parentElement
+      shareButton.addEventListener('click', () => this[clickFunctionName](container))
     }.bind(this))
   }
 
@@ -30,8 +31,8 @@ export default class Share {
     })
   }
 
-  twitterClick () {
-    var url = `https://twitter.com/intent/tweet?text=${this.tweetText()}&url=${window.location.href}&via=${this.twitterHandle()}`
+  twitterClick (el) {
+    var url = `https://twitter.com/intent/tweet?text=${this.tweetText(el)}&url=${window.location.href}&via=${this.twitterHandle()}`
     window.open(url, '', 'height=300,width=600')
     analytics.track('Twitter', {
       category: 'social',
@@ -63,7 +64,7 @@ export default class Share {
 
   twitterHandle () { return window.twitter_id }
 
-  tweetText () { return window.location.protocol + '//' + window.location.hostname + window.location.pathname }
+  tweetText (el) { return encodeURIComponent(el.getAttribute('data-twitter-text') || '') }
 
   emailText () { return window.location.protocol + '//' + window.location.hostname + window.location.pathname }
 
