@@ -76,4 +76,10 @@
     title: 'You may also love'
   } %}
 
+  {% include "@AgreableProductPlugin/product-list/template.twig" with {
+    products: product.get_field('more_products'),
+    modifier: 'narrow',
+    title: 'Recently Viewed'
+  } %}
+
 {% endblock %}

@@ -17,6 +17,7 @@ class ProductController {
     if (!$post = $this->get_product_by_slug($product_slug)) {
       throw new Exception('Post not found');
     }
+
     $post = new TimberPost($post);
 
     add_filter('agreable_category_hierarchy_filter', function($category_hierarchy) {
@@ -30,6 +31,9 @@ class ProductController {
       return $category_hierarchy;
     });
 
+
+    $context = setcookie('Product_Collection', 'recently_viewed');
+    $context = $this->recently_viewed_products();
     $context = Timber::get_context();
     $context['product'] = $post;
 
@@ -39,12 +43,28 @@ class ProductController {
 
   }
 
+  protected function recently_viewed_products() {
+    $cookie_array = $_COOKIE['Product_Collection'];
+
+    $cookie_array = array_map( 'absint', (array) explode(',', $cookie_array) );
+
+    $cookie_args =  array(
+      'post_type' => 'product',
+      'post__in' => $cookie_array
+    );
+    $cookie_query = get_posts($cookie_args);
+
+    if (count($cookie_query) > 1) {
+      return new TimberPost($cookie_query);
+    }
+  }
+
   protected function get_product_by_slug($product_slug) {
     $args = array(
       'name' => $product_slug,
       'posts_per_page' => 1,
-      'post_type' => array('product', 'product_collection'),
-      'post_status' => 'publish'
+      'post_type' => array('product'),
+      'post_status' => 'publish',
     );
     $posts_array = get_posts($args);
 
