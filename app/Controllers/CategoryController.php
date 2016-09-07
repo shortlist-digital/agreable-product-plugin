@@ -24,13 +24,24 @@ class CategoryController {
     $context = Timber::get_context();
     $context['product_collection'] = $post;
 
-    foreach ($product_collection->get_field('categories') as $category) {
+    $categories = $product_collection->get_field('categories');
+    $index = 0;
+
+    foreach ($categories as $i=>$category) {
       if ($this->sanitise_category_for_slug($category['name']) === $this->sanitise_category_for_slug($category_slug)) {
+        $index = $i;
         $context['product_collection_category'] = $category;
       }
     }
     if (!isset($context['product_collection_category'])) {
       throw new Exception('Product collection category not found');
+    }
+
+    if ($index > 0) {
+      $context['product_collection_category_prev'] = $categories[$index - 1];
+    }
+    if ($index < sizeof($categories) - 1) {
+      $context['product_collection_category_next'] = $categories[$index + 1];
     }
 
     $context['page_title'] = $context['product_collection_category']['name'] . ' - ' .

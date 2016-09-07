@@ -1,0 +1,12 @@
+{% set collection = product_plugin.product_collection %}
+
+{% if prev %}
+  <a href="{{site.url}}/shop/{{collection.slug}}/{{prev.name|lower}}">
+    {{prev.name}}
+  </a>
+{% endif %}
+{% if next %}
+  <a href="{{site.url}}/shop/{{collection.slug}}/{{next.name|lower}}">
+    {{next.name}}
+  </a>
+{% endif %}
