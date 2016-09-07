@@ -1,27 +1,19 @@
 
 .list-categories
-  display flex
-  flex-shrink 0
-  flex-wrap wrap
   font-size 0
-  justify-content center
   list-style none
   margin 0 auto
   max-width 680px
 
 .list-categories__list-item
   display inline-block
-  flex 1 1 100%
   font-size 16px
   padding 8px
-  @media (min-width: 410px)
-    flex 1 1 50%
-  @media (min-width: 600px)
-    flex 1 1 33.3%
-
-.list-categories__list-item:nth-last-child(-n+2)
-  @media (min-width: 600px)
-    flex-grow 0
+  width 100%
+  @media (min-width: 360px)
+    width 50%
+  @media (min-width: 540px)
+    width 33.3%
 
 .list-categories__item
   background-color bestBeautyPink
@@ -30,7 +22,7 @@
   letter-spacing 3px
   font-size 13px
   font-weight 800
-  padding 16px
+  padding 16px 10px
   text-decoration none
   text-transform uppercase
   transition background-color 150ms ease-out,
@@ -55,7 +47,7 @@
   &:focus
     background-color transparent
     color #fff
-    box-shadow inset 0 0 0 3px #fff
+    box-shadow inset 0 0 0 2px #fff
 
 .list-categories--animate .list-categories__list-item
   opacity 0

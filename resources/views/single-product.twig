@@ -18,8 +18,7 @@
             <img class="product-info__image media-wrap__item" src="{{product_image}}" alt="{{product.post_title}} Product Image">
           </div>
         </div>
-        <!-- <img src="{{product_image}}" class="product_information-image" alt="{{post.title}} product image"> -->
-        <a target="_blank" rel="noopener" href="{{product.product_affiliate_link}}" class="product-info__cta">Buy here</a>
+        <a href="{{product.product_affiliate_link}}" class="product-info__cta js-product-cta">Buy here</a>
       </div>
       <div class="product-info__col">
         <div class="product-info__content">
@@ -54,7 +53,7 @@
               <p>The Stylist beauty team's stamp of approval</p>
             </div>
           {% endif %}
-          <div class="product-info__description">
+          <div class="product-info__description js-product-target-show">
             {{product.product_description}}
           </div>
           <blockquote class="product-info__quote">
@@ -68,6 +67,8 @@
       </div>
     </div>
   </div>
+
+  <div class="js-product-target-hide"></div>
 
   {% include "@AgreableProductPlugin/product-list/template.twig" with {
     products: product.get_field('more_products'),
