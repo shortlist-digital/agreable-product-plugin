@@ -1,5 +1,7 @@
 .category-pagination
+  background-color #333
   font-size 0
+  overflow hidden
 
 .category-pagination__item
   background-color #333
@@ -16,29 +18,29 @@
   &:hover,
   &:focus
     background-color bestBeautyPink
-  &:first-child
-    background-image url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2240%22%20height%3D%2268%22%20viewBox%3D%220%200%2040%2068%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EShape%3C%2Ftitle%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M34%20.6L.8%2033.9l33.5%2033.5%204.9-4.9-28.5-28.6L39%205.5%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')
-    background-position 18px center
-  &:last-child
-    background-image url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2240%22%20height%3D%2268%22%20viewBox%3D%220%200%2040%2068%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EShape%3C%2Ftitle%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M6%2067.4l33.2-33.3L5.7.6.8%205.5l28.5%2028.6L1%2062.5%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')
-    background-position calc(100% - 18px) center
-    text-align right
   @media (min-width: 500px)
     background-size 34px
     min-height 160px
     padding 50px 130px
-    &:first-child
-      background-position 46px center
-      padding-right 0
-    &:last-child
-      background-position calc(100% - 46px) center
-      padding-left 0
   @media ipadsAndUp
     width 50%
-    &:first-child
-      float left
-    &:last-child
-      float right
+.category-pagination__item--prev
+  background-image url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2240%22%20height%3D%2268%22%20viewBox%3D%220%200%2040%2068%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EShape%3C%2Ftitle%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M34%20.6L.8%2033.9l33.5%2033.5%204.9-4.9-28.5-28.6L39%205.5%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')
+  background-position 18px center
+  @media (min-width: 500px)
+    background-position 46px center
+    padding-right 0
+  @media ipadsAndUp
+    float left
+.category-pagination__item--next
+  background-image url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2240%22%20height%3D%2268%22%20viewBox%3D%220%200%2040%2068%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EShape%3C%2Ftitle%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M6%2067.4l33.2-33.3L5.7.6.8%205.5l28.5%2028.6L1%2062.5%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')
+  background-position calc(100% - 18px) center
+  text-align right
+  @media (min-width: 500px)
+    background-position calc(100% - 46px) center
+    padding-left 0
+  @media ipadsAndUp
+    float right
 
 .category-pagination__subtitle
   display block
@@ -48,7 +50,6 @@
   letter-spacing 3px
   @media (min-width: 500px)
     font-size 15px
-
 .category-pagination__category
   font-size 26px
   font-weight 800
