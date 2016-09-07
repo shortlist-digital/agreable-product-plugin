@@ -185,5 +185,6 @@
 .sub-nav__list-item:last-child .sub-nav__item
   border-bottom 0
 @media smallTabletsAndUp
-  .sub-nav__list-item:nth-last-child(-n+2) .sub-nav__item
+  .sub-nav__list-item:nth-last-child(even):first-child ~ li:nth-last-child(-n+2),
+  .sub-nav__list-item:nth-last-child(odd):first-child ~ li:last-child
     border-bottom 0
