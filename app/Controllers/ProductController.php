@@ -32,8 +32,8 @@ class ProductController {
 
     $context = Timber::get_context();
     $context['product'] = $post;
-
-    $context['page_title'] = $post->post_title . ' - ' . get_bloginfo();
+    $context['page_title'] = $post->post_title . ' by ' . $post->brand_name . ' - ' . get_bloginfo();
+    $context['schema_type'] = 'Product';
 
     Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
 

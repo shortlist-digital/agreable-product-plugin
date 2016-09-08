@@ -35,6 +35,7 @@ class CategoryController {
 
     $context['page_title'] = $context['product_collection_category']['name'] . ' - ' .
       $product_collection->post_title . ' - ' . get_bloginfo();
+    $context['schema_type'] = 'SomeProducts';
 
     Timber::render('@AgreableProductPlugin/category.twig', $context, false);
   }
