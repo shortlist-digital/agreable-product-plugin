@@ -22,13 +22,15 @@
       {% endfor %}
     </ul>
     {% if product_plugin.secondary_navigation %}
-      <ul class="sub-nav">
-        {% for item in product_plugin.secondary_navigation %}
-          <li class="sub-nav__list-item">
-            <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
-          </li>
-        {% endfor %}
-      </ul>
+      <div class="wrapper wrapper--narrow">
+        <ul class="sub-nav">
+          {% for item in product_plugin.secondary_navigation %}
+            <li class="sub-nav__list-item">
+              <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     {% endif %}
     <button class="site-nav-close js-fr-offcanvas-close">
       Close

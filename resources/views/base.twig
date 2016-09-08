@@ -10,11 +10,18 @@
     {% set metadata = {
       "site_name":         site.name,
       "title":             page_title,
-      "description":       post.share_description | default(post.sell) | default(post.product_description | striptags) ,
-      "share_title":       post.share_title | default(post.title),
-      "share_description": post.share_description | default(post.product_description | striptags),
-      "url":               permalink | default(post.permalink),
-      "share_image":       TimberImage(post.share_image).src | default(TimberImage(post.product_images[0]).src),
+      "description":       post.share_description |
+                           default(post.sell) |
+                           default(post.product_description | striptags),
+      "share_title":       post.share_title |
+                           default(post.title),
+      "share_description": post.share_description |
+                           default(post.product_description | striptags),
+      "url":               permalink |
+                           default(post.permalink),
+      "share_image":       post.get_field('product_images')[0] |
+                           default(product_collection_category.category_image) |
+                           default(options.default_share_image),
       "primary_colour":    primary_colour,
       "twitter_id":        options.twitter_id,
       "favicon_png":       options.favicon_png,
