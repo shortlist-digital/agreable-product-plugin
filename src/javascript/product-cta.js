@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle'
+import { addClass, removeClass } from './util-class'
 
 export default class ProductCTA {
 
@@ -32,15 +33,15 @@ export default class ProductCTA {
   handleResize () {
     // read target offsets when resizing (stuff gonna move on tha page)
     this.thresholdShow = this.targetShow.offsetTop + this.el.offsetHeight
-    this.thresholdHide = this.targetHide.offsetTop
+    this.thresholdHide = this.targetHide.offsetTop + 200
   }
   handleScroll () {
     // get scroll position at bottom of page
     const scrollPositionBottom = (window.pageYOffset - document.documentElement.clientTop) + window.innerHeight
     // if within thresholds, show the element, otherwise hide it
     if (scrollPositionBottom > this.thresholdShow && scrollPositionBottom <= this.thresholdHide)
-      this.el.classList.add(this.classVisible)
+      addClass(this.el, this.classVisible)
     else
-      this.el.classList.remove(this.classVisible)
+      removeClass(this.el, this.classVisible)
   }
 }

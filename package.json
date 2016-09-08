@@ -41,7 +41,6 @@
     "detect-dom-ready": "^1.0.2",
     "entities": "^1.1.1",
     "es6-object-assign": "^1.0.1",
-    "fr-offcanvas": "^1.0.5",
     "in-view": "^0.2.0",
     "lodash.throttle": "^4.1.1",
     "moment": "^2.10.6",

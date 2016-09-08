@@ -1,10 +1,9 @@
-import 'classlist-polyfill'
 import DOMReady from 'detect-dom-ready'
-import SiteNavigation from './javascript/site-navigation'
 import LazyImages from './javascript/lazy-images'
-import Share from './javascript/share/share.js'
 import ProductCTA from './javascript/product-cta'
-
+import Share from './javascript/share/share.js'
+import SiteHeaderSticky from './javascript/site-header'
+import SiteNavigation from './javascript/site-navigation'
 require('es6-object-assign').polyfill()
 require('./stylus/main.styl')
 
@@ -18,4 +17,5 @@ DOMReady(function () {
   new LazyImages()
   new Share()
   new ProductCTA()
+  new SiteHeaderSticky()
 })

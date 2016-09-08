@@ -1,0 +1,23 @@
+
+<style media="screen">
+  {% if image_mobile %}
+    .hero {
+      background-image: url({{image_mobile}})
+    }
+    @media (min-width: 768px) {
+  {% endif %}
+    .hero {
+      background-image: url({{image}})
+    }
+  {% if image_mobile %}
+    }
+  {% endif %}
+</style>
+
+<div class="hero js-hero">
+  <h1 class="hero__title">
+    <span class="visually-hidden">{{pre}}</span>
+    {{title}}
+    <span class="visually-hidden">{{post}}</span>
+  </h1>
+</div>

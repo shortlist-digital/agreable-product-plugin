@@ -4,7 +4,10 @@
 <button class="site-nav-open js-fr-offcanvas-open" type="button" aria-controls="site-navigation">
   {% include '@AgreableProductPlugin/icon-hamburger.svg' %}
 </button>
-<div class="site-nav-container js-fr-offcanvas" id="site-navigation">
+<button class="site-nav-open site-nav-open--sticky js-fr-offcanvas-open js-site-nav-open" type="button" aria-controls="site-navigation">
+  {% include '@AgreableProductPlugin/icon-hamburger.svg' %}
+</button>
+<section class="site-nav-container js-fr-offcanvas" id="site-navigation">
   <div class="site-nav-container__inner">
     <div class="site-nav-container__logo">
       {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
@@ -19,13 +22,15 @@
       {% endfor %}
     </ul>
     {% if product_plugin.secondary_navigation %}
-      <ul class="sub-nav">
-        {% for item in product_plugin.secondary_navigation %}
-          <li class="sub-nav__list-item">
-            <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
-          </li>
-        {% endfor %}
-      </ul>
+      <div class="wrapper wrapper--narrow">
+        <ul class="sub-nav">
+          {% for item in product_plugin.secondary_navigation %}
+            <li class="sub-nav__list-item">
+              <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     {% endif %}
     <button class="site-nav-close js-fr-offcanvas-close">
       Close
