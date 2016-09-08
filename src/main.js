@@ -4,6 +4,7 @@ import ProductCTA from './javascript/product-cta'
 import Share from './javascript/share/share.js'
 import SiteHeaderSticky from './javascript/site-header'
 import SiteNavigation from './javascript/site-navigation'
+import LocalStorage from './javascript/local-storage'
 require('es6-object-assign').polyfill()
 require('./stylus/main.styl')
 
@@ -18,4 +19,5 @@ DOMReady(function () {
   new Share()
   new ProductCTA()
   new SiteHeaderSticky()
+  new LocalStorage()
 })
