@@ -19,6 +19,9 @@ module.exports = function(port) {
       publicPath: 'http://localhost:' + port +'/static/'
     },
     module: {
+      preLoaders: [
+        { test: /\.js$/, loader: 'eslint', include: path.join(__dirname, 'src'), exclude: path.join(__dirname, 'src/javascript/share/') }
+      ],
       loaders: [
         { test: /\.styl$/, loader: 'style!css!stylus?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules' },
         { test: /\.json$/, loader: 'json' },
