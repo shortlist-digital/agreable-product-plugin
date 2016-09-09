@@ -1,4 +1,3 @@
-import throttle from 'lodash.throttle'
 import FacebookLoader from './facebook-loader'
 
 export default class Share {
@@ -18,13 +17,13 @@ export default class Share {
   }
 
   facebookClick () {
-    FB.ui({
+    window.FB.ui({
       method: 'feed',
       link: window.location.href,
       show_error: true,
       redirect_uri: window.location.href
-    }, function(response) {})
-    analytics.track('Facebook', {
+    })
+    window.analytics.track('Facebook', {
       category: 'social',
       action: 'clickedOnShareIcon',
       label: window.location.pathname
@@ -34,7 +33,7 @@ export default class Share {
   twitterClick (el) {
     var url = `https://twitter.com/intent/tweet?text=${this.tweetText(el)}&url=${window.location.href}&via=${this.twitterHandle()}`
     window.open(url, '', 'height=300,width=600')
-    analytics.track('Twitter', {
+    window.analytics.track('Twitter', {
       category: 'social',
       action: 'clickedOnShareIcon',
       label: window.location.pathname
@@ -43,7 +42,7 @@ export default class Share {
 
   whatsappClick () {
     document.location.href = `whatsapp://send?text=Have+you+seen+this+?+${this.shareTitle()}+${window.location.href}`
-    analytics.track('WhatsApp', {
+    window.analytics.track('WhatsApp', {
       category: 'social',
       action: 'clickedOnShareIcon',
       label: window.location.pathname
@@ -55,7 +54,7 @@ export default class Share {
     if (confirmBox) {
       document.location.href = `mailto:?body=${this.emailText()}`
     }
-    analytics.track('Email', {
+    window.analytics.track('Email', {
       category: 'social',
       action: 'clickedOnShareIcon',
       label: window.location.pathname
