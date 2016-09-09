@@ -71,7 +71,7 @@
     </main>
 
     {% if environment != "development" %}
-      <script src="{{product_plugin.js_file}}"></script>
+      <script async defer src="{{product_plugin.js_file}}"></script>
     {% endif %}
 
     {% include 'partials/browser-warning/template.twig' %}
