@@ -23,7 +23,7 @@ module.exports = function(port) {
         { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'},
         { test: /\.json$/, loader: 'json-loader' },
         { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: "url" },
-        { test: /\.js$/, loaders: ['react-hot', 'babel?presets[]=es2015'], include: path.join(__dirname, "src") }
+        { test: /\.js$/, loaders: ['babel?presets[]=es2015'], include: path.join(__dirname, "src") }
       ]
     },
 
