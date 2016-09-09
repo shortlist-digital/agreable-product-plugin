@@ -33,10 +33,6 @@
     {# Load in wp_head to get Krux goodness #}
     {{function('wp_head')}}
 
-    {% if environment == "development" %}
-      <!-- Styles are injected in real time via webpack server -->
-      <script src="http://localhost:{{product_plugin.webpack_port}}/static/app.js"></script>
-    {% endif %}
     {% if environment != "development" %}
       <link rel="stylesheet" href="{{product_plugin.css_file}}" type="text/css" />
     {% endif %}
@@ -70,6 +66,10 @@
       {% block content %}{% endblock %}
     </main>
 
+    {% if environment == "development" %}
+      <!-- Styles are injected in real time via webpack server -->
+      <script async defer src="http://localhost:{{product_plugin.webpack_port}}/static/app.js"></script>
+    {% endif %}
     {% if environment != "development" %}
       <script async defer src="{{product_plugin.js_file}}"></script>
     {% endif %}
