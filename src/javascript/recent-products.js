@@ -29,9 +29,11 @@ export default class RecentProducts {
             ${this.sectionTitle}
           </h2>
         </div>
-        <ul class="product-list product-list--narrow grid">
-          ${this.recentProducts.map(this.createCard.bind(this))}
-        </ul>
+        <div class="product-list-container product-list-container--narrow">
+          <ul class="product-list grid">
+            ${this.recentProducts.map(this.createCard.bind(this))}
+          </ul>
+        </div>
       </section>`
   }
   createCard (product) {
