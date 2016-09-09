@@ -76,8 +76,38 @@
     title: 'You may also love'
   } %}
 
-  <div class="recently_viewed">
-  
-  </div>
+  <div id="recent-products"></div>
+  <script>
+    // cancel early if localStorage is not supported
+    if (window.localStorage) {
+      // set global key to allow access through main js
+      window.recentProductStorageKey = 'recent-products'
+      // get previously stored products, set default product list
+      var storageVal = window.localStorage.getItem(window.recentProductStorageKey)
+      var recentProducts = []
+      // update to array from localStorage
+      if (storageVal) recentProducts = JSON.parse(storageVal)
+      // remove current product from array to avoid duplicates ( I miss ES6 :( )
+      recentProducts = recentProducts.filter(function (product) {
+        return product.id !== {{product.id}}
+      })
+      // add current product to start of array and pass product data
+      recentProducts.unshift({
+        brand_name: "{{product.brand_name}}",
+        category_winner: Boolean({{category_winner}}),
+        hero_winner: Boolean({{hero_winner}}),
+        id: {{product.id}},
+        permalink: "{{product.permalink}}",
+        post_title: "{{product.post_title}}",
+        product_image: "{{product_image}}",
+        product_price: "{{product.product_price}}",
+        product_rating: {{product.product_rating}}
+      })
+      // truncate array to 3 items
+      recentProducts = recentProducts.slice(0, 3)
+      // stringify array and add to localStorage
+      window.localStorage.setItem(window.recentProductStorageKey, JSON.stringify(recentProducts))
+    }
+  </script>
 
 {% endblock %}
