@@ -16,7 +16,7 @@
     width 33.3%
 
 .list-categories__item
-  background-color bestBeautyPink
+  background-color $best-beauty-highlight
   color #fff
   display block
   letter-spacing 3px
@@ -25,12 +25,12 @@
   padding 16px 10px
   text-decoration none
   text-transform uppercase
-  transition background-color 150ms ease-out,
-             color 150ms ease-out
+  transition background-color $duration $easing,
+             color $duration $easing
   &:hover,
   &:focus
     background-color #fff
-    color bestBeautyPink
+    color $best-beauty-highlight
   @media ipadsAndUp
     font-size 18px
     font-weight 600
@@ -39,10 +39,10 @@
 .list-categories--reverse .list-categories__item
   background-color #fff
   box-shadow inset 0 0 0 0 #fff
-  color bestBeautyPink
-  transition background-color 150ms ease-out,
-             color 150ms ease-out,
-             box-shadow 150ms ease-out
+  color $best-beauty-highlight
+  transition background-color $duration $easing,
+             color $duration $easing,
+             box-shadow $duration $easing
   &:hover,
   &:focus
     background-color transparent
@@ -52,8 +52,8 @@
 .list-categories--animate .list-categories__list-item
   opacity 0
   transform translateY(30px)
-  transition opacity 300ms ease-out,
-             transform 300ms ease-out
+  transition opacity 300ms $easing,
+             transform 300ms $easing
   .fr-offcanvas--is-active &
     transform translateY(0)
     opacity 1

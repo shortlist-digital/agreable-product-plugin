@@ -25,17 +25,17 @@
 
 .product-card__media
   background-color #fff
-  box-shadow inset 0 0 0 8px #f5f5f5
+  box-shadow inset 0 0 0 8px $grey-light
   padding 40px
-  transition box-shadow 150ms ease-out
+  transition box-shadow $duration $easing
   .product-card:hover &,
   .product-card:focus &
-    box-shadow inset 0 0 0 0 #f5f5f5
+    box-shadow inset 0 0 0 0 $grey-light
 
 .product-card__image
   opacity 0
-  transition transform 150ms ease-out,
-             opacity 350ms ease-out
+  transition transform $duration $easing,
+             opacity 350ms $easing
   will-change transform
   &.loaded,
   .no-js &
@@ -53,13 +53,13 @@
 
 .product-card__rating
   margin-bottom 10px
-  transition transform 100ms ease-out
+  transition transform 100ms $easing
   .product-card:hover &,
   .product-card:focus &
     transform translateY(-2px)
 
 .product-card__badge
-  background-color bestBeautyPink
+  background-color $best-beauty-highlight
   color #fff
   font-weight 600
   left 50%
@@ -73,16 +73,16 @@
 .product-card__title
   font-weight 300
   margin-bottom 14px
-  transition transform 100ms ease-out
+  transition transform 100ms $easing
   .product-card:hover &,
   .product-card:focus &
     transform translateY(-5px)
 
 .product-card__brand
-  color bestBeautyPink
+  color $best-beauty-highlight
   font-size 14px
   margin-bottom 10px
-  transition transform 100ms ease-out
+  transition transform 100ms $easing
   .product-card:hover &,
   .product-card:focus &
     transform translateY(-10px)
@@ -90,19 +90,19 @@
 .product-card__price
   font-size 14px
   margin-bottom 10px
-  transition transform 100ms ease-out
+  transition transform 100ms $easing
   .product-card:hover &,
   .product-card:focus &
     transform translateY(-15px)
 
 .product-card__link
-  color bestBeautyPink
+  color $best-beauty-highlight
   font-size 14px
   line-height 1.5
   font-weight 600
   opacity 0
-  transition transform 100ms ease-out,
-             opacity 100ms ease-out
+  transition transform 100ms $easing,
+             opacity 100ms $easing
   .product-card:hover &,
   .product-card:focus &
     transform translateY(-20px)
