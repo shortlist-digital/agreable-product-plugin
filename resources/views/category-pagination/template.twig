@@ -1,0 +1,16 @@
+{% set collection = product_plugin.product_collection %}
+
+<div class="category-pagination">
+  {% if prev %}
+    <a class="category-pagination__item category-pagination__item--prev" href="{{site.url}}/shop/{{collection.slug}}/{{prev.name|lower}}">
+      <span class="category-pagination__subtitle">Previous Category</span>
+      <span class="category-pagination__category">{{prev.name}}</span>
+    </a>
+  {% endif %}
+  {% if next %}
+    <a class="category-pagination__item category-pagination__item--next" href="{{site.url}}/shop/{{collection.slug}}/{{next.name|lower}}">
+      <span class="category-pagination__subtitle">Next Category</span>
+      <span class="category-pagination__category">{{next.name}}</span>
+    </a>
+  {% endif %}
+</div>

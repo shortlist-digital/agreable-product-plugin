@@ -17,6 +17,7 @@ class ProductController {
     if (!$post = $this->get_product_by_slug($product_slug)) {
       throw new Exception('Post not found');
     }
+
     $post = new TimberPost($post);
 
     $context = Timber::get_context();
@@ -27,13 +28,13 @@ class ProductController {
     Timber::render('@AgreableProductPlugin/single-product.twig', $context, false);
 
   }
-
+  
   protected function get_product_by_slug($product_slug) {
     $args = array(
       'name' => $product_slug,
       'posts_per_page' => 1,
-      'post_type' => array('product', 'product_collection'),
-      'post_status' => 'publish'
+      'post_type' => array('product'),
+      'post_status' => 'publish',
     );
     $posts_array = get_posts($args);
 
