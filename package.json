@@ -7,8 +7,9 @@
     "start": "npm install && npm run live-compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch --debug",
-    "webpack-production": "rm -r resources/assets/* && webpack -p",
-    "live-compile": "node dev-server.js"
+    "webpack-production": "npm run clean-assets && webpack -p",
+    "live-compile": "node dev-server.js",
+    "clean-assets": "rimraf resources/assets/*"
   },
   "repository": {
     "type": "git",
