@@ -19,17 +19,6 @@ class ProductController {
     }
     $post = new TimberPost($post);
 
-    add_filter('agreable_category_hierarchy_filter', function($category_hierarchy) {
-      global $post;
-      $product_categories = wp_get_object_terms($post->ID, 'product_categories');
-      if (count($product_categories) > 0) {
-        $category_hierarchy->parent = new stdClass();
-        $category_hierarchy->parent->slug = $product_categories[0]->slug;
-        $category_hierarchy->parent->name = $product_categories[0]->name;
-      }
-      return $category_hierarchy;
-    });
-
     $context = Timber::get_context();
     $context['product'] = $post;
 
