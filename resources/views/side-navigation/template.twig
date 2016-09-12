@@ -1,0 +1,20 @@
+<button class="side-nav-open js-subcatnav-open" aria-controls="sub-category-menu">
+  See all categories
+</button>
+<section class="side-nav-container js-subcatnav" id="sub-category-menu">
+  <button class="side-nav-close js-subcatnav-close">
+    Close menu
+  </button>
+  <h3 class="side-nav-title">
+    {{product_collection_category.name}} Categories
+  </h3>
+  <ul class="list-sub-categories">
+    {% for sub_category in product_collection_category.sub_categories %}
+      <li class="list-sub-categories__list-item">
+        <a href="#{{sub_category.sub_category_name|lower|replace(' ', '-')}}" class="list-sub-categories__item js-subcatnav-link">
+          {{sub_category.sub_category_name}}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
