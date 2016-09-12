@@ -23,4 +23,9 @@
       title: sub_category.sub_category_name
     } %}
   {% endfor %}
+
+  {% include "@AgreableProductPlugin/category-pagination/template.twig" with {
+    next: product_collection_category_next,
+    prev: product_collection_category_prev
+  } %}
 {% endblock %}
