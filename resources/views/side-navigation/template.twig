@@ -1,12 +1,12 @@
 <button class="side-nav-open js-subcatnav-open" aria-controls="sub-category-menu">
-  See all categories
+  See all subcategories
 </button>
 <section class="side-nav-container js-subcatnav" id="sub-category-menu">
   <button class="side-nav-close js-subcatnav-close">
     Close menu
   </button>
   <h3 class="side-nav-title">
-    {{product_collection_category.name}} Categories
+    {{product_collection_category.name}} Subcategories
   </h3>
   <ul class="list-sub-categories">
     {% for sub_category in product_collection_category.sub_categories %}
