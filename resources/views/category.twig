@@ -17,7 +17,9 @@
   {% for sub_category in product_collection_category.sub_categories %}
     {% include "@AgreableProductPlugin/product-list/template.twig" with {
       products: sub_category.products,
-      title: sub_category.sub_category_name
+      title: sub_category.sub_category_name,
+      pre: 'Best ',
+      post: ' Products'
     } %}
   {% endfor %}
 {% endblock %}
