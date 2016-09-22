@@ -169,7 +169,6 @@
     width 50%
     vertical-align middle
 .sub-nav__item
-  border-bottom 1px solid rgba(#fff, 0.5)
   color #fff
   display block
   font-size 12px
@@ -183,9 +182,5 @@
   &:hover,
   &:focus
     letter-spacing 3px
-.sub-nav__list-item:last-child .sub-nav__item
-  border-bottom 0
-@media smallTabletsAndUp
-  .sub-nav__list-item:nth-last-child(even):first-child ~ li:nth-last-child(-n+2),
-  .sub-nav__list-item:nth-last-child(odd):first-child ~ li:last-child
-    border-bottom 0
+.sub-nav__item--bordered
+  border-bottom 1px solid rgba(#fff, 0.5)

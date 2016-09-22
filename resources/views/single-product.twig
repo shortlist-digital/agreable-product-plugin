@@ -18,50 +18,56 @@
             <img class="product-info__image media-wrap__item" src="{{product_image}}" alt="{{product.post_title}} Product Image">
           </div>
         </div>
-        <a href="{{product.product_affiliate_link}}" class="product-info__cta js-product-cta">Buy here</a>
+        <a href="{{product.product_affiliate_link}}" class="product-info__cta js-product-cta" itemprop="url">Buy here</a>
       </div>
       <div class="product-info__col">
         <div class="product-info__content">
           <div class="product-info-rating">
             {% if category_winner %}
               <div class="product-info-rating__badge">Winner</div>
+              <span class="visually-hidden" itemprop="award" content="Best Beauty by Stylist Award"></span>
             {% endif %}
             {% if product.product_rating %}
-              <div class="product-info-rating__stars">
+              <div class="product-info-rating__stars" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                 {% include "@AgreableProductPlugin/star-rating/template.twig" %}
+                <span class="visually-hidden" itemprop="ratingValue">{{product.product_rating}}</span>
+                <span class="visually-hidden" itemprop="ratingCount" content="1"></span>
               </div>
             {% endif %}
           </div>
-          <h2 class="product-info__title">
+          <h1 class="product-info__title" itemprop="name">
             {{product.post_title}}
-          </h2>
+          </h1>
           <p class="product-info__brand">
-            by {{product.brand_name}}
+            by <span itemprop="brand">{{product.brand_name}}</span>
           </p>
-          <div class="product-info-meta">
+          <div class="product-info-meta" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             {% if category_winner %}
               <p class="product-info-meta__winner-label">2016 Winner</p>
             {% endif %}
-            <p class="product-info-meta__price">{{product.product_price}}</p>
+            <p class="product-info-meta__price" itemprop="price" content="{{product.product_price|replace({'£': ''})}}">{{product.product_price}}</p>
+            <span class="visually-hidden" itemprop="priceCurrency" content="GBP"></span>
             {% if product.product_offer %}
               <p class="product-info-meta__offer">{{product.product_offer}}</p>
             {% endif %}
           </div>
           {% if hero_winner %}
             <div class="product-info-badge">
-              <p class="product-info-badge__title">Hero Award Winner</p>
+              <p class="product-info-badge__title" itemprop="award">Hero Award Winner</p>
               <p>The Stylist beauty team's stamp of approval</p>
             </div>
           {% endif %}
-          <div class="product-info__description js-product-target-show">
+          <div class="product-info__description js-product-target-show" itemprop="description">
             {{product.product_description}}
           </div>
-          <blockquote class="product-info__quote">
-            {{product.product_quote}}
-          </blockquote>
-          <p class="product-info__author">
-            &mdash; {{product.product_quote_author}}
-          </p>
+          <span itemprop="review" itemscope itemtype="http://schema.org/Review">
+            <blockquote class="product-info__quote" itemprop="description">
+              {{product.product_quote}}
+            </blockquote>
+            <p class="product-info__author" itemprop="author">
+              &mdash; {{product.product_quote_author}}
+            </p>
+          </span>
           {% include 'partials/share/template.twig' %}
         </div>
       </div>

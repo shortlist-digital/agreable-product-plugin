@@ -1,6 +1,6 @@
 {
   "name": "agreable-product-plugin",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Shortlist Media Product Plugin",
   "main": "gulpfile.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "json-loader": "^0.5.2",
     "nib": "~1.1.0",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "style-loader": "~0.9.0",
     "stylus-loader": "~1.0.0",
     "webpack": "^1.12.1",

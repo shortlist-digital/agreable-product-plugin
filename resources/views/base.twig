@@ -5,7 +5,7 @@
   "favicon": favicon_acf | default(options.favicon_png.url),
 } %}
 
-  <html class="no-js" itemscope itemtype="http://schema.org/Article">
+  <html class="no-js" itemscope itemtype="http://schema.org/{{schema_type | default('WebPage')}}">
   <head>
     {% set metadata = {
       "site_name":         site.name,
