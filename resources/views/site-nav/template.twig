@@ -25,8 +25,17 @@
       <div class="wrapper wrapper--narrow">
         <ul class="sub-nav">
           {% for item in product_plugin.secondary_navigation %}
+            {% set isEven = loop.length is divisible by(2) %}
+            {% set applyBorder = false %}
+            {% if loop.length > 2 %}
+              {% if loop.length is divisible by(2) %}
+                {% set applyBorder = loop.length > loop.index + 1 %}
+              {% else %}
+                {% set applyBorder = loop.length != loop.index %}
+              {% endif %}
+            {% endif %}
             <li class="sub-nav__list-item">
-              <a class="sub-nav__item" href="{{item.url}}">{{item.title}}</a>
+              <a class="sub-nav__item {% if applyBorder %}sub-nav__item--bordered{% endif %}" href="{{item.url}}">{{item.title}}</a>
             </li>
           {% endfor %}
         </ul>
