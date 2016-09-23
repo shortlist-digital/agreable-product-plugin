@@ -34,7 +34,7 @@
       {{product.brand_name}}
     </p>
     {% if product.product_price %}
-      <span itemscope itemtype="http://schema.org/Offer">
+      <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <p class="product-card__price" itemprop="price" content="{{product.product_price|replace({'£': ''})}}">{{product.product_price}}</p>
         <span class="visually-hidden" itemprop="priceCurrency" content="GBP"></span>
       </span>
