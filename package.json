@@ -1,6 +1,5 @@
 {
   "name": "agreable-product-plugin",
-  "version": "1.0.1",
   "description": "Shortlist Media Product Plugin",
   "main": "gulpfile.js",
   "scripts": {
