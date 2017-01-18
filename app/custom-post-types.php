@@ -46,8 +46,21 @@ function product_cpt() {
     'has_archive'         => true,
     'exclude_from_search' => false,
     'publicly_queryable'  => true,
-    'rewrite'             => $rewrite,
-    'capability_type'     => 'page',
+    'rewrite' => $rewrite,
+    'capability_type' => 'product',
+    'capabilities' => array(
+      'publish_posts' => 'publish_products',
+      'edit_posts' => 'edit_products',
+      'edit_others_posts' => 'edit_others_products',
+      'delete_posts' => 'delete_products',
+      'delete_private_posts' => 'delete_private_products',
+      'delete_others_posts' => 'delete_others_products',
+      'read_private_posts' => 'read_private_products',
+      'edit_post' => 'edit_product',
+      'delete_post' => 'delete_product',
+      'read_post' => 'read_product',
+    ),
+    'map_meta_cap' => true,
   ];
 
   register_post_type('product', $args);
@@ -98,8 +111,20 @@ function product_collection_cpt() {
     'has_archive'         => true,
     'exclude_from_search' => false,
     'publicly_queryable'  => true,
-    'rewrite'             => $rewrite,
-    'capability_type'     => 'page',
+    'capability_type' => 'product_collection',
+    'capabilities' => array(
+      'publish_posts' => 'publish_product_collections',
+      'edit_posts' => 'edit_product_collections',
+      'edit_others_posts' => 'edit_others_product_collections',
+      'delete_posts' => 'delete_product_collections',
+      'delete_private_posts' => 'delete_private_product_collections',
+      'delete_others_posts' => 'delete_others_product_collections',
+      'read_private_posts' => 'read_private_product_collections',
+      'edit_post' => 'edit_product_collection',
+      'delete_post' => 'delete_product_collection',
+      'read_post' => 'read_product_collection',
+    ),
+    'map_meta_cap' => true,
   ];
 
   register_post_type('product_collection', $args);
