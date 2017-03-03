@@ -12,11 +12,15 @@ class TimberSetup {
   }
 
   public function add_to_context($context) {
+    global $post;
+    if ($post && $post->post_type !== 'product_collection' && $post->post_type !== 'product') {
+      return $context;
+    }
 
     $product_collection = new TimberPost(get_page_by_path('best-beauty', OBJECT, 'product_collection'));
     $product_collection_categories = get_field('categories', $product_collection->ID);
 
-    global $post;
+
     $context['post'] = new TimberPost($post);
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_file = $this->get_js_file();
