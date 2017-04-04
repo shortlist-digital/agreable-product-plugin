@@ -25,7 +25,6 @@ class ProductCollectionController {
     $context['page_title'] = $post->post_title . ' - ' . get_bloginfo();
 
     Timber::render('@AgreableProductPlugin/intro.twig', $context, false);
-
   }
 
   public function subpage($product_collection_slug, $page_slug) {
@@ -54,6 +53,7 @@ class ProductCollectionController {
       $product_collection->post_title . ' - ' . get_bloginfo();
 
     Timber::render('@AgreableProductPlugin/subpage.twig', $context, false);
+
   }
 
   protected function sanitise_category_for_slug($name) {
