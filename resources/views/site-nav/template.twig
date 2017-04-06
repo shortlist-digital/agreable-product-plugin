@@ -1,6 +1,3 @@
-{% set categories = product_plugin.product_collection_categories %}
-{% set collection = product_plugin.product_collection %}
-
 <button class="site-nav-open js-fr-offcanvas-open" type="button" aria-controls="site-navigation">
   {% include '@AgreableProductPlugin/icon-hamburger.svg' %}
 </button>
@@ -13,9 +10,9 @@
       {% include '@AgreableProductPlugin/logo-bestbeauty-portrait.svg' %}
     </div>
     <ul class="list-categories list-categories--reverse list-categories--animate">
-      {% for category in categories %}
+      {% for category in product_collection.product_collection_categories %}
         <li class="list-categories__list-item">
-          <a class="list-categories__item" href="{{site.url}}/shop/{{collection.slug}}/{{category.name|lower}}">
+          <a class="list-categories__item" href="{{site.url}}/shop/best-beauty/{{product_collection.slug}}/{{category.name|lower}}">
             {{category.name}}
           </a>
         </li>

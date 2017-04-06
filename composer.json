@@ -1,6 +1,5 @@
 {
   "name": "shortlist-digital/agreable-product-plugin",
-  "version": "1.0.1",
   "type": "wordpress-plugin",
   "description": "Wordpress plugin for Shortlist Media.",
   "license": "MIT",

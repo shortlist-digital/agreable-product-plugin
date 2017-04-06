@@ -10,18 +10,18 @@ $router->get([
 
 $router->get([
   'as'   => 'productCollectionIntro',
-  'uri'  => '/shop/{product_collection_slug}',
+  'uri'  => '/shop/best-beauty/{product_collection_slug}',
   'uses' => __NAMESPACE__ . '\Controllers\ProductCollectionController@intro'
 ]);
 
 $router->get([
   'as'   => 'productCollectionSubpage',
-  'uri'  => '/shop/{product_collection_slug}/page/{page_slug}',
+  'uri'  => '/shop/best-beauty/{product_collection_slug}/page/{page_slug}',
   'uses' => __NAMESPACE__ . '\Controllers\ProductCollectionController@subpage'
 ]);
 
 $router->get([
   'as'   => 'productCollectionCategory',
-  'uri'  => '/shop/{product_collection_slug}/{category_slug}',
+  'uri'  => '/shop/best-beauty/{product_collection_slug}/{category_slug}',
   'uses' => __NAMESPACE__ . '\Controllers\CategoryController@showProducts'
 ]);

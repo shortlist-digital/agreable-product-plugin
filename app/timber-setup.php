@@ -12,19 +12,17 @@ class TimberSetup {
   }
 
   public function add_to_context($context) {
-
-    $product_collection = new TimberPost(get_page_by_path('best-beauty', OBJECT, 'product_collection'));
-    $product_collection_categories = get_field('categories', $product_collection->ID);
-
     global $post;
+    if ($post && $post->post_type !== 'product_collection' && $post->post_type !== 'product') {
+      return $context;
+    }
+
     $context['post'] = new TimberPost($post);
     $context['product_plugin'] = new stdClass();
     $context['product_plugin']->js_file = $this->get_js_file();
     $context['product_plugin']->css_file = $this->get_css_file();
     $context['product_plugin']->webpack_port = $this->get_webpack_port();
     $context['product_plugin']->secondary_navigation = wp_get_nav_menu_items('best-beauty');
-    $context['product_plugin']->product_collection = $product_collection;
-    $context['product_plugin']->product_collection_categories = $product_collection_categories;
     $context['product_plugin']->social = new stdClass();
     $context['product_plugin']->social->facebook_app_id = get_field('facebook_app_id', 'option');
     $context['product_plugin']->social->twitter_id = get_field('twitter_id', 'option');

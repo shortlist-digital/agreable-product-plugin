@@ -1,4 +1,3 @@
-{% set categories = product_plugin.product_collection_categories %}
 
 {% extends('@AgreableProductPlugin/base.twig') %}
 
@@ -27,7 +26,6 @@
       }
     {% endif %}
   </style>
-
   <div class="landing-container">
     <div class="landing-container__inner">
       <h1 class="visually-hidden">{{product_collection}} by Stylist</h1>
@@ -38,9 +36,9 @@
         {{product_collection.landing_page_sell}}
       </div>
       <ul class="list-categories">
-        {% for category in categories %}
+        {% for category in product_collection.product_collection_categories %}
           <li class="list-categories__list-item">
-            <a href="{{site.url}}/shop/{{product_collection.slug}}/{{category.name|lower}}" class="list-categories__item">
+            <a href="{{site.url}}/shop/best-beauty/{{product_collection.slug}}/{{category.name|lower}}" class="list-categories__item">
               {{category.name}}
             </a>
           </li>

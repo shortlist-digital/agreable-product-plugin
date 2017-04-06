@@ -7,26 +7,11 @@ add_action('agreable_app_theme_init', function() {
     'title' => 'Product Information',
     'fields' => array(
       array (
-        'key' => $key . '_brand_name',
-        'label' => 'Brand Name',
-        'name' => 'brand_name',
-        'type' => 'text',
-        'instructions' => 'This is the brand name of the product',
-        'required' => 1,
-        'wrapper' => array (
-          'width' => '50%',
-        ),
-      ),
-      array (
         'key' => $key . '_rating',
         'label' => 'Product Rating',
         'name' => 'product_rating',
         'type' => 'number',
-        'instructions' => 'Give a rating out of 5, if there is no rating leave blank',
-        'required' => 0,
-        'wrapper' => array (
-          'width' => '50%',
-        ),
+        'instructions' => 'Give a rating out of 5, if there is no rating leave blank'
       ),
       array (
         'key' => $key . '_description',

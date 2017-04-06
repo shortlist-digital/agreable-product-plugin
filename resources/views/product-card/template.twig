@@ -3,6 +3,7 @@
 <a href="{{product.permalink}}" class="product-card" itemscope itemtype="http://schema.org/Product">
 
   {% set product_image = product.get_field('product_images')[0].sizes.square %}
+  {% set brand_name = TimberTerm(product.beauty_product_brand) %}
 
   <div class="product-card__media">
     {% if 'product_categories-hero-winner' in product.class %}
@@ -31,10 +32,10 @@
       {{product.post_title}}
     </h3>
     <p class="product-card__brand" itemprop="brand">
-      {{product.brand_name}}
+      {{brand_name}}
     </p>
     {% if product.product_price %}
-      <span itemscope itemtype="http://schema.org/Offer">
+      <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <p class="product-card__price" itemprop="price" content="{{product.product_price|replace({'£': ''})}}">{{product.product_price}}</p>
         <span class="visually-hidden" itemprop="priceCurrency" content="GBP"></span>
       </span>
