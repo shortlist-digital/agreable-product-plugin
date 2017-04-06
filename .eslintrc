@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "semi": ["error", "never"]
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}

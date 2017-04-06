@@ -1,11 +1,11 @@
-var webpack = require('webpack')
 var nib = require('nib')
 var path = require('path')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
-
+var webpack = require('webpack')
+//  Paths
 var buildPath = path.resolve(__dirname, 'resources', 'assets');
 var mainPath = path.resolve(__dirname, 'src', 'main.js');
 
+//  Main
 module.exports = function(port) {
   return {
     entry: [
@@ -19,31 +19,27 @@ module.exports = function(port) {
       publicPath: 'http://localhost:' + port +'/static/'
     },
     module: {
+      preLoaders: [
+        { test: /\.js$/, loader: 'eslint', include: path.join(__dirname, 'src'), exclude: path.join(__dirname, 'src/javascript/share/') }
+      ],
       loaders: [
-        { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'},
-        { test: /\.json$/, loader: 'json-loader' },
-        { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: "url" },
-        { test: /\.js$/, loaders: ['react-hot', 'babel?presets[]=es2015'], include: path.join(__dirname, "src") }
+        { test: /\.styl$/, loader: 'style!css!stylus?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules' },
+        { test: /\.json$/, loader: 'json' },
+        { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: 'url?limit=20000' },
+        { test: /\.js$/, loader: 'babel', include: path.join(__dirname, 'src') }
       ]
     },
-
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.DefinePlugin({
-        __PRODUCTION__: 'false'
-      })
+      new webpack.DefinePlugin({ __PRODUCTION__: 'false' })
     ],
-
     resolve: {
       context: __dirname,
       extensions: ['','.js', '.json', '.styl'],
-      modulesDirectories: [
-        'widgets', 'javascripts', 'web_modules', 'style-atoms', 'node_modules'
-      ]
+      modulesDirectories: ['widgets', 'javascripts', 'web_modules', 'style-atoms', 'node_modules']
     },
     stylus: {
       use: [nib()]
     }
   }
-
 }

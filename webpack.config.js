@@ -1,9 +1,8 @@
-//  General
+var extractTextPlugin = require('extract-text-webpack-plugin')
 var fs = require('fs')
+var nib = require('nib')
 var path = require('path')
 var webpack = require('webpack')
-var extractTextPlugin = require('extract-text-webpack-plugin')
-var nib = require('nib')
 //  Paths
 var buildPath = path.resolve(__dirname, 'resources', 'assets')
 var mainPath = path.resolve(__dirname, 'src', 'main.js')
@@ -18,37 +17,16 @@ module.exports = {
     filename: '[name].[hash].js',
     publicPath: ''
   },
-
   module: {
     loaders: [
-      {
-        test: /\.styl$/,
-        loader: extractTextPlugin.extract(
-          'style',
-          'css!stylus?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'
-        )
-      },
-      {
-        test: /\.svg$/,
-        exclude: '/node_modules/',
-        loader: 'raw'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/,
-        loader: 'url?limit=20000'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel?presets[]=es2015',
-        include: path.join(__dirname, 'src')
-      }
+      { test: /\.styl$/, loader: extractTextPlugin.extract('style', 'css!stylus?paths[]=./src/styles&paths[]=../../themes/agreable-app-theme/styles&paths[]=./node_modules'
+        ) },
+      { test: /\.svg$/, loader: 'raw', exclude: '/node_modules/' },
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.woff$|.eot$|.svg$|.ttf$|.png$|.gif$|.jpg$|.jpeg$/, loader: 'url?limit=20000' },
+      { test: /\.js$/, loader: 'babel', include: path.join(__dirname, 'src') }
     ]
   },
-
   plugins: [
     new extractTextPlugin('style.[contenthash].css'),
     new webpack.optimize.DedupePlugin(),
@@ -64,13 +42,11 @@ module.exports = {
       })
     }
   ],
-
   resolve: {
     context: __dirname,
     extensions: ['', '.js', '.json', '.styl'],
     modulesDirectories: ['widgets', 'javascripts', 'web_modules', 'style-atoms', 'node_modules']
   },
-
   stylus: {
     use: [nib()]
   }

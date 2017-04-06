@@ -1,11 +1,14 @@
 import 'smoothscroll'
 import 'element-closest'
 const q = (selector, ctx = document) => [].slice.call(ctx.querySelectorAll(selector))
+const defer = fn => typeof fn === 'function' && setTimeout(fn, 0)
+
 
 export default class SubCategoryNavigation {
 
   constructor () {
     this.panel = q('.js-subcatnav')[0]
+    if (!this.panel) return
     this.buttonOpen = q('.js-subcatnav-open')[0]
     this.buttonClose = q('.js-subcatnav-close')[0]
     this.linkCategory = q('.js-subcatnav-link')
@@ -58,7 +61,7 @@ export default class SubCategoryNavigation {
     this.panel.scrollTop = 0
     this.panel.focus()
     this.bindDocumentKey()
-    this.defer(this.bindDocumentClick.bind(this))
+    defer(this.bindDocumentClick.bind(this))
   }
   closePanel () {
     this.panel.setAttribute('aria-hidden', true)
@@ -67,9 +70,5 @@ export default class SubCategoryNavigation {
     this.buttonOpen.focus()
     this.unbindDocumentKey()
     this.unbindDocumentClick()
-  }
-
-  defer (fn) {
-    if (typeof fn === 'function') setTimeout(fn, 0)
   }
 }

@@ -5,16 +5,16 @@
 @import 'allure-breakpoints'
 @import 'allure-mixins'
 
-// Colors
-bestBeautyPink = #e7126a
+@import 'global/settings.global'
 
-// Global styles
 @import 'global/generic.reset'
 @import 'global/generic.normalize'
 @import 'global/generic.box-sizing'
+
 @import 'global/base.document'
 @import 'global/base.media'
 @import 'global/base.scope'
+
 @import 'global/objects.grid'
 @import 'global/objects.layout'
 @import 'global/objects.media-wrap'
@@ -23,21 +23,21 @@ bestBeautyPink = #e7126a
 @import 'site-content/style'
 @import 'site-navigation/style'
 @import 'site-border/style'
-@import 'hero/style'
-@import 'landing-page/styles'
-@import 'product/star-rating'
-@import 'product/share-buttons'
-@import 'product/product-details'
-@import 'category-list/style'
-@import 'category-pagination/style'
 
-//Side Nav
 @import 'side-navigation/style'
 
-// Product list
+@import 'landing-page/style'
+@import 'product-page/style'
+
+@import 'hero/style'
+
 @import 'product-collection/style'
 @import 'product-list/style'
 @import 'product-card/style'
 
-// Utilities
+@import 'star-rating/style'
+@import 'share-buttons/style'
+@import 'category-list/style'
+@import 'category-pagination/style'
+
 @import 'global/utils.display'

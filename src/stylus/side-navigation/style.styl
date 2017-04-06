@@ -5,8 +5,8 @@
 
 .side-nav-open
   background #fff
-  border 2px solid bestBeautyPink
-  color bestBeautyPink
+  border 2px solid $best-beauty-highlight
+  color $best-beauty-highlight
   cursor pointer
   display inline-block
   font-size 14px
@@ -14,18 +14,18 @@
   letter-spacing 1.4px
   padding 16px 20px
   text-transform uppercase
-  transition background-color 150ms ease-out,
-             color 150ms ease-out
+  transition background-color $duration $easing,
+             color $duration $easing
   margin-bottom 32px
   max-width 280px
   width calc(100% - 64px)
   &:hover,
   &:focus
-    background-color bestBeautyPink
+    background-color $best-beauty-highlight
     color #fff
 
 .side-nav-container
-  background-color bestBeautyPink
+  background-color $best-beauty-highlight
   color white
   height 100vh
   left 100%
@@ -35,8 +35,8 @@
   position fixed
   top 0
   transform translateX(0)
-  transition transform 200ms ease-out,
-             visibility 200ms ease-out
+  transition transform 200ms $easing,
+             visibility 200ms $easing
   width 100%
   will-change transform
   z-index 15
@@ -51,7 +51,7 @@
   text-align center
 
 .list-sub-categories__item
-  border 2px solid bestBeautyPink
+  border 2px solid $best-beauty-highlight
   display inline-block
   font-size 16px
   font-weight 600
@@ -59,7 +59,7 @@
   padding 16px 20px
   text-decoration none
   text-transform uppercase
-  transition border-color 100ms ease-out
+  transition border-color 75ms $easing
   &:hover,
   &:focus
     border-color #fff
@@ -67,7 +67,7 @@
 
 .side-nav-title
   background #fff
-  color bestBeautyPink
+  color $best-beauty-highlight
   font-size 16px
   font-weight 800
   letter-spacing 1px
