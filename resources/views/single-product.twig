@@ -9,6 +9,7 @@
   {% set product_image = product.get_field('product_images')[0].sizes.square %}
   {% set category_winner = 'product_categories-category-winner' in product.class %}
   {% set hero_winner = 'product_categories-hero-winner' in product.class %}
+  {% set brand_name = TimberTerm(product.beauty_product_brand) %}
 
   <div class="wrapper wrapper--narrow">
     <div class="product-info-container">
@@ -39,7 +40,7 @@
             {{product.post_title}}
           </h1>
           <p class="product-info__brand">
-            by <span itemprop="brand">{{product.brand_name}}</span>
+            by <span itemprop="brand">{{brand_name}}</span>
           </p>
           <div class="product-info-meta" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             {% if category_winner %}

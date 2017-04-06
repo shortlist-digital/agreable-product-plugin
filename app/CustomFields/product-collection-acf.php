@@ -162,8 +162,6 @@ add_action('agreable_app_theme_init', function() {
                 'required' => 0,
                 'conditional_logic' => 0,
                 'post_type' => 'product',
-                'taxonomy' => array (
-                ),
                 'allow_null' => 0,
                 'multiple' => 1,
                 'return_format' => 'object',
