@@ -1,0 +1,37 @@
+.brand-list-container
+  padding 0 32px
+  margin 0 auto
+  max-width 1700px
+  @media ipadsAndUp
+    padding 0 5vw
+.brand-list-container--narrow
+  max-width 1060px
+
+//  Product list
+.brand-list
+  list-style none
+
+.brand-list__list-item
+  vertical-align middle
+  width 100%
+  @media (min-width: 500px)
+    width 50%
+  @media ipadsAndUp
+    width 33.333%
+  @media (min-width: 1000px)
+    width 25%
+
+.brand-title
+  color #333
+  display inline-block
+  font-size 18px
+  font-weight 300
+  line-height 1.333334
+  padding-bottom 14px
+  padding-top 6px
+  text-decoration none
+  transition color $duration $easing
+  width 100%
+  &:hover,
+  &:focus
+    color $best-beauty-highlight

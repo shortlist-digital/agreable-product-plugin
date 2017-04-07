@@ -21,6 +21,18 @@ $router->get([
 ]);
 
 $router->get([
+  'as'   => 'productCollectionBrands',
+  'uri'  => '/shop/best-beauty/{product_collection_slug}/brands',
+  'uses' => __NAMESPACE__ . '\Controllers\BrandController@showBrands'
+]);
+
+$router->get([
+  'as'   => 'productCollectionBrandProducts',
+  'uri'  => '/shop/best-beauty/{product_collection_slug}/brands/{brand_slug}',
+  'uses' => __NAMESPACE__ . '\Controllers\BrandController@showBrandProducts'
+]);
+
+$router->get([
   'as'   => 'productCollectionCategory',
   'uri'  => '/shop/best-beauty/{product_collection_slug}/{category_slug}',
   'uses' => __NAMESPACE__ . '\Controllers\CategoryController@showProducts'
