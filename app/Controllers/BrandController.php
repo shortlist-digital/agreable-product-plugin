@@ -11,9 +11,19 @@ class BrandController {
 
   public function showBrands($product_collection_slug) {
 
+    // Cancel early if product collection doesn't exist
+    if (!$product_collection = $this->get_product_collection($product_collection_slug)) {
+      throw new Exception('Post not found');
+    }
+
+    // Set the $post globally, for wp_head and other functions
+    global $post;
+    $post = new TimberPost($product_collection);
+
     // Set new context and assign data
     $context = Timber::get_context();
-    $context['product_collection'] = $this->get_product_collection($product_collection_slug);
+    $context['product_collection'] = $product_collection;
+    $context['page_title'] = 'Best Beauty Brands';
 
     $brands = get_terms('beauty_product_brand', array(
       'hide_empty' => false
@@ -56,9 +66,18 @@ class BrandController {
 
   public function showBrandProducts($product_collection_slug, $brand_slug) {
 
+    // Cancel early if product collection doesn't exist
+    if (!$product_collection = $this->get_product_collection($product_collection_slug)) {
+      throw new Exception('Post not found');
+    }
+
+    // Set the $post globally, for wp_head and other functions
+    global $post;
+    $post = new TimberPost($product_collection);
+
     // Set new context and assign data
     $context = Timber::get_context();
-    $context['product_collection'] = $this->get_product_collection($product_collection_slug);
+    $context['product_collection'] = $product_collection;
 
     $products = get_posts(array(
       'orderby' => 'title',
@@ -78,6 +97,7 @@ class BrandController {
 
     $context['brand'] = $brand;
     $context['products'] = $products;
+    $context['page_title'] = $product_collection->post_title . ' - ' . $brand->name;
 
     // Render template
     Timber::render('@AgreableProductPlugin/brand-products.twig', $context, false);
