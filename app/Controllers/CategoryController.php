@@ -9,6 +9,12 @@ use stdClass;
 
 class CategoryController {
 
+  public function showElliot3000() {
+    echo 'hi'; exit;
+    //print_r($product_collection_slug);
+    //die;
+  }
+
 
   /**
    * Product category page

@@ -1,0 +1,27 @@
+<section class="product-collection {% if modifier %}product-collection--{{modifier}}{% endif %}" id="{{title|lower|replace(' ', '-')}}">
+  <div class="wrapper {% if modifier %}wrapper--{{modifier}}{% endif %}">
+    <h2 class="product-collection__title">
+      {{title}}
+    </h2>
+  </div>
+  <div class="brand-list-container {% if modifier %}brand-list-container--{{modifier}}{% endif %}">
+    <ul class="brand-list grid">
+      {% for brand in brands %}
+        <li
+          class="brand-list__list-item grid__col"
+          itemprop="brand"
+          itemscope
+          itemtype="http://schema.org/Brand"
+        >
+          <a
+            class="brand-title"
+            href="/shop/best-beauty/{{product_collection.slug}}/brands/{{brand.slug}}"
+            itemprop="name"
+          >
+            {{brand.name}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

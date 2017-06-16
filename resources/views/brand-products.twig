@@ -1,0 +1,19 @@
+{% extends('@AgreableProductPlugin/base.twig') %}
+
+{% block header %}
+  {% include '@AgreableProductPlugin/site-header/template.twig' with {
+    context: 'category'
+  } %}
+{% endblock %}
+
+{% block content %}
+
+  {% include '@AgreableProductPlugin/hero/template.twig' with {
+    title: brand.name
+  } %}
+
+  {% include "@AgreableProductPlugin/product-list/template.twig" with {
+    products: products
+  } %}
+
+{% endblock %}

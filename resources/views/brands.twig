@@ -1,0 +1,19 @@
+{% extends('@AgreableProductPlugin/base.twig') %}
+
+{% block header %}
+  {% include '@AgreableProductPlugin/site-header/template.twig' %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="brand-container">
+    {% for letter in alphabet %}
+      {% include "@AgreableProductPlugin/brand-list/template.twig" with {
+        title: letter.character,
+        brands: letter.brands,
+        modifier: 'narrow'
+      } %}
+    {% endfor %}
+  </div>
+
+{% endblock %}
