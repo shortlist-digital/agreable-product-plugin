@@ -1,8 +1,13 @@
 {% extends('@AgreableProductPlugin/base.twig') %}
 
+{% set image = product_collection.get_field('landing_page_background_image').url %}
+{% set image_mobile = product_collection.get_field('landing_page_background_image_mobile').url %}
+
 {% block header %}
   {% include '@AgreableProductPlugin/site-header/template.twig' with {
-    context: 'category'
+    context: 'category',
+    image: image,
+    image_mobile: image_mobile
   } %}
 {% endblock %}
 
